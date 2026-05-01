@@ -1,0 +1,90 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand colors */
+  --color-rust: #B04A2A;
+  --color-rust-dark: #8E3A1F;
+  --color-charcoal: #2E343B;
+  --color-slate: #4A5058;
+  --color-sand: #C9B8A0;
+  --color-cream: #F7F2EC;
+  --color-stone: #E8E1D7;
+  --color-ink: #1C1F23;
+  --color-verdigris: #3F7A5E;
+
+  /* Token aliases */
+  --color-background: #FFFFFF;
+  --color-foreground: #1C1F23;
+  --color-muted: #4A5058;
+  --color-border: #E8E1D7;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #1C1F23;
+  /* Inter variable is set on <html> by next/font; provide a sensible fallback chain */
+  --font-display-stack: "Satoshi", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans-stack: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans-stack);
+  font-feature-settings: "ss01", "cv01";
+}
+
+::selection {
+  background-color: #B04A2A;
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid #B04A2A;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.font-display {
+  font-family: var(--font-display-stack);
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01";
+}
+
+.font-sans {
+  font-family: var(--font-sans-stack);
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
