@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
@@ -13,24 +14,30 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-[var(--color-charcoal)] text-white">
-      {/* Background imagery — gradient + texture stand-in until real photography is supplied */}
+      {/* Background photography */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-[#1A1D22] via-[#2E343B] to-[#3A2418]"
-          aria-hidden
+        <Image
+          src="/images/concrete-epoxy-floor-system-miami.jpg"
+          alt="Polished concrete epoxy floor restoration in Miami, FL"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
+        {/* Charcoal-to-rust gradient overlay for legibility */}
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 70% 30%, rgba(176,74,42,0.4), transparent 50%), radial-gradient(circle at 20% 80%, rgba(176,74,42,0.15), transparent 50%)`,
+            background:
+              "linear-gradient(135deg, rgba(28,31,35,0.92) 0%, rgba(46,52,59,0.78) 45%, rgba(58,36,24,0.65) 100%)",
           }}
           aria-hidden
         />
-        {/* Subtle noise overlay */}
+        {/* Rust accent glow */}
         <div
-          className="absolute inset-0 opacity-[0.06] mix-blend-overlay"
+          className="absolute inset-0 opacity-50"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+            backgroundImage: `radial-gradient(circle at 75% 35%, rgba(176,74,42,0.35), transparent 55%)`,
           }}
           aria-hidden
         />

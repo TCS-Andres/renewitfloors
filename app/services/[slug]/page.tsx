@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -205,6 +206,19 @@ function ServiceDetailPage({
           { name: service.name, href: `/services/${service.slug}` },
         ]}
       />
+
+      {/* Service hero image */}
+      <section className="relative aspect-[16/7] w-full overflow-hidden bg-[var(--color-charcoal)] md:aspect-[16/6]">
+        <Image
+          src={service.image}
+          alt={service.imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </section>
+
       <TrustBar tone="cream" />
 
       {/* Intro + scope */}

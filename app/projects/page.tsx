@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -49,12 +50,12 @@ export default function ProjectsPage() {
                   className="group block overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-charcoal)]">
-                    <div
-                      className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.04]"
-                      style={{
-                        backgroundImage: `linear-gradient(135deg, rgba(46,52,59,0.5), transparent), radial-gradient(circle at 70% 30%, rgba(176,74,42,0.5), transparent 60%), radial-gradient(circle at 20% 80%, rgba(199,184,160,0.25), transparent 60%)`,
-                      }}
-                      aria-hidden
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                     <span className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-charcoal)]">
                       {project.category}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowLeft } from "lucide-react";
@@ -73,12 +74,13 @@ export default async function ProjectDetail({ params }: { params: Params }) {
 
         <section>
           <div className="relative aspect-[16/8] w-full overflow-hidden bg-[var(--color-charcoal)]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `linear-gradient(135deg, rgba(46,52,59,0.45), transparent), radial-gradient(circle at 70% 40%, rgba(176,74,42,0.55), transparent 60%), radial-gradient(circle at 20% 80%, rgba(199,184,160,0.35), transparent 60%)`,
-              }}
-              aria-hidden
+            <Image
+              src={project.image}
+              alt={project.imageAlt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
             />
           </div>
         </section>

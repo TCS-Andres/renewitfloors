@@ -1,5 +1,6 @@
 /**
- * Featured project case studies (placeholder content — Joe to replace with real projects).
+ * Featured project case studies. Photography pulled from the existing
+ * renewitfloorsmiami.com asset library and SEO-renamed.
  */
 
 export type Project = {
@@ -12,6 +13,7 @@ export type Project = {
   excerpt: string;
   story: string;
   image: string; // Public path or external URL
+  imageAlt: string; // Alt text for SEO
   featured: boolean;
 };
 
@@ -27,7 +29,8 @@ export const projects: Project[] = [
       "Original terrazzo hidden under tile and carpet for sixty years — restored to a glass-smooth, mirror-polished finish.",
     story:
       "When the homeowners pulled up their 1980s tile floor, they didn't know what they'd find underneath. We did. After three days of diamond grinding through decades of mastic and old finish, the original 1940s terrazzo emerged — marble chips set in cement, the way Miami homes used to be built. We color-matched a few small repairs, polished progressively to a 3000-grit gloss, sealed with a penetrating densifier. The floor looks better than it did when it was poured.",
-    image: "/images/placeholder-project-terrazzo.jpg",
+    image: "/images/terrazzo-floor-restoration-miami-fl.jpg",
+    imageAlt: "Original 1940s terrazzo floor restored in Coral Gables, Miami",
     featured: true,
   },
   {
@@ -41,7 +44,8 @@ export const projects: Project[] = [
       "A new-construction Pinecrest home with raw slab — finished with seven progressive grinds to a satin-mirror polish.",
     story:
       "New construction concrete looks rough — grey, dusty, with surface variation that can throw off any finish. We assessed the slab, planned the grind sequence, and worked through seven progressive diamond passes. The homeowner wanted satin, not high-gloss — we stopped at 1500 grit, applied a lithium densifier, and sealed. The result is the kind of floor you can walk on in bare feet for the next twenty years.",
-    image: "/images/placeholder-project-concrete.jpg",
+    image: "/images/concrete-epoxy-floor-system-miami.jpg",
+    imageAlt: "Mirror-finish polished concrete floor in a Pinecrest, Miami home",
     featured: true,
   },
   {
@@ -55,7 +59,8 @@ export const projects: Project[] = [
       "12,000-square-foot warehouse — twenty years of forklift wear, oil staining, and surface failure. Phased restoration in three weekends.",
     story:
       "The facility manager called us because the floor was dusting badly — every forklift pass kicked up a cloud, and product was getting dusted. We scoped the job in three weekends so operations never paused. Each weekend we tackled 4,000 square feet: diamond grinding, joint repair, densification, and a polished finish. By the end of week three the warehouse had a clean, sealed, dust-free floor — and a maintenance plan to keep it that way.",
-    image: "/images/placeholder-project-warehouse.jpg",
+    image: "/images/industrial-warehouse-floor-restoration-miami.png",
+    imageAlt: "Restored industrial warehouse concrete floor in Doral, Miami",
     featured: true,
   },
   {
@@ -69,7 +74,8 @@ export const projects: Project[] = [
       "High-traffic Brickell condominium lobby with twenty years of foot traffic etching — restored to factory shine.",
     story:
       "The HOA had been told they needed to replace the marble. They didn't. We diamond-honed through the etching, removed scratches from years of grit underfoot, and brought the marble back to its original polished finish. Total time: four days, weekend work, no lobby closure. Cost: a fraction of replacement.",
-    image: "/images/placeholder-project-marble.jpg",
+    image: "/images/marble-floor-restoration-miami.jpg",
+    imageAlt: "Restored polished marble lobby floor in Brickell, Miami",
     featured: false,
   },
   {
@@ -83,7 +89,8 @@ export const projects: Project[] = [
       "1990s Saltillo tile floors — stripped, deep-cleaned, sealed. Honest assessment of what could and couldn't be restored.",
     story:
       "The homeowner was ready to rip everything out. We told them straight: most of the tile was salvageable, but a few sections had broken-through shells we couldn't fully restore. We replaced the worst tiles with sourced matches, deep-cleaned the rest, and sealed the floor with an enhancing penetrating sealer. They saved thousands and kept the character of the home.",
-    image: "/images/placeholder-project-mexican-tile.jpg",
+    image: "/images/mexican-saltillo-tile-restoration-miami.jpg",
+    imageAlt: "Cleaned and sealed Mexican Saltillo tile floor in Miami Lakes",
     featured: false,
   },
   {
@@ -97,7 +104,8 @@ export const projects: Project[] = [
       "Three-car garage — previous epoxy job from another contractor failed in eight months. Diamond-ground to bare concrete and rebuilt right.",
     story:
       "The customer's first epoxy job lasted eight months before lifting near the bay door. We ground out the failed coating, took the slab back to bare concrete, repaired hot-tire scarring, and built a multi-layer epoxy system with decorative chip and a UV-stable topcoat. Three years later the floor still looks like the day we finished.",
-    image: "/images/placeholder-project-garage.jpg",
+    image: "/images/garage-epoxy-flooring-miami.png",
+    imageAlt: "Garage epoxy floor with chip flake finish in Weston",
     featured: false,
   },
 ];

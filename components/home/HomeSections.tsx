@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -70,17 +71,18 @@ export function GuideSection() {
   return (
     <section className="relative overflow-hidden">
       <div className="relative h-[420px] bg-[var(--color-charcoal)] md:h-[520px]">
+        <Image
+          src="/images/aged-concrete-floor-texture.jpg"
+          alt="Aged concrete floor texture restored by ReNewIt Floors in Miami"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(135deg, rgba(46,52,59,0.85), rgba(176,74,42,0.45)), radial-gradient(circle at 30% 50%, rgba(176,74,42,0.5), transparent 60%)`,
-          }}
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 opacity-[0.08] mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            background:
+              "linear-gradient(135deg, rgba(28,31,35,0.88) 0%, rgba(46,52,59,0.78) 50%, rgba(176,74,42,0.55) 100%)",
           }}
           aria-hidden
         />
@@ -179,11 +181,15 @@ export function ServicesShowcase() {
                       isLarge ? "aspect-[4/5] md:aspect-auto md:h-[60%]" : "aspect-[16/9]"
                     }`}
                   >
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      sizes={isLarge ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
                     <div
-                      className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.04]"
-                      style={{
-                        backgroundImage: `linear-gradient(135deg, rgba(46,52,59,0.6), rgba(176,74,42,0.35)), radial-gradient(circle at 50% 70%, rgba(199,184,160,0.25), transparent 60%)`,
-                      }}
+                      className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
                       aria-hidden
                     />
                     <div className="absolute bottom-4 left-4 right-4 z-10 flex items-end justify-between">
@@ -357,12 +363,12 @@ export function FeaturedProjectsSection() {
                 className="group block overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-charcoal)]">
-                  <div
-                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.04]"
-                    style={{
-                      backgroundImage: `linear-gradient(135deg, rgba(46,52,59,0.4), transparent), radial-gradient(circle at 70% 30%, rgba(176,74,42,0.45), transparent 60%)`,
-                    }}
-                    aria-hidden
+                  <Image
+                    src={hero.image}
+                    alt={hero.imageAlt}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />
                   <span className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-charcoal)]">
                     {hero.category}
@@ -396,12 +402,12 @@ export function FeaturedProjectsSection() {
                   className="group flex h-full overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
                 >
                   <div className="relative aspect-square w-2/5 shrink-0 overflow-hidden bg-[var(--color-charcoal)]">
-                    <div
-                      className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.04]"
-                      style={{
-                        backgroundImage: `linear-gradient(135deg, rgba(46,52,59,0.4), transparent), radial-gradient(circle at 50% 60%, rgba(176,74,42,0.4), transparent 60%)`,
-                      }}
-                      aria-hidden
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      fill
+                      sizes="(min-width: 768px) 25vw, 40vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="flex-1 p-6">
