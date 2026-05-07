@@ -42,7 +42,7 @@ const en: Dictionary = {
   "cta.readReviews": "Read More Reviews",
   "cta.checkArea": "Check If We Serve Your Area",
   "cta.scheduleWalkThrough": "Schedule a Walk-Through",
-  "cta.meetTheCrew": "Meet Joe & the Crew",
+  "cta.meetTheCrew": "Meet Jose & the Crew",
   "cta.method": "Learn About Our Method",
 
   // ============== Footer ==============
@@ -128,7 +128,7 @@ const es: Dictionary = {
   "cta.readReviews": "Más Reseñas",
   "cta.checkArea": "Verifique Si Servimos Su Área",
   "cta.scheduleWalkThrough": "Solicite Una Visita",
-  "cta.meetTheCrew": "Conozca a Joe y al Equipo",
+  "cta.meetTheCrew": "Conozca a Jose y al Equipo",
   "cta.method": "Conozca Nuestro Método",
 
   // ============== Pie de página ==============

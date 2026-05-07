@@ -28,7 +28,7 @@ Family-owned floor restoration in Miami. 30+ years of polished concrete, terrazz
 │   ├── /services/hardwood-repair + 2 detail pages
 │   └── /services/commercial-industrial + 1 detail page
 ├── /projects + 6 case studies
-├── /about (Joe's story + Foundation-First Method)
+├── /about (Jose's story + Foundation-First Method)
 ├── /service-areas (4 counties + neighborhoods)
 ├── /testimonials
 ├── /faq (24 Q&As across 6 categories)

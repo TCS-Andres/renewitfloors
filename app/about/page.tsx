@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us – Family-Owned Floor Restoration",
   description:
-    "Joe and the ReNewIt Floors team have restored South Florida floors for 30+ years. Family-owned, owner-operated. Honest pricing. Free assessment.",
+    "Jose and the ReNewIt Floors team have restored South Florida floors for 30+ years. Family-owned, owner-operated. Honest pricing. Free assessment.",
   alternates: { canonical: "/about" },
 };
 
@@ -68,13 +68,14 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.15} className="space-y-5 text-[17px] leading-relaxed text-[var(--color-slate)] lg:col-span-7 md:text-[19px]">
               <p>
-                ReNewIt Floors is a family business. Joe — owner, founder, and
-                primary operator — has been restoring floors in South Florida
-                for over thirty years. The craft has been refined by decades of
-                hands-on work in homes from Coral Gables to the Keys.
+                ReNewIt Floors is a family business. Jose Fernandez — owner,
+                founder, and primary operator — has been restoring floors in
+                South Florida for over thirty years. The craft has been refined
+                by decades of hands-on work in homes from Coral Gables to the
+                Keys.
               </p>
               <p>
-                Joe&apos;s on every job. He&apos;s there when the truck pulls up. He
+                Jose&apos;s on every job. He&apos;s there when the truck pulls up. He
                 runs the assessments, gives the quotes, and stands on the floor
                 while his guys work. He&apos;s not a CEO behind a desk. He&apos;s a floor
                 guy, in the truest sense, and proud of it.
@@ -217,7 +218,7 @@ export default function AboutPage() {
               <p>
                 Every job is backed by our 1-year warranty. If something
                 isn&apos;t right, we come back. We&apos;ve eaten cost on jobs
-                to make a customer happy because — as Joe puts it —{" "}
+                to make a customer happy because — as Jose puts it —{" "}
                 <em className="font-semibold text-[var(--color-charcoal)]">
                   it pays itself back.
                 </em>

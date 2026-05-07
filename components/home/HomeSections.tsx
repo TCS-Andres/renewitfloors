@@ -106,15 +106,15 @@ export function GuideSection() {
             {[
               {
                 title: "Family-Owned & Owner-Operated",
-                body: "ReNewIt Floors is run by Joe and his family. The phone we answer today is the same line we've had for over twenty years.",
+                body: "ReNewIt Floors is run by Jose and his family. The phone we answer today is the same line we've had for over twenty years.",
               },
               {
                 title: "30+ Years of Floor Restoration",
-                body: "Joe has personally restored every floor type common to South Florida homes — terrazzo, marble, polished concrete, Mexican tile, hardwood. He's seen what works and what fails.",
+                body: "Jose has personally restored every floor type common to South Florida homes — terrazzo, marble, polished concrete, Mexican tile, hardwood. He's seen what works and what fails.",
               },
               {
                 title: "Owner on Every Job",
-                body: "We don't hand you off to a junior estimator. Joe walks the floor, gives the quote, and stands on it from grind to finish.",
+                body: "We don't hand you off to a junior estimator. Jose walks the floor, gives the quote, and stands on it from grind to finish.",
               },
             ].map((pillar, i) => (
               <Reveal key={i} delay={i * 0.1}>
@@ -131,7 +131,7 @@ export function GuideSection() {
           </div>
           <Reveal delay={0.3} className="mt-12">
             <Button href="/about" variant="ghost" showArrow>
-              Meet Joe & the Crew
+              Meet Jose & the Crew
             </Button>
           </Reveal>
         </Container>
@@ -235,7 +235,7 @@ export function PlanSection() {
     {
       n: "01",
       title: "Assess",
-      body: "Joe walks your floor and tells you straight what's possible — and what isn't.",
+      body: "Jose walks your floor and tells you straight what's possible — and what isn't.",
     },
     {
       n: "02",
@@ -245,7 +245,7 @@ export function PlanSection() {
     {
       n: "03",
       title: "Restore",
-      body: "The crew does the work with care. Joe oversees from the first grind to the final polish.",
+      body: "The crew does the work with care. Jose oversees from the first grind to the final polish.",
     },
     {
       n: "04",
@@ -305,7 +305,7 @@ export function FoundationFirstSection() {
                 nothing else works.
               </p>
               <footer className="mt-8 text-[14px] uppercase tracking-[0.18em] text-[var(--color-cream)]/60">
-                — Joe, Founder
+                — Jose, Founder
               </footer>
             </blockquote>
           </Reveal>

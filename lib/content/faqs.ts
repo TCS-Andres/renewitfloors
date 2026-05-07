@@ -20,9 +20,9 @@ export const faqs: Faq[] = [
   {
     category: "General",
     q: "Can my floor be restored, or do I need to replace it?",
-    a: "Most floors can be restored. We've brought back terrazzo that was hidden under tile for forty years, marble that looked dead, and concrete that had been poured wrong. Joe will walk your floor and tell you straight — what's possible, and what isn't.",
+    a: "Most floors can be restored. We've brought back terrazzo that was hidden under tile for forty years, marble that looked dead, and concrete that had been poured wrong. Jose will walk your floor and tell you straight — what's possible, and what isn't.",
     qEs: "¿Se puede restaurar mi piso o tengo que reemplazarlo?",
-    aEs: "La mayoría de los pisos pueden restaurarse. Hemos rescatado terrazo escondido bajo loseta por cuarenta años, mármol que parecía muerto y concreto que se vació mal. Joe camina su piso y le dice directamente — qué es posible y qué no.",
+    aEs: "La mayoría de los pisos pueden restaurarse. Hemos rescatado terrazo escondido bajo loseta por cuarenta años, mármol que parecía muerto y concreto que se vació mal. Jose camina su piso y le dice directamente — qué es posible y qué no.",
   },
   {
     category: "General",
@@ -34,16 +34,16 @@ export const faqs: Faq[] = [
   {
     category: "General",
     q: "How long have you been in business?",
-    a: "Joe has been restoring floors in South Florida for over thirty years. The phone we answer today — (305) 271-7119 — has been our line for over twenty.",
+    a: "Jose has been restoring floors in South Florida for over thirty years. The phone we answer today — (305) 271-7119 — has been our line for over twenty.",
     qEs: "¿Cuántos años llevan en el negocio?",
-    aEs: "Joe lleva más de treinta años restaurando pisos en el sur de la Florida. El teléfono que contestamos hoy — (305) 271-7119 — ha sido nuestra línea por más de veinte.",
+    aEs: "Jose lleva más de treinta años restaurando pisos en el sur de la Florida. El teléfono que contestamos hoy — (305) 271-7119 — ha sido nuestra línea por más de veinte.",
   },
   {
     category: "General",
     q: "Are you family-owned?",
-    a: "Yes. ReNewIt Floors is run by Joe and his family. Joe is on every job. His wife answers the phone when he can't. The work is family-rooted and family-supported.",
+    a: "Yes. ReNewIt Floors is run by Jose and his family. Jose is on every job. His wife answers the phone when he can't. The work is family-rooted and family-supported.",
     qEs: "¿Son una empresa familiar?",
-    aEs: "Sí. ReNewIt Floors es manejado por Joe y su familia. Joe está en cada trabajo. Su esposa contesta el teléfono cuando él no puede. El trabajo tiene raíces familiares y respaldo familiar.",
+    aEs: "Sí. ReNewIt Floors es manejado por Jose y su familia. Jose está en cada trabajo. Su esposa contesta el teléfono cuando él no puede. El trabajo tiene raíces familiares y respaldo familiar.",
   },
   {
     category: "General",
@@ -147,9 +147,9 @@ export const faqs: Faq[] = [
   {
     category: "Pricing & Process",
     q: "What's included in a free assessment?",
-    a: "Joe walks the floor with you, identifies what can and can't be done, explains the process, and gives you a transparent quote tied to the actual scope. There's no pressure to commit and no hidden fees later.",
+    a: "Jose walks the floor with you, identifies what can and can't be done, explains the process, and gives you a transparent quote tied to the actual scope. There's no pressure to commit and no hidden fees later.",
     qEs: "¿Qué incluye una evaluación gratis?",
-    aEs: "Joe camina el piso con usted, identifica qué se puede y qué no se puede hacer, le explica el proceso y le entrega un presupuesto transparente atado al alcance real. No hay presión para comprometerse y no hay cargos ocultos después.",
+    aEs: "Jose camina el piso con usted, identifica qué se puede y qué no se puede hacer, le explica el proceso y le entrega un presupuesto transparente atado al alcance real. No hay presión para comprometerse y no hay cargos ocultos después.",
   },
   {
     category: "Pricing & Process",
@@ -177,9 +177,9 @@ export const faqs: Faq[] = [
   {
     category: "Warranty",
     q: "Do you offer a warranty?",
-    a: "Yes. Every job is backed by our 1-year warranty. If something isn't right, we come back. Joe stands behind the work personally.",
+    a: "Yes. Every job is backed by our 1-year warranty. If something isn't right, we come back. Jose stands behind the work personally.",
     qEs: "¿Ofrecen garantía?",
-    aEs: "Sí. Cada trabajo está respaldado por nuestra garantía de 1 año. Si algo no está bien, regresamos. Joe respalda el trabajo personalmente.",
+    aEs: "Sí. Cada trabajo está respaldado por nuestra garantía de 1 año. Si algo no está bien, regresamos. Jose respalda el trabajo personalmente.",
   },
   {
     category: "Warranty",
@@ -191,9 +191,9 @@ export const faqs: Faq[] = [
   {
     category: "Warranty",
     q: "What if I notice an issue months after the job?",
-    a: "Call us. Even outside the formal warranty, we've come back years later to fix small issues — that's how Joe runs the business. Reputation lives in the follow-through.",
+    a: "Call us. Even outside the formal warranty, we've come back years later to fix small issues — that's how Jose runs the business. Reputation lives in the follow-through.",
     qEs: "¿Y si noto un problema meses después del trabajo?",
-    aEs: "Llámenos. Incluso fuera de la garantía formal, hemos regresado años después para arreglar pequeños detalles — así es como Joe maneja el negocio. La reputación vive en el seguimiento.",
+    aEs: "Llámenos. Incluso fuera de la garantía formal, hemos regresado años después para arreglar pequeños detalles — así es como Jose maneja el negocio. La reputación vive en el seguimiento.",
   },
 ];
 

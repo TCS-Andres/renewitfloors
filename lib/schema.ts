@@ -47,6 +47,11 @@ export function localBusinessSchema() {
     email: site.email,
     image: `${site.url}/og-image.png`,
     priceRange: "$$",
+    founder: {
+      "@type": "Person",
+      name: "Jose Fernandez",
+      jobTitle: "Founder & Owner",
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: site.address.locality,
