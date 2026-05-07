@@ -108,17 +108,19 @@ export function ChatAgent() {
   };
 
   const labels = {
-    title: isEs ? "Pregúntele a Jose" : "Ask Jose",
-    subtitle: isEs ? "Soporte en línea" : "Online support",
+    title: isEs ? "Pregunte a ReNewIt Floors" : "Ask ReNewIt Floors",
+    subtitle: isEs
+      ? "Especialista en restauración de pisos"
+      : "Floor restoration specialist",
     greetingTitle: isEs
-      ? "Hola — soy el asistente de Jose."
-      : "Hi — I'm Jose's assistant.",
+      ? "Hola 👋 ¿Qué pasa con sus pisos?"
+      : "Hey 👋 What's going on with your floors?",
     greetingBody: isEs
-      ? "Pregúnteme sobre restauración de pisos, cobertura por área o lo que necesite saber."
-      : "Ask me about floor restoration, your area, or anything you'd like to know.",
+      ? "Cuéntenos un poco y le ayudamos a encontrar el camino correcto."
+      : "Tell us a bit and we'll point you in the right direction.",
     placeholder: isEs ? "Escriba su pregunta…" : "Type your question…",
     send: isEs ? "Enviar" : "Send",
-    handoffTitle: isEs ? "Que Jose le contacte" : "Have Jose reach out",
+    handoffTitle: isEs ? "Que le contactemos" : "Have us reach out",
     handoffSub: isEs
       ? "Comparta sus datos y le contactamos en un día laboral."
       : "Share your details and we'll be in touch within one business day.",
@@ -131,10 +133,10 @@ export function ChatAgent() {
     callNow: isEs ? "O llame ahora:" : "Or call now:",
     sentTitle: isEs ? "¡Recibido!" : "Got it!",
     sentBody: isEs
-      ? "Jose le contactará en un día laboral. Si prefiere llamar ahora, marque al"
-      : "Jose will be in touch within one business day. If you'd rather call now, ring",
+      ? "Le contactaremos en un día laboral. Si prefiere llamar ahora, marque al"
+      : "We'll be in touch within one business day. If you'd rather call now, ring",
     cancel: isEs ? "Cancelar" : "Cancel",
-    bubble: isEs ? "Pregúntele a Jose" : "Ask Jose",
+    bubble: isEs ? "Pregunte a ReNewIt" : "Ask ReNewIt",
   };
 
   return (
@@ -175,7 +177,7 @@ export function ChatAgent() {
           <header className="flex items-center justify-between gap-3 border-b border-[var(--color-stone)] bg-[var(--color-charcoal)] px-5 py-4 text-white">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-rust)] font-display text-[16px] font-bold">
-                J
+                R
               </div>
               <div className="leading-tight">
                 <div className="font-display text-[16px] font-semibold">
