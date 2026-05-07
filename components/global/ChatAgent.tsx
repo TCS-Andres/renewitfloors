@@ -213,15 +213,15 @@ export function ChatAgent() {
           {/* Header */}
           <header className="flex items-center justify-between gap-3 border-b border-[var(--color-stone)] bg-[var(--color-charcoal)] px-5 py-4 text-white">
             <div className="flex items-center gap-3">
-              <div
-                className="flex h-10 w-10 items-center justify-center rounded-full font-display text-[16px] font-bold text-white shadow-inner"
-                style={{
-                  background:
-                    "linear-gradient(135deg, var(--color-rust) 0%, var(--color-rust-dark) 100%)",
-                }}
-                aria-hidden
-              >
-                S
+              <div className="h-10 w-10 overflow-hidden rounded-full ring-2 ring-white/20">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/sofia.jpg"
+                  alt="Sofia, ReNewIt Floors assistant"
+                  className="h-full w-full object-cover"
+                  width={40}
+                  height={40}
+                />
               </div>
               <div className="leading-tight">
                 <div className="font-display text-[16px] font-semibold">
