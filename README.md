@@ -71,17 +71,42 @@ npm run lint        # ESLint
 
 ## Environment Variables
 
-Copy `.env.example` to `.env.local` and fill in the IDs as you provision each service. All are optional — the site works without them.
+Copy `.env.example` to `.env.local` and fill in the IDs as you provision each service. The analytics IDs are optional. The Anthropic key is required only if you want the "Ask Jose" support chat agent live.
 
 ```bash
 cp .env.example .env.local
 ```
 
-| Var | Where to get it |
-|---|---|
-| `NEXT_PUBLIC_GA4_ID` | [analytics.google.com](https://analytics.google.com) (looks like `G-XXXXXXXXX`) |
-| `NEXT_PUBLIC_GTM_ID` | [tagmanager.google.com](https://tagmanager.google.com) (looks like `GTM-XXXXXXX`) |
-| `NEXT_PUBLIC_CLARITY_ID` | [clarity.microsoft.com](https://clarity.microsoft.com) (project ID) |
+| Var | Required? | Where to get it |
+|---|---|---|
+| `NEXT_PUBLIC_GA4_ID` | Optional | [analytics.google.com](https://analytics.google.com) (looks like `G-XXXXXXXXX`) |
+| `NEXT_PUBLIC_GTM_ID` | Optional | [tagmanager.google.com](https://tagmanager.google.com) (looks like `GTM-XXXXXXX`) |
+| `NEXT_PUBLIC_CLARITY_ID` | Optional | [clarity.microsoft.com](https://clarity.microsoft.com) (project ID) |
+| `ANTHROPIC_API_KEY` | Required for chat | [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) (starts with `sk-ant-api03-`) |
+
+When deploying to Vercel, add `ANTHROPIC_API_KEY` to the project environment variables (Production scope) — without it, the chat widget gracefully shows an error message and the rest of the site keeps working.
+
+## Customer Support Chat Agent ("Ask Jose")
+
+A floating chat bubble in the bottom-right of every page lets visitors ask questions and get answers grounded in the site's content (services, cities, FAQs, projects, testimonials, site config — collectively the "master brain").
+
+**How it works**
+- Frontend: `components/global/ChatAgent.tsx` — bilingual (EN/ES based on the language toggle), streaming, with an escalation flow when the agent can't answer with high confidence.
+- Backend: `app/api/chat/route.ts` — Vercel serverless function using the Vercel AI SDK + Anthropic provider, streaming `claude-sonnet-4-5` responses.
+- System prompt: `lib/agent/systemPrompt.ts` — assembles every record from `lib/content/` into a grounded prompt. Every change you make to services, cities, FAQs, etc. is automatically picked up by the agent on the next request.
+
+**Hard rails baked into the prompt**
+- Never quotes prices (every floor is custom-quoted)
+- Never promises specific dates or times
+- Never invents services we don't offer
+- Always links back to a real page on the site
+- Escalates to a callback form when confidence drops below ~80%
+- The escalation form posts to the same FormSubmit endpoint as the contact form, so handoff requests land in `jobs@renewitfloorsmiami.com` with subject "Chat handoff — needs human follow-up"
+
+**Cost ballpark**
+- Per typical conversation (~5 turns): roughly $0.05–$0.15 in API spend
+- The system prompt is ~30K tokens; first call pays full price, subsequent calls within 5 minutes hit Anthropic's prompt cache for ~90% off
+- For a marketing site with low chat volume (50 conversations/day), expect ~$2–5/day
 
 ## Form Activation (One-Time Setup)
 

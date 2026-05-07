@@ -17,6 +17,7 @@ import { MobileStickyBar } from "@/components/global/MobileStickyBar";
 import { ScrollProgress } from "@/components/global/ScrollProgress";
 import { LanguageProvider } from "@/components/global/LanguageProvider";
 import { SpanishContentBanner } from "@/components/global/SpanishContentBanner";
+import { ChatAgent } from "@/components/global/ChatAgent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -134,6 +135,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <MobileStickyBar />
+          <ChatAgent />
         </LanguageProvider>
         {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
         {ga4Id ? <GoogleAnalytics gaId={ga4Id} /> : null}

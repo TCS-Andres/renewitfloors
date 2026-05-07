@@ -51,12 +51,13 @@ export function ScrollProgress() {
         />
       </div>
 
-      {/* Scroll-to-top button — bottom-right, hidden behind sticky bar on mobile */}
+      {/* Scroll-to-top button — sits ABOVE the chat-agent launch button so they
+          don't collide (chat is at bottom-20 mobile / bottom-8 desktop). */}
       <button
         type="button"
         onClick={scrollUp}
         aria-label="Scroll to top"
-        className={`fixed bottom-24 right-5 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-charcoal)] text-white shadow-lg transition-all duration-300 ease-out hover:bg-[var(--color-rust)] hover:-translate-y-0.5 active:scale-95 lg:bottom-8 lg:right-8 lg:h-14 lg:w-14 ${
+        className={`fixed bottom-36 right-5 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-charcoal)] text-white shadow-lg transition-all duration-300 ease-out hover:bg-[var(--color-rust)] hover:-translate-y-0.5 active:scale-95 lg:bottom-24 lg:right-8 lg:h-12 lg:w-12 ${
           showButton
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "translate-y-3 opacity-0 pointer-events-none"
