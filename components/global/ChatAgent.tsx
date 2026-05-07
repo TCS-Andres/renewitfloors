@@ -62,7 +62,7 @@ export function ChatAgent() {
   const isStreaming = status === "submitted" || status === "streaming";
 
   // 3-second response delay. Whenever the user sends, we hold any incoming
-  // assistant reply behind the delay so it feels like Sofia is typing.
+  // assistant reply behind the delay so it feels like Miriam is typing.
   const [delayActive, setDelayActive] = React.useState(false);
   const delayTimerRef = React.useRef<number | undefined>(undefined);
   const startDelay = React.useCallback(() => {
@@ -145,13 +145,13 @@ export function ChatAgent() {
   };
 
   const labels = {
-    title: "Sofia",
+    title: "Miriam",
     subtitle: isEs
       ? "Asistente de ReNewIt Floors"
       : "ReNewIt Floors assistant",
     greetingTitle: isEs
-      ? "¡Hola! Soy Sofia 👋 ¿Qué está pasando con sus pisos?"
-      : "Hey there! I'm Sofia 👋 What's going on with your floors?",
+      ? "¡Hola! Soy Miriam 👋 ¿Qué está pasando con sus pisos?"
+      : "Hey there! I'm Miriam 👋 What's going on with your floors?",
     greetingBody: isEs
       ? "Cuénteme un poco y la ayudo a encontrar el camino correcto."
       : "Tell me a bit and I'll point you in the right direction.",
@@ -173,7 +173,7 @@ export function ChatAgent() {
       ? "Le contactaremos en un día laboral. Si prefiere llamar ahora, marque al"
       : "We'll be in touch within one business day. If you'd rather call now, give us a ring at",
     cancel: isEs ? "Cancelar" : "Cancel",
-    bubble: isEs ? "Chatear con Sofia" : "Chat with Sofia",
+    bubble: isEs ? "Chatear con Miriam" : "Chat with Miriam",
   };
 
   return (
@@ -216,8 +216,8 @@ export function ChatAgent() {
               <div className="h-10 w-10 overflow-hidden rounded-full ring-2 ring-white/20">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/sofia.jpg"
-                  alt="Sofia, ReNewIt Floors assistant"
+                  src="/images/miriam.jpg"
+                  alt="Miriam, ReNewIt Floors assistant"
                   className="h-full w-full object-cover"
                   width={40}
                   height={40}
@@ -317,8 +317,8 @@ export function ChatAgent() {
                     </div>
                     <div className="mt-2 text-red-800/80">
                       {isEs
-                        ? "Revise la consola del navegador y la terminal. La causa más común: el servidor de desarrollo se inició antes de agregar ANTHROPIC_API_KEY a .env.local — reinicie con `npm run dev`."
-                        : "Check the browser console + terminal. Most common cause: the dev server was started before ANTHROPIC_API_KEY was added to .env.local — restart with `npm run dev`."}
+                        ? "Revise la consola del navegador y los registros del servidor. Si el problema persiste, llámenos directamente al teléfono que aparece abajo."
+                        : "Check the browser console and server logs. If the issue persists, please call us directly at the number below."}
                     </div>
                   </div>
                 )}

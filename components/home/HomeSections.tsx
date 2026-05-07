@@ -499,81 +499,112 @@ export function ServiceAreasSection() {
  />
  <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
  <Reveal className="lg:col-span-5">
- {/* South Florida service-area map: peninsula tip with county
- shading + Florida Keys arc + city dots. */}
+ {/* South Florida service-area map. Coordinates are projected from
+ real lat/lon (Jupiter 26.93N down to Key West 24.55N, longitude
+ 81.78W to 80.05W) into the 400x400 viewBox so cities sit at
+ their actual relative geographic positions. */}
  <div className="relative aspect-square rounded-[6px] bg-[var(--color-cream)] p-6 sm:p-8 md:p-10">
  <svg
  viewBox="0 0 400 400"
  className="h-full w-full"
  fill="none"
- aria-hidden
  role="img"
+ aria-labelledby="sf-map-title sf-map-desc"
  >
- <title>South Florida service area: Palm Beach, Broward, Miami-Dade and Monroe counties</title>
+ <title id="sf-map-title">South Florida service area</title>
+ <desc id="sf-map-desc">Map of southeast Florida and the Keys showing Palm Beach, Broward, Miami-Dade and Monroe counties with city markers for the areas served by ReNewIt Floors.</desc>
  <defs>
  <linearGradient id="sf-land" x1="0" y1="0" x2="0" y2="1">
- <stop offset="0%" stopColor="var(--color-stone)" stopOpacity="0.18" />
- <stop offset="100%" stopColor="var(--color-stone)" stopOpacity="0.45" />
+ <stop offset="0%" stopColor="var(--color-stone)" stopOpacity="0.32" />
+ <stop offset="100%" stopColor="var(--color-stone)" stopOpacity="0.55" />
+ </linearGradient>
+ <linearGradient id="sf-ocean" x1="0" y1="0" x2="1" y2="0">
+ <stop offset="55%" stopColor="var(--color-cream)" stopOpacity="0" />
+ <stop offset="100%" stopColor="#9bb8c4" stopOpacity="0.18" />
  </linearGradient>
  </defs>
 
- {/* Mainland peninsula (Palm Beach -> Broward -> Miami-Dade) */}
+ {/* Faint Atlantic wash on the east edge */}
+ <rect x="0" y="0" width="400" height="400" fill="url(#sf-ocean)" />
+
+ {/* SE Florida mainland: Atlantic coast from Jupiter (top NE) down
+ through Boca, Fort Lauderdale, Miami, to Florida City (mainland
+ southern tip), then west across Florida Bay, then north along
+ the Everglades inland edge back up to PB. */}
  <path
- d="M 255 30 L 295 45 L 320 75 L 327 110 L 330 150 L 330 195 L 328 230 L 318 258 L 298 270 L 275 270 L 245 263 L 220 245 L 200 220 L 190 190 L 185 155 L 188 115 L 198 80 L 215 50 L 235 35 Z"
+ d="M 370 22
+ L 380 40 L 382 60 L 378 85
+ L 370 110 L 367 135 L 365 152
+ L 363 172 L 363 192 L 360 212
+ L 348 228 L 320 246 L 293 254
+ L 255 256 L 215 252
+ L 195 222 L 180 187 L 170 152
+ L 165 117 L 170 82 L 180 52
+ L 200 30 L 235 18 L 290 14
+ L 335 18 Z"
  fill="url(#sf-land)"
  stroke="var(--color-charcoal)"
- strokeOpacity="0.4"
- strokeWidth="1.5"
+ strokeOpacity="0.55"
+ strokeWidth="1.6"
  strokeLinejoin="round"
  />
 
- {/* County boundaries (dashed) */}
- <line x1="188" y1="118" x2="327" y2="118" stroke="var(--color-charcoal)" strokeOpacity="0.22" strokeWidth="1" strokeDasharray="3 3" />
- <line x1="190" y1="183" x2="329" y2="183" stroke="var(--color-charcoal)" strokeOpacity="0.22" strokeWidth="1" strokeDasharray="3 3" />
+ {/* County boundaries (dashed). Latitudes:
+ PB / Broward at ~26.32 N → y ≈ 116
+ Broward / Miami-Dade at ~25.97 N → y ≈ 168 */}
+ <line x1="167" y1="116" x2="370" y2="116" stroke="var(--color-charcoal)" strokeOpacity="0.32" strokeWidth="1" strokeDasharray="3 3" />
+ <line x1="170" y1="168" x2="365" y2="168" stroke="var(--color-charcoal)" strokeOpacity="0.32" strokeWidth="1" strokeDasharray="3 3" />
 
  {/* County labels */}
- <text x="222" y="80" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.55" letterSpacing="1.4">PALM BEACH</text>
- <text x="240" y="155" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.55" letterSpacing="1.4">BROWARD</text>
- <text x="232" y="225" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.55" letterSpacing="1.4">MIAMI-DADE</text>
- <text x="118" y="335" fontSize="9" fontWeight="700" fill="var(--color-rust)" opacity="0.7" letterSpacing="1.4">MONROE / KEYS</text>
+ <text x="232" y="68" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.65" letterSpacing="1.5">PALM BEACH</text>
+ <text x="248" y="146" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.65" letterSpacing="1.5">BROWARD</text>
+ <text x="232" y="220" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.65" letterSpacing="1.5">MIAMI-DADE</text>
+ <text x="115" y="345" fontSize="9" fontWeight="700" fill="var(--color-rust)" opacity="0.85" letterSpacing="1.5">MONROE / KEYS</text>
 
- {/* Florida Keys arc (Monroe County) */}
+ {/* Florida Keys arc curving SW from Florida City through Key
+ Largo and Marathon down to Key West. */}
  <path
- d="M 285 273 Q 240 290, 195 305 Q 140 325, 90 355 Q 60 372, 45 380"
+ d="M 290 254 Q 305 278 295 302 Q 232 322 165 358 Q 95 374 25 380"
  stroke="var(--color-rust)"
- strokeOpacity="0.4"
- strokeWidth="6"
+ strokeOpacity="0.28"
+ strokeWidth="7"
  strokeLinecap="round"
  fill="none"
  />
  <path
- d="M 285 273 Q 240 290, 195 305 Q 140 325, 90 355 Q 60 372, 45 380"
+ d="M 290 254 Q 305 278 295 302 Q 232 322 165 358 Q 95 374 25 380"
  stroke="var(--color-rust)"
+ strokeOpacity="0.9"
  strokeWidth="2"
  strokeLinecap="round"
  fill="none"
  />
 
- {/* Service-area dots (sized by prominence) */}
+ {/* City markers (positioned by lat/lon projection). Size tiers:
+ lg = primary anchor (Miami), md = major city, sm = sub-city. */}
  {[
- { x: 305, y: 130, label: "Boca Raton", size: "md" },
- { x: 320, y: 160, label: "Fort Lauderdale", size: "md" },
- { x: 240, y: 200, label: "Doral", size: "sm" },
- { x: 318, y: 215, label: "Miami", size: "lg" },
- { x: 300, y: 235, label: "Coral Gables", size: "sm" },
- { x: 302, y: 252, label: "Pinecrest", size: "sm" },
- { x: 248, y: 290, label: "Key Largo", size: "sm" },
- { x: 50, y: 380, label: "Key West", size: "md" },
+ { x: 374, y: 57, label: "West Palm Beach", size: "md" },
+ { x: 359, y: 109, label: "Boca Raton", size: "md" },
+ { x: 357, y: 146, label: "Fort Lauderdale", size: "md" },
+ { x: 313, y: 191, label: "Doral", size: "sm" },
+ { x: 346, y: 199, label: "Miami", size: "lg" },
+ { x: 331, y: 205, label: "Coral Gables", size: "sm" },
+ { x: 323, y: 213, label: "Pinecrest", size: "sm" },
+ { x: 295, y: 302, label: "Key Largo", size: "sm" },
+ { x: 25, y: 380, label: "Key West", size: "md" },
  ].map((dot) => {
  const inner = dot.size === "lg" ? 6 : dot.size === "md" ? 5 : 4;
  const outer = inner * 2.2;
  return (
  <g key={dot.label}>
- <circle cx={dot.x} cy={dot.y} r={outer} fill="var(--color-rust)" fillOpacity="0.18" />
+ <circle cx={dot.x} cy={dot.y} r={outer} fill="var(--color-rust)" fillOpacity="0.22" />
  <circle cx={dot.x} cy={dot.y} r={inner} fill="var(--color-rust)" />
  </g>
  );
  })}
+
+ {/* Atlantic Ocean compass cue */}
+ <text x="392" y="115" fontSize="8" fontWeight="600" fill="var(--color-slate)" opacity="0.45" letterSpacing="2" textAnchor="middle" transform="rotate(-90 392 115)">ATLANTIC</text>
  </svg>
  </div>
  </Reveal>
