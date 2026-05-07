@@ -499,49 +499,81 @@ export function ServiceAreasSection() {
  />
  <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
  <Reveal className="lg:col-span-5">
- {/* Stylized SVG map representation */}
- <div className="relative aspect-square rounded-[6px] bg-[var(--color-cream)] p-10">
+ {/* South Florida service-area map: peninsula tip with county
+ shading + Florida Keys arc + city dots. */}
+ <div className="relative aspect-square rounded-[6px] bg-[var(--color-cream)] p-6 sm:p-8 md:p-10">
  <svg
  viewBox="0 0 400 400"
  className="h-full w-full"
  fill="none"
  aria-hidden
+ role="img"
  >
- {/* Simplified South Florida outline */}
+ <title>South Florida service area: Palm Beach, Broward, Miami-Dade and Monroe counties</title>
+ <defs>
+ <linearGradient id="sf-land" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0%" stopColor="var(--color-stone)" stopOpacity="0.18" />
+ <stop offset="100%" stopColor="var(--color-stone)" stopOpacity="0.45" />
+ </linearGradient>
+ </defs>
+
+ {/* Mainland peninsula (Palm Beach -> Broward -> Miami-Dade) */}
  <path
- d="M 220 60 L 290 80 L 320 120 L 340 180 L 350 240 L 340 290 L 310 330 L 270 350 L 230 360 L 200 350 L 180 320 L 170 280 L 150 240 L 130 200 L 110 160 L 100 120 L 130 90 L 180 70 Z"
+ d="M 255 30 L 295 45 L 320 75 L 327 110 L 330 150 L 330 195 L 328 230 L 318 258 L 298 270 L 275 270 L 245 263 L 220 245 L 200 220 L 190 190 L 185 155 L 188 115 L 198 80 L 215 50 L 235 35 Z"
+ fill="url(#sf-land)"
  stroke="var(--color-charcoal)"
+ strokeOpacity="0.4"
+ strokeWidth="1.5"
+ strokeLinejoin="round"
+ />
+
+ {/* County boundaries (dashed) */}
+ <line x1="188" y1="118" x2="327" y2="118" stroke="var(--color-charcoal)" strokeOpacity="0.22" strokeWidth="1" strokeDasharray="3 3" />
+ <line x1="190" y1="183" x2="329" y2="183" stroke="var(--color-charcoal)" strokeOpacity="0.22" strokeWidth="1" strokeDasharray="3 3" />
+
+ {/* County labels */}
+ <text x="222" y="80" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.55" letterSpacing="1.4">PALM BEACH</text>
+ <text x="240" y="155" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.55" letterSpacing="1.4">BROWARD</text>
+ <text x="232" y="225" fontSize="9" fontWeight="700" fill="var(--color-charcoal)" opacity="0.55" letterSpacing="1.4">MIAMI-DADE</text>
+ <text x="118" y="335" fontSize="9" fontWeight="700" fill="var(--color-rust)" opacity="0.7" letterSpacing="1.4">MONROE / KEYS</text>
+
+ {/* Florida Keys arc (Monroe County) */}
+ <path
+ d="M 285 273 Q 240 290, 195 305 Q 140 325, 90 355 Q 60 372, 45 380"
+ stroke="var(--color-rust)"
+ strokeOpacity="0.4"
+ strokeWidth="6"
+ strokeLinecap="round"
+ fill="none"
+ />
+ <path
+ d="M 285 273 Q 240 290, 195 305 Q 140 325, 90 355 Q 60 372, 45 380"
+ stroke="var(--color-rust)"
  strokeWidth="2"
- fill="var(--color-stone)"
- fillOpacity="0.3"
+ strokeLinecap="round"
+ fill="none"
  />
- {/* Service area dots */}
+
+ {/* Service-area dots (sized by prominence) */}
  {[
- { x: 230, y: 220, label: "Miami" },
- { x: 215, y: 195, label: "Coral Gables" },
- { x: 245, y: 180, label: "Brickell" },
- { x: 200, y: 250, label: "Pinecrest" },
- { x: 240, y: 145, label: "Doral" },
- { x: 260, y: 130, label: "Ft. Lauderdale" },
- { x: 245, y: 95, label: "Boca Raton" },
- { x: 290, y: 320, label: "Key West" },
- ].map((dot) => (
+ { x: 305, y: 130, label: "Boca Raton", size: "md" },
+ { x: 320, y: 160, label: "Fort Lauderdale", size: "md" },
+ { x: 240, y: 200, label: "Doral", size: "sm" },
+ { x: 318, y: 215, label: "Miami", size: "lg" },
+ { x: 300, y: 235, label: "Coral Gables", size: "sm" },
+ { x: 302, y: 252, label: "Pinecrest", size: "sm" },
+ { x: 248, y: 290, label: "Key Largo", size: "sm" },
+ { x: 50, y: 380, label: "Key West", size: "md" },
+ ].map((dot) => {
+ const inner = dot.size === "lg" ? 6 : dot.size === "md" ? 5 : 4;
+ const outer = inner * 2.2;
+ return (
  <g key={dot.label}>
- <circle
- cx={dot.x}
- cy={dot.y}
- r="6"
- fill="var(--color-rust)"
- />
- <circle
- cx={dot.x}
- cy={dot.y}
- r="12"
- fill="var(--color-rust)"
- fillOpacity="0.2"
- />
+ <circle cx={dot.x} cy={dot.y} r={outer} fill="var(--color-rust)" fillOpacity="0.18" />
+ <circle cx={dot.x} cy={dot.y} r={inner} fill="var(--color-rust)" />
  </g>
- ))}
+ );
+ })}
  </svg>
  </div>
  </Reveal>
