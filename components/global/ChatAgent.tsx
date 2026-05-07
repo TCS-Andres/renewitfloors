@@ -40,9 +40,14 @@ export function ChatAgent() {
     [locale],
   );
 
-  const { messages, sendMessage, status } = useChat({ transport });
+  const { messages, sendMessage, status, error } = useChat({ transport });
 
   const isStreaming = status === "submitted" || status === "streaming";
+
+  // Log any chat error to the console so we can debug from DevTools.
+  React.useEffect(() => {
+    if (error) console.error("[ChatAgent] error:", error);
+  }, [error]);
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
 
@@ -219,6 +224,21 @@ export function ChatAgent() {
                 })}
                 {isStreaming && messages[messages.length - 1]?.role === "user" && (
                   <Bubble role="assistant" text="" pulsing />
+                )}
+                {error && (
+                  <div className="rounded-[8px] border border-red-300 bg-red-50 p-3 text-[13px] text-red-900">
+                    <div className="font-semibold">
+                      {isEs ? "Algo falló" : "Something went wrong"}
+                    </div>
+                    <div className="mt-1 break-words">
+                      {error.message ?? String(error)}
+                    </div>
+                    <div className="mt-2 text-red-800/80">
+                      {isEs
+                        ? "Revise la consola del navegador y la terminal. La causa más común: el servidor de desarrollo se inició antes de agregar ANTHROPIC_API_KEY a .env.local — reinicie con `npm run dev`."
+                        : "Check the browser console + terminal. Most common cause: the dev server was started before ANTHROPIC_API_KEY was added to .env.local — restart with `npm run dev`."}
+                    </div>
+                  </div>
                 )}
               </div>
             )}

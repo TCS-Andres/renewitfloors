@@ -24,9 +24,15 @@ const MAX_MESSAGES_PER_REQUEST = 30;
 const MODEL = "claude-sonnet-4-5"; // current production Sonnet alias
 
 export async function POST(req: Request) {
+  console.log("[/api/chat] incoming request");
+
   // Bail early if the API key isn't configured. The frontend treats any
   // non-stream response as "chat unavailable" and falls back to the phone CTA.
   if (!process.env.ANTHROPIC_API_KEY) {
+    console.error(
+      "[/api/chat] ANTHROPIC_API_KEY env var is not set. " +
+        "Add it to .env.local and restart `npm run dev`, or set it in Vercel project env vars.",
+    );
     return new Response(
       JSON.stringify({ error: "Chat is not configured on this deployment." }),
       { status: 503, headers: { "Content-Type": "application/json" } },
