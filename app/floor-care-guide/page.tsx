@@ -49,6 +49,7 @@ export default function FloorCareGuidePage() {
  name="_subject"
  value="Floor Care Guide, Email List Signup"
  />
+ <input type="hidden" name="_captcha" value="false" />
  <input
  type="hidden"
  name="_next"

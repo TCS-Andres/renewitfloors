@@ -19,8 +19,14 @@ export const site = {
  email: "jobs@renewitfloorsmiami.com",
  emailHref: "mailto:jobs@renewitfloorsmiami.com",
 
- // FormSubmit endpoint, first submission triggers activation email
+ // FormSubmit endpoints. The first submission to either triggers a one-time
+ // activation email from noreply@formsubmit.co — that link MUST be clicked
+ // before any submissions are delivered.
+ // - regular endpoint: for traditional HTML <form action> submits (full POST)
+ // - ajax endpoint: for fetch() / XHR submits with JSON body
  formSubmitEndpoint: "https://formsubmit.co/jobs@renewitfloorsmiami.com",
+ formSubmitAjaxEndpoint:
+ "https://formsubmit.co/ajax/jobs@renewitfloorsmiami.com",
 
  address: {
  locality: "Miami",

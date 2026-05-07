@@ -526,17 +526,52 @@ function HandoffForm({
   onSent: () => void;
 }) {
   const formRef = React.useRef<HTMLFormElement>(null);
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submitting, setSubmitting] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Submit to FormSubmit using the same endpoint as the contact form.
-    // We use a hidden iframe target so the page doesn't navigate away.
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError(null);
+
+    // Use FormSubmit's AJAX endpoint (returns JSON + CORS headers) so we can
+    // actually observe success/failure rather than fire-and-forget.
     const form = e.currentTarget;
-    const data = new FormData(form);
-    fetch(site.formSubmitEndpoint, {
-      method: "POST",
-      body: data,
-      mode: "no-cors", // FormSubmit doesn't return CORS headers; no-cors is fine for fire-and-forget
-    }).finally(onSent);
+    const fd = new FormData(form);
+    const payload: Record<string, string> = {};
+    fd.forEach((v, k) => {
+      payload[k] = typeof v === "string" ? v : "";
+    });
+
+    try {
+      const res = await fetch(site.formSubmitAjaxEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json().catch(() => ({}))) as {
+        success?: string | boolean;
+        message?: string;
+      };
+      const ok =
+        res.ok &&
+        (json.success === "true" || json.success === true || res.status === 200);
+      if (!ok) {
+        throw new Error(json.message || `Submission failed (HTTP ${res.status})`);
+      }
+      onSent();
+    } catch (err) {
+      console.error("[ChatAgent] handoff submit failed:", err);
+      setSubmitError(
+        err instanceof Error ? err.message : "Submission failed. Please call us.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <div>
@@ -552,8 +587,9 @@ function HandoffForm({
         <input
           type="hidden"
           name="_subject"
-          value="Chat handoff — needs human follow-up"
+          value="Chat handoff: needs human follow-up"
         />
+        <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" style={{ display: "none" }} />
         <input
@@ -576,19 +612,29 @@ function HandoffForm({
           placeholder={labels.description}
           className="w-full resize-none rounded-[6px] border border-[var(--color-stone)] bg-white px-3 py-2.5 text-[14px] focus:border-[var(--color-rust)] focus:outline-none focus:ring-2 focus:ring-[var(--color-rust)]/20"
         />
+        {submitError && (
+          <div
+            role="alert"
+            className="rounded-[6px] border border-red-300 bg-red-50 px-3 py-2 text-[12.5px] leading-snug text-red-900"
+          >
+            {submitError}
+          </div>
+        )}
         <div className="flex items-center justify-between gap-2">
           <button
             type="button"
             onClick={onCancel}
-            className="text-[13px] font-medium text-[var(--color-slate)] hover:text-[var(--color-charcoal)]"
+            disabled={submitting}
+            className="text-[13px] font-medium text-[var(--color-slate)] hover:text-[var(--color-charcoal)] disabled:opacity-50"
           >
             {labels.cancel}
           </button>
           <button
             type="submit"
-            className="rounded-[6px] bg-[var(--color-rust)] px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-[var(--color-rust-dark)]"
+            disabled={submitting}
+            className="rounded-[6px] bg-[var(--color-rust)] px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-[var(--color-rust-dark)] disabled:opacity-60"
           >
-            {labels.submit}
+            {submitting ? "…" : labels.submit}
           </button>
         </div>
       </form>
