@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { categories, services } from "@/lib/content/services";
 import { projects } from "@/lib/content/projects";
+import { cities } from "@/lib/content/areas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -32,11 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // City landing pages — high local-SEO value
+  const cityRoutes = cities.map((c) => ({
+    url: `/service-areas/${c.slug}`,
+    priority: 0.8,
+  }));
+
   return [
     ...staticRoutes,
     ...categoryRoutes,
     ...serviceRoutes,
     ...projectRoutes,
+    ...cityRoutes,
   ].map((route) => ({
     url: `${site.url}${route.url}`,
     lastModified,

@@ -7,7 +7,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { PageHero } from "@/components/global/PageHero";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
 import { breadcrumbSchema, jsonLdScript } from "@/lib/schema";
-import { serviceAreas } from "@/lib/content/areas";
+import { serviceAreas, cities as detailedCities } from "@/lib/content/areas";
+
+// Map city names to their detail-page slug if a /service-areas/[city] page exists
+const citySlugByName = new Map(detailedCities.map((c) => [c.name, c.slug]));
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -62,14 +65,26 @@ export default function ServiceAreasPage() {
                     <div className="rounded-[6px] border border-[var(--color-stone)] bg-[var(--color-cream)] p-6 md:p-7">
                       <Eyebrow className="block mb-3">Cities We Serve</Eyebrow>
                       <ul className="flex flex-wrap gap-2">
-                        {area.cities.map((city) => (
-                          <li
-                            key={city}
-                            className="rounded-full bg-white px-3.5 py-1.5 text-[13px] font-medium text-[var(--color-charcoal)]"
-                          >
-                            {city}
-                          </li>
-                        ))}
+                        {area.cities.map((city) => {
+                          const slug = citySlugByName.get(city);
+                          return (
+                            <li key={city}>
+                              {slug ? (
+                                <Link
+                                  href={`/service-areas/${slug}`}
+                                  className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-[13px] font-medium text-[var(--color-charcoal)] transition-colors hover:bg-[var(--color-rust)] hover:text-white"
+                                >
+                                  {city}
+                                  <ArrowRight className="h-3 w-3" />
+                                </Link>
+                              ) : (
+                                <span className="inline-flex items-center rounded-full bg-white px-3.5 py-1.5 text-[13px] font-medium text-[var(--color-charcoal)]">
+                                  {city}
+                                </span>
+                              )}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
 
