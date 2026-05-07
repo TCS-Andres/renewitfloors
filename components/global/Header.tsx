@@ -59,7 +59,7 @@ export function Header() {
             : "bg-white shadow-[0_1px_0_0_var(--color-stone)]",
         )}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-12">
           <Link
             href="/"
             className="flex items-center gap-2"
@@ -75,7 +75,7 @@ export function Header() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-6 xl:flex xl:gap-8">
             <button
               type="button"
               onMouseEnter={() => setMegaOpen(true)}
@@ -116,7 +116,7 @@ export function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <LanguageToggle variant={transparent ? "transparent" : "solid"} />
             <a
               href={site.phoneHref}
@@ -139,7 +139,7 @@ export function Header() {
             type="button"
             onClick={() => setMobileOpen(true)}
             className={cn(
-              "lg:hidden p-2 -m-2",
+              "xl:hidden p-2 -m-2",
               transparent ? "text-white" : "text-[var(--color-charcoal)]",
             )}
             aria-label={t("nav.openMenu")}
@@ -197,7 +197,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[60] bg-[var(--color-charcoal)] lg:hidden">
+        <div className="fixed inset-0 z-[60] bg-[var(--color-charcoal)] xl:hidden">
           <div className="flex items-center justify-between px-6 py-4">
             <Image
               src="/logo-white.png"

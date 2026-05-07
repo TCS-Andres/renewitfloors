@@ -16,7 +16,6 @@ import { Footer } from "@/components/global/Footer";
 import { MobileStickyBar } from "@/components/global/MobileStickyBar";
 import { ScrollProgress } from "@/components/global/ScrollProgress";
 import { LanguageProvider } from "@/components/global/LanguageProvider";
-import { SpanishContentBanner } from "@/components/global/SpanishContentBanner";
 import { ChatAgent } from "@/components/global/ChatAgent";
 
 const inter = Inter({
@@ -129,7 +128,6 @@ export default function RootLayout({
  </a>
  <ScrollProgress />
  <Header />
- <SpanishContentBanner />
  <main id="main" className="flex-1">
  {children}
  </main>
