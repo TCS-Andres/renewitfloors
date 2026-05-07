@@ -104,6 +104,9 @@ export type ServiceCity = {
   relatedProjectSlugs?: string[];
   metaTitle: string;
   metaDescription: string;
+  /** City-specific 4K hero image (16:9) */
+  cityImage: string;
+  cityImageAlt: string;
 };
 
 export const cities: ServiceCity[] = [
@@ -128,6 +131,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Coral Gables, FL | ReNewIt Floors",
     metaDescription:
       "Floor restoration in Coral Gables — historic terrazzo, marble, Cuban and Mexican tile. Family-owned, 30+ years restoring Mediterranean Revival and historic homes. Free assessment.",
+    cityImage: "/images/city-coral-gables-mediterranean-revival.jpg",
+    cityImageAlt: "Mediterranean Revival home with red-tile roof and original terrazzo entrance in Coral Gables, Miami",
   },
   {
     slug: "brickell",
@@ -150,6 +155,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Brickell, Miami | ReNewIt Floors",
     metaDescription:
       "Marble, polished concrete, and lobby restoration in Brickell. HOA-friendly scheduling, licensed and insured. 30+ years restoring Brickell condos and commercial floors. Free assessment.",
+    cityImage: "/images/city-brickell-marble-highrise-lobby.jpg",
+    cityImageAlt: "Polished marble lobby of a luxury Brickell, Miami high-rise with bay views",
   },
   {
     slug: "pinecrest",
@@ -172,6 +179,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Pinecrest, FL | ReNewIt Floors",
     metaDescription:
       "Polished concrete, garage epoxy, and hardwood refinishing in Pinecrest. Residential floor restoration with a 1-year warranty. 30+ years. Free assessment.",
+    cityImage: "/images/city-pinecrest-modern-estate.jpg",
+    cityImageAlt: "Modern Pinecrest estate with polished concrete driveway and epoxy garage floor",
   },
   {
     slug: "doral",
@@ -194,6 +203,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Industrial Floor Restoration in Doral, FL | ReNewIt Floors",
     metaDescription:
       "Warehouse polished concrete, epoxy systems, and industrial floor cleaning in Doral. Phased scheduling around operations. Licensed, insured, OSHA-aware. Free site visit.",
+    cityImage: "/images/city-doral-business-park-warehouse.jpg",
+    cityImageAlt: "Industrial business park warehouse with polished concrete loading dock in Doral, Miami",
   },
   {
     slug: "miami-beach",
@@ -215,6 +226,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Miami Beach, FL | ReNewIt Floors",
     metaDescription:
       "Art Deco terrazzo, Cuban tile, marble, and concrete restoration in Miami Beach. Coastal-tough finishes, hospitality-friendly scheduling. 30+ years. Free assessment.",
+    cityImage: "/images/city-miami-beach-art-deco-terrazzo.jpg",
+    cityImageAlt: "Art Deco hotel lobby with restored geometric terrazzo floor in Miami Beach",
   },
   {
     slug: "kendall",
@@ -236,6 +249,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Kendall, FL | ReNewIt Floors",
     metaDescription:
       "Tile, hardwood, concrete, and Mexican tile restoration in Kendall. Honest assessments — repair or replace, we'll tell you straight. 30+ years. Free quote.",
+    cityImage: "/images/city-kendall-suburban-home.jpg",
+    cityImageAlt: "Comfortable Kendall, Miami suburban home with hardwood and tile floors",
   },
   {
     slug: "coconut-grove",
@@ -258,6 +273,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Coconut Grove, Miami | ReNewIt Floors",
     metaDescription:
       "Historic Cuban tile, Saltillo, terrazzo, and hardwood restoration in Coconut Grove. Honest about what can be saved. 30+ years. Family-owned. Free assessment.",
+    cityImage: "/images/city-coconut-grove-cuban-tile-bungalow.jpg",
+    cityImageAlt: "Historic Coconut Grove bungalow with original Cuban hydraulic tile floor",
   },
   {
     slug: "cutler-bay",
@@ -279,6 +296,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Cutler Bay, FL | ReNewIt Floors",
     metaDescription:
       "Tile repair, hardwood refinishing, garage epoxy, and concrete polishing in Cutler Bay. Family-owned, 30+ years restoring South Miami-Dade floors. Free quote.",
+    cityImage: "/images/city-cutler-bay-modern-rebuild.jpg",
+    cityImageAlt: "Modern Cutler Bay home with epoxy garage floor and tropical landscaping",
   },
   {
     slug: "homestead",
@@ -300,6 +319,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Homestead, FL | ReNewIt Floors",
     metaDescription:
       "Mexican tile, hardwood, concrete polishing, and garage epoxy in Homestead. Honest pricing, family-owned, 30+ years across South Miami-Dade. Free assessment.",
+    cityImage: "/images/city-homestead-agricultural-residential.jpg",
+    cityImageAlt: "Modest South Miami-Dade home in Homestead with Saltillo tile floors",
   },
   {
     slug: "palmetto-bay",
@@ -321,6 +342,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Palmetto Bay, FL | ReNewIt Floors",
     metaDescription:
       "Hardwood refinishing, marble restoration, polished concrete, and garage epoxy in Palmetto Bay. Residential floor restoration with a 1-year warranty. 30+ years.",
+    cityImage: "/images/city-palmetto-bay-tree-lined-estate.jpg",
+    cityImageAlt: "Palmetto Bay estate under mature live oak canopy with refinished hardwood",
   },
   {
     slug: "miami-lakes",
@@ -343,6 +366,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Miami Lakes, FL | ReNewIt Floors",
     metaDescription:
       "Mexican Saltillo, terrazzo, hardwood, and concrete restoration in Miami Lakes. Restoring original 1960s-70s floors. 30+ years. Free assessment.",
+    cityImage: "/images/city-miami-lakes-saltillo-home.jpg",
+    cityImageAlt: "Classic 1960s Miami Lakes home with original Mexican Saltillo tile floors",
   },
   {
     slug: "miami",
@@ -364,6 +389,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Miami, FL | ReNewIt Floors",
     metaDescription:
       "Floor restoration across Miami — Wynwood, Little Havana, Edgewater, Allapattah, Midtown. Concrete, terrazzo, marble, tile. 30+ years. Free assessment.",
+    cityImage: "/images/city-miami-wynwood-loft-concrete.jpg",
+    cityImageAlt: "Converted Wynwood Miami loft with polished concrete floor and exposed brick",
   },
   {
     slug: "downtown-miami",
@@ -385,6 +412,8 @@ export const cities: ServiceCity[] = [
     metaTitle: "Floor Restoration in Downtown Miami | ReNewIt Floors",
     metaDescription:
       "Commercial floor restoration in Downtown Miami — marble lobbies, polished concrete, historic terrazzo. Phased scheduling, licensed, insured. 30+ years. Free site visit.",
+    cityImage: "/images/city-downtown-miami-marble-lobby.jpg",
+    cityImageAlt: "Historic Downtown Miami commercial lobby with restored Art Deco terrazzo",
   },
 ];
 

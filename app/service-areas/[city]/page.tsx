@@ -103,6 +103,18 @@ export default async function CityPage({ params }: { params: Params }) {
         ]}
       />
 
+      {/* City-specific hero image banner */}
+      <section className="relative aspect-[16/7] w-full overflow-hidden bg-[var(--color-charcoal)] md:aspect-[16/6]">
+        <Image
+          src={c.cityImage}
+          alt={c.cityImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </section>
+
       <TrustBar tone="cream" />
 
       {/* Local story */}

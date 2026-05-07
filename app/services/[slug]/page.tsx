@@ -286,6 +286,19 @@ function ServiceDetailPage({
         </Container>
       </Section>
 
+      {/* Optional secondary detail/process image */}
+      {service.detailImage && (
+        <section className="relative aspect-[16/7] w-full overflow-hidden bg-[var(--color-charcoal)] md:aspect-[16/6]">
+          <Image
+            src={service.detailImage}
+            alt={service.detailImageAlt ?? service.imageAlt}
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </section>
+      )}
+
       {/* Why it lasts */}
       <section className="bg-[var(--color-ink)] text-white">
         <Container>

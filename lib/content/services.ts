@@ -39,6 +39,8 @@ export type Service = {
   related: string[]; // Slugs of 3 related services
   image: string; // Hero image (relative to /public)
   imageAlt: string; // Alt text for SEO
+  detailImage?: string; // Optional secondary process/detail shot
+  detailImageAlt?: string;
 };
 
 export const categories: ServiceCategory[] = [
@@ -157,6 +159,8 @@ export const services: Service[] = [
     related: ["concrete-restoration", "concrete-sealing", "patina-stains-decorative-finishes"],
     image: "/images/polished-concrete-floor-miami.jpg",
     imageAlt: "Mirror-finish polished concrete floor in a Miami home",
+    detailImage: "/images/concrete-polishing-macro-detail-miami.jpg",
+    detailImageAlt: "Macro detail of mirror-polished concrete floor surface in Miami",
   },
   {
     slug: "concrete-restoration",
@@ -427,6 +431,8 @@ export const services: Service[] = [
     related: ["concrete-epoxy-systems", "concrete-polishing", "concrete-sealing"],
     image: "/images/garage-epoxy-flooring-miami.jpg",
     imageAlt: "Garage epoxy floor with decorative chip flake in Miami",
+    detailImage: "/images/garage-epoxy-chip-broadcast-miami.jpg",
+    detailImageAlt: "Decorative chip flake being broadcast onto wet epoxy in a Miami garage",
   },
   {
     slug: "patina-stains-decorative-finishes",
@@ -561,6 +567,8 @@ export const services: Service[] = [
     related: ["marble-restoration", "stone-flooring", "concrete-polishing"],
     image: "/images/terrazzo-floor-restoration-miami-fl.jpg",
     imageAlt: "Polished black-and-white terrazzo floor restored in Miami",
+    detailImage: "/images/terrazzo-restoration-process-miami.jpg",
+    detailImageAlt: "Diamond grinder restoring original terrazzo floor in a Miami home",
   },
   {
     slug: "marble-restoration",
@@ -608,6 +616,8 @@ export const services: Service[] = [
     related: ["terrazzo-restoration", "stone-flooring", "mexican-tile-restoration"],
     image: "/images/marble-floor-restoration-miami.jpg",
     imageAlt: "Restored polished marble floor in a Miami residence",
+    detailImage: "/images/marble-honing-process-miami.jpg",
+    detailImageAlt: "Craftsman diamond-honing a marble floor in Miami",
   },
   {
     slug: "mexican-tile-restoration",
@@ -655,6 +665,8 @@ export const services: Service[] = [
     related: ["stone-flooring", "tile-laminate-vinyl-repair", "terrazzo-restoration"],
     image: "/images/mexican-saltillo-tile-restoration-miami.jpg",
     imageAlt: "Cleaned and sealed Mexican Saltillo tile floor in Miami",
+    detailImage: "/images/mexican-tile-sealing-process-miami.jpg",
+    detailImageAlt: "Sealing penetrating sealer onto Saltillo tile in a Miami home",
   },
   {
     slug: "stone-flooring",
@@ -747,6 +759,8 @@ export const services: Service[] = [
     related: ["tile-laminate-vinyl-repair", "concrete-polishing", "marble-restoration"],
     image: "/images/hardwood-floor-refinishing-miami.jpg",
     imageAlt: "Refinished hardwood floor with warm tone in Miami",
+    detailImage: "/images/hardwood-sanding-process-miami.jpg",
+    detailImageAlt: "Drum sander refinishing oak hardwood floor in a Miami residence",
   },
   {
     slug: "tile-laminate-vinyl-repair",
