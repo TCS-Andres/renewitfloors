@@ -16,135 +16,135 @@ import { site } from "@/lib/site";
 type Params = Promise<{ slug: string }>;
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+ return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
-  if (!project) return {};
-  return {
-    title: `${project.title} – ${project.location}`,
-    description: project.excerpt,
-    alternates: { canonical: `/projects/${project.slug}` },
-  };
+ const { slug } = await params;
+ const project = getProjectBySlug(slug);
+ if (!project) return {};
+ return {
+ title: `${project.title} - ${project.location}`,
+ description: project.excerpt,
+ alternates: { canonical: `/projects/${project.slug}` },
+ };
 }
 
 export default async function ProjectDetail({ params }: { params: Params }) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
-  if (!project) notFound();
+ const { slug } = await params;
+ const project = getProjectBySlug(slug);
+ if (!project) notFound();
 
-  const service = getServiceBySlug(project.serviceSlug);
+ const service = getServiceBySlug(project.serviceSlug);
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={jsonLdScript(
-          breadcrumbSchema([
-            { name: "Home", url: site.url },
-            { name: "Projects", url: `${site.url}/projects` },
-            { name: project.title, url: `${site.url}/projects/${project.slug}` },
-          ]),
-        )}
-      />
+ return (
+ <>
+ <script
+ type="application/ld+json"
+ dangerouslySetInnerHTML={jsonLdScript(
+ breadcrumbSchema([
+ { name: "Home", url: site.url },
+ { name: "Projects", url: `${site.url}/projects` },
+ { name: project.title, url: `${site.url}/projects/${project.slug}` },
+ ]),
+ )}
+ />
 
-      <article>
-        <section className="bg-[var(--color-cream)] pt-28 pb-16 md:pt-36 md:pb-24">
-          <Container>
-            <Reveal>
-              <Link
-                href="/projects"
-                className="mb-8 inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--color-slate)] transition-colors hover:text-[var(--color-rust)]"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                All Projects
-              </Link>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <Eyebrow className="block mb-4">
-                <L en={project.category} es={project.categoryEs} /> · {project.location} · <L en={project.service} es={project.serviceEs} />
-              </Eyebrow>
-              <h1 className="max-w-4xl font-display text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[var(--color-charcoal)] md:text-[64px]">
-                <L en={project.title} es={project.titleEs} />
-              </h1>
-            </Reveal>
-          </Container>
-        </section>
+ <article>
+ <section className="bg-[var(--color-cream)] pt-24 pb-14 sm:pt-28 sm:pb-16 md:pt-36 md:pb-24">
+ <Container>
+ <Reveal>
+ <Link
+ href="/projects"
+ className="mb-8 inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--color-slate)] transition-colors hover:text-[var(--color-rust)]"
+ >
+ <ArrowLeft className="h-4 w-4" />
+ All Projects
+ </Link>
+ </Reveal>
+ <Reveal delay={0.1}>
+ <Eyebrow className="block mb-4">
+ <L en={project.category} es={project.categoryEs} /> · {project.location} · <L en={project.service} es={project.serviceEs} />
+ </Eyebrow>
+ <h1 className="max-w-4xl font-display text-[30px] font-bold leading-[1.07] tracking-[-0.03em] text-balance text-[var(--color-charcoal)] sm:text-[40px] sm:leading-[1.05] md:text-[64px]">
+ <L en={project.title} es={project.titleEs} />
+ </h1>
+ </Reveal>
+ </Container>
+ </section>
 
-        <section>
-          <div className="relative aspect-[16/8] w-full overflow-hidden bg-[var(--color-charcoal)]">
-            <Image
-              src={project.image}
-              alt={project.imageAltEs ?? project.imageAlt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-        </section>
+ <section>
+ <div className="relative aspect-[16/8] w-full overflow-hidden bg-[var(--color-charcoal)]">
+ <Image
+ src={project.image}
+ alt={project.imageAltEs ?? project.imageAlt}
+ fill
+ priority
+ sizes="100vw"
+ className="object-cover object-center"
+ />
+ </div>
+ </section>
 
-        <Section tone="white" padded>
-          <Container size="narrow">
-            <Reveal>
-              <Eyebrow className="block mb-4">The Story</Eyebrow>
-              <p className="font-display text-[24px] leading-[1.4] text-[var(--color-charcoal)] md:text-[30px]">
-                <L en={project.story} es={project.storyEs} />
-              </p>
-            </Reveal>
-            <Reveal delay={0.2} className="mt-12 grid gap-4 sm:grid-cols-3">
-              <Stat label="Location" value={project.location} />
-              <Stat label="Service" value={project.service} />
-              <Stat label="Type" value={project.category} />
-            </Reveal>
-          </Container>
-        </Section>
+ <Section tone="white" padded>
+ <Container size="narrow">
+ <Reveal>
+ <Eyebrow className="block mb-4">The Story</Eyebrow>
+ <p className="font-display text-[20px] leading-[1.45] text-balance text-[var(--color-charcoal)] sm:text-[24px] sm:leading-[1.4] md:text-[30px]">
+ <L en={project.story} es={project.storyEs} />
+ </p>
+ </Reveal>
+ <Reveal delay={0.2} className="mt-12 grid gap-4 sm:grid-cols-3">
+ <Stat label="Location" value={project.location} />
+ <Stat label="Service" value={project.service} />
+ <Stat label="Type" value={project.category} />
+ </Reveal>
+ </Container>
+ </Section>
 
-        {service && (
-          <Section tone="cream" padded>
-            <Container size="narrow">
-              <Reveal>
-                <Eyebrow className="block mb-3">Service Used</Eyebrow>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="group block rounded-[6px] border border-[var(--color-stone)] bg-white p-7 transition-colors hover:border-[var(--color-rust)] md:p-10"
-                >
-                  <h3 className="font-display text-[26px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[32px]">
-                    {service.name}
-                  </h3>
-                  <p className="mt-3 text-[16px] leading-relaxed text-[var(--color-slate)]">
-                    {service.shortDescription}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
-                    Learn About This Service
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              </Reveal>
-            </Container>
-          </Section>
-        )}
-      </article>
+ {service && (
+ <Section tone="cream" padded>
+ <Container size="narrow">
+ <Reveal>
+ <Eyebrow className="block mb-3">Service Used</Eyebrow>
+ <Link
+ href={`/services/${service.slug}`}
+ className="group block rounded-[6px] border border-[var(--color-stone)] bg-white p-7 transition-colors hover:border-[var(--color-rust)] md:p-10"
+ >
+ <h3 className="font-display text-[26px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[32px]">
+ {service.name}
+ </h3>
+ <p className="mt-3 text-[16px] leading-relaxed text-[var(--color-slate)]">
+ {service.shortDescription}
+ </p>
+ <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
+ Learn About This Service
+ <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+ </span>
+ </Link>
+ </Reveal>
+ </Container>
+ </Section>
+ )}
+ </article>
 
-      <PreFooterCTA
-        heading="Want results like these in your home?"
-        subhead="A free, honest assessment. No pressure. We'll walk your floor and tell you straight what's possible."
-      />
-    </>
-  );
+ <PreFooterCTA
+ heading="Want results like these in your home?"
+ subhead="A free, honest assessment. No pressure. We'll walk your floor and tell you straight what's possible."
+ />
+ </>
+ );
 }
 
 function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="border-t border-[var(--color-stone)] pt-4">
-      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-slate)]">
-        {label}
-      </div>
-      <div className="mt-1.5 font-display text-[20px] font-semibold text-[var(--color-charcoal)]">
-        {value}
-      </div>
-    </div>
-  );
+ return (
+ <div className="border-t border-[var(--color-stone)] pt-4">
+ <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-slate)]">
+ {label}
+ </div>
+ <div className="mt-1.5 font-display text-[20px] font-semibold text-[var(--color-charcoal)]">
+ {value}
+ </div>
+ </div>
+ );
 }

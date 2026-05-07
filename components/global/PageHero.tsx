@@ -34,7 +34,7 @@ export function PageHero({
   const crumbColor = isDark ? "text-[var(--color-cream)]/60" : "text-[var(--color-slate)]";
 
   return (
-    <section className={cn("pt-28 pb-16 md:pt-36 md:pb-24", bg)}>
+    <section className={cn("pt-24 pb-14 sm:pt-28 sm:pb-16 md:pt-36 md:pb-24", bg)}>
       <Container>
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-8">
@@ -70,7 +70,7 @@ export function PageHero({
           )}
           <h1
             className={cn(
-              "font-display font-bold tracking-[-0.03em] text-[44px] leading-[1.05] md:text-[72px]",
+              "font-display font-bold tracking-[-0.03em] text-[36px] leading-[1.06] text-balance sm:text-[44px] sm:leading-[1.05] md:text-[72px]",
               titleColor,
             )}
           >
@@ -79,7 +79,7 @@ export function PageHero({
           {description && (
             <p
               className={cn(
-                "mt-6 max-w-2xl text-[18px] leading-relaxed md:text-[22px]",
+                "mt-5 max-w-2xl text-[16px] leading-relaxed sm:mt-6 sm:text-[18px] md:text-[22px]",
                 descColor,
                 align === "center" && "mx-auto",
               )}

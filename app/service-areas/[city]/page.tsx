@@ -124,7 +124,7 @@ export default async function CityPage({ params }: { params: Params }) {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-5">
               <Eyebrow className="block mb-4"><L en="Local Knowledge" es="Conocimiento Local" /></Eyebrow>
-              <h2 className="font-display text-[36px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[48px]">
+              <h2 className="font-display text-[28px] font-bold leading-[1.08] tracking-[-0.025em] text-balance text-[var(--color-charcoal)] sm:text-[36px] sm:leading-[1.05] md:text-[48px]">
                 <L en={`What we know about ${c.name} floors.`} es={`Lo que sabemos sobre los pisos de ${c.name}.`} />
               </h2>
             </Reveal>
@@ -142,7 +142,7 @@ export default async function CityPage({ params }: { params: Params }) {
         <Container>
           <Reveal>
             <Eyebrow className="block mb-4"><L en={`Most-Requested in ${c.name}`} es={`Más Solicitados en ${c.name}`} /></Eyebrow>
-            <h2 className="max-w-3xl font-display text-[36px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[48px]">
+            <h2 className="max-w-3xl font-display text-[28px] font-bold leading-[1.08] tracking-[-0.025em] text-balance text-[var(--color-charcoal)] sm:text-[36px] sm:leading-[1.05] md:text-[48px]">
               <L en={`The services ${c.name} homes and businesses ask for most.`} es={`Los servicios que las casas y negocios de ${c.name} más piden.`} />
             </h2>
           </Reveal>
@@ -253,15 +253,15 @@ export default async function CityPage({ params }: { params: Params }) {
                 <Reveal key={nc.slug} delay={i * 0.06}>
                   <Link
                     href={`/service-areas/${nc.slug}`}
-                    className="group flex items-center justify-between rounded-[6px] border border-[var(--color-stone)] bg-white px-6 py-5 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
+                    className="group flex items-center justify-between gap-3 rounded-[6px] border border-[var(--color-stone)] bg-white px-5 py-4 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300 sm:px-6 sm:py-5"
                   >
-                    <span className="flex items-center gap-3">
-                      <MapPin className="h-4 w-4 text-[var(--color-rust)]" />
-                      <span className="font-display text-[18px] font-semibold text-[var(--color-charcoal)] group-hover:text-[var(--color-rust)] md:text-[20px]">
+                    <span className="flex min-w-0 flex-1 items-center gap-3">
+                      <MapPin className="h-4 w-4 shrink-0 text-[var(--color-rust)]" />
+                      <span className="font-display text-[16px] font-semibold leading-snug text-[var(--color-charcoal)] group-hover:text-[var(--color-rust)] sm:text-[18px] md:text-[20px]">
                         <L en={`Floor Restoration in ${nc.name}`} es={`Restauración de Pisos en ${nc.name}`} />
                       </span>
                     </span>
-                    <ArrowRight className="h-4 w-4 text-[var(--color-rust)] transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="h-4 w-4 shrink-0 text-[var(--color-rust)] transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 </Reveal>
               ))}

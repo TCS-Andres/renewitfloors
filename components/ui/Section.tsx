@@ -90,14 +90,14 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          "font-display font-bold tracking-[-0.025em] text-[40px] leading-[1.05] md:text-[52px]",
+          "font-display font-bold tracking-[-0.025em] text-[32px] leading-[1.07] text-balance sm:text-[40px] sm:leading-[1.05] md:text-[52px]",
           titleColor,
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className={cn("mt-5 text-[18px] leading-relaxed md:text-[20px]", descColor)}>
+        <p className={cn("mt-4 text-[16px] leading-relaxed sm:mt-5 sm:text-[18px] md:text-[20px]", descColor)}>
           {description}
         </p>
       )}

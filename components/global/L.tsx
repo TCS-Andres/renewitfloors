@@ -12,28 +12,28 @@ import { useLanguage } from "./LanguageProvider";
  * pre-translated Spanish counterpart on the data record. Component name is
  * intentionally short because it appears a lot.
  *
- *   <L en={service.h1} es={service.h1Es} />
- *   <L en={service.body} es={service.bodyEs} />
+ * <L en={service.h1} es={service.h1Es} />
+ * <L en={service.body} es={service.bodyEs} />
  */
 export function L({
-  en,
-  es,
+ en,
+ es,
 }: {
-  en: React.ReactNode;
-  es?: React.ReactNode;
+ en: React.ReactNode;
+ es?: React.ReactNode;
 }) {
-  const { locale } = useLanguage();
-  if (locale === "es" && es != null && es !== "") return <>{es}</>;
-  return <>{en}</>;
+ const { locale } = useLanguage();
+ if (locale === "es" && es != null && es !== "") return <>{es}</>;
+ return <>{en}</>;
 }
 
 /**
- * String form of the same switch — for places where you need a string value
+ * String form of the same switch, for places where you need a string value
  * (e.g., HTML attributes like alt, title, aria-label). Returns one or the
  * other and is safe in any client context.
  */
 export function useL() {
-  const { locale } = useLanguage();
-  return (en: string, es?: string) =>
-    locale === "es" && es && es !== "" ? es : en;
+ const { locale } = useLanguage();
+ return (en: string, es?: string) =>
+ locale === "es" && es && es !== "" ? es : en;
 }

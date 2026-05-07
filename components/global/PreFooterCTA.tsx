@@ -36,10 +36,10 @@ export function PreFooterCTA({
     <Section tone="cream" padded>
       <Container>
         <Reveal className="text-center max-w-3xl mx-auto">
-          <h2 className="font-display font-bold text-[40px] leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[56px]">
+          <h2 className="font-display font-bold text-[32px] leading-[1.07] tracking-[-0.025em] text-balance text-[var(--color-charcoal)] sm:text-[40px] sm:leading-[1.05] md:text-[56px]">
             {finalHeading}
           </h2>
-          <p className="mt-6 text-[18px] leading-relaxed text-[var(--color-slate)] md:text-[20px]">
+          <p className="mt-5 text-[16px] leading-relaxed text-[var(--color-slate)] sm:mt-6 sm:text-[18px] md:text-[20px]">
             {finalSubhead}
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
