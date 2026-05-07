@@ -66,7 +66,7 @@ export function Header() {
             aria-label={`${site.name} home`}
           >
             <Image
-              src={transparent ? "/logo-white.png" : "/logo.png"}
+              src="/logo.png"
               alt={site.name}
               width={180}
               height={56}
