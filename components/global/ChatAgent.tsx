@@ -26,6 +26,18 @@ function messageText(msg: { parts: Array<{ type: string; text?: string }> }): st
     .join("");
 }
 
+/** Last-line-of-defense em-dash scrub. The system prompt forbids em dashes
+ * but if the model slips, we replace them with safer punctuation before
+ * the user ever sees them. " — " becomes ". " (sentence break). Bare "—"
+ * becomes ", " (clause break). En dashes (–) get the same treatment. */
+function scrubEmDashes(text: string): string {
+  return text
+    .replace(/\s+—\s+/g, ". ")
+    .replace(/\s+–\s+/g, ". ")
+    .replace(/—/g, ", ")
+    .replace(/–/g, ", ");
+}
+
 export function ChatAgent() {
   const { locale } = useLanguage();
   const isEs = locale === "es";
@@ -267,12 +279,14 @@ export function ChatAgent() {
                       return [<Bubble key={m.id} role={m.role} text={text} />];
                     }
 
-                    // Assistant: strip [ESCALATE] then split on [NEXT] so a
-                    // single model response can render as multiple bubbles
+                    // Assistant: strip [ESCALATE], scrub any em dashes that
+                    // slipped past the prompt rule, then split on [NEXT] so
+                    // a single model response can render as multiple bubbles
                     // like a real text exchange.
-                    const cleaned = text.trimStart().startsWith(ESCALATE_TAG)
+                    const escapeStripped = text.trimStart().startsWith(ESCALATE_TAG)
                       ? text.replace(ESCALATE_TAG, "").trim()
                       : text;
+                    const cleaned = scrubEmDashes(escapeStripped);
                     const segments = cleaned
                       .split(NEXT_DELIMITER)
                       .map((s) => s.trim())
