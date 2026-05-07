@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 type ChatPhase = "chat" | "handoff-form" | "handoff-sent";
 
 const ESCALATE_TAG = "[ESCALATE]";
+const NEXT_DELIMITER = /\s*\[NEXT\]\s*/g;
 
 /** Pull plain text out of a UIMessage's parts. */
 function messageText(msg: { parts: Array<{ type: string; text?: string }> }): string {
@@ -215,14 +216,33 @@ export function ChatAgent() {
 
             {phase === "chat" && messages.length > 0 && (
               <div className="space-y-3">
-                {messages.map((m) => {
+                {messages.flatMap((m) => {
                   const text = messageText(m);
-                  // Strip the [ESCALATE] tag from assistant messages we render
-                  const display =
-                    m.role === "assistant" && text.trimStart().startsWith(ESCALATE_TAG)
-                      ? text.replace(ESCALATE_TAG, "").trim()
-                      : text;
-                  return <Bubble key={m.id} role={m.role} text={display} />;
+
+                  // User messages render as a single bubble.
+                  if (m.role !== "assistant") {
+                    return [<Bubble key={m.id} role={m.role} text={text} />];
+                  }
+
+                  // Assistant: strip [ESCALATE] then split on [NEXT] so a single
+                  // model response can render as multiple chat bubbles, like a
+                  // real text exchange.
+                  const cleaned = text.trimStart().startsWith(ESCALATE_TAG)
+                    ? text.replace(ESCALATE_TAG, "").trim()
+                    : text;
+                  const segments = cleaned
+                    .split(NEXT_DELIMITER)
+                    .map((s) => s.trim())
+                    .filter((s) => s.length > 0);
+
+                  if (segments.length === 0) return [];
+                  return segments.map((seg, i) => (
+                    <Bubble
+                      key={`${m.id}-${i}`}
+                      role="assistant"
+                      text={seg}
+                    />
+                  ));
                 })}
                 {isStreaming && messages[messages.length - 1]?.role === "user" && (
                   <Bubble role="assistant" text="" pulsing />
