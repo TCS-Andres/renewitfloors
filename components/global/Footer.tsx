@@ -16,11 +16,11 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Image
-              src="/logo.png"
+              src="/logo-white.png"
               alt={site.name}
               width={200}
               height={62}
-              className="h-12 w-auto invert brightness-200"
+              className="h-12 w-auto"
             />
             <p className="mt-6 font-display text-[18px] leading-snug text-white">
               {site.tagline}

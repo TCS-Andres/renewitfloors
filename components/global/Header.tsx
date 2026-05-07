@@ -63,7 +63,7 @@ export function Header() {
             aria-label={`${site.name} home`}
           >
             <Image
-              src="/logo.png"
+              src={transparent ? "/logo-white.png" : "/logo.png"}
               alt={site.name}
               width={180}
               height={56}
@@ -196,11 +196,11 @@ export function Header() {
         <div className="fixed inset-0 z-[60] bg-[var(--color-charcoal)] lg:hidden">
           <div className="flex items-center justify-between px-6 py-4">
             <Image
-              src="/logo.png"
+              src="/logo-white.png"
               alt={site.name}
               width={160}
               height={50}
-              className="h-9 w-auto invert brightness-200"
+              className="h-9 w-auto"
             />
             <button
               type="button"
