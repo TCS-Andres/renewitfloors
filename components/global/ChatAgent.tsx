@@ -338,38 +338,49 @@ export function ChatAgent() {
             )}
           </div>
 
-          {/* Footer (input) — only in chat phase */}
+          {/* Footer (input + manual handoff link) — only in chat phase */}
           {phase === "chat" && (
-            <form
-              onSubmit={handleSubmit}
-              className="border-t border-[var(--color-stone)] bg-white p-3"
-            >
-              <div className="flex items-end gap-2">
-                <textarea
-                  ref={inputRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && !e.shiftKey) {
-                      e.preventDefault();
-                      handleSubmit(e);
-                    }
-                  }}
-                  placeholder={labels.placeholder}
-                  rows={1}
-                  disabled={isStreaming}
-                  className="max-h-32 flex-1 resize-none rounded-[6px] border border-[var(--color-stone)] bg-[var(--color-cream)] px-3 py-2 text-[15px] text-[var(--color-charcoal)] placeholder:text-[var(--color-slate)]/60 focus:border-[var(--color-rust)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-rust)]/20 disabled:opacity-50"
-                />
-                <button
-                  type="submit"
-                  disabled={!input.trim() || isStreaming}
-                  aria-label={labels.send}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-rust)] text-white transition-colors hover:bg-[var(--color-rust-dark)] disabled:opacity-30"
-                >
-                  <Send className="h-4 w-4" />
-                </button>
-              </div>
-            </form>
+            <div className="border-t border-[var(--color-stone)] bg-white">
+              {/* Always-available bypass: lets the user skip the chat and go
+                  straight to the team-callback form. Also a reliable manual
+                  way to test that FormSubmit submissions are arriving. */}
+              <button
+                type="button"
+                onClick={() => setPhase("handoff-form")}
+                className="block w-full border-b border-[var(--color-stone)] py-2 text-center text-[12px] font-medium text-[var(--color-slate)] transition-colors hover:bg-[var(--color-cream)] hover:text-[var(--color-rust)]"
+              >
+                {isEs
+                  ? "O deje sus datos y le llamamos →"
+                  : "Or leave your info and we'll reach out →"}
+              </button>
+              <form onSubmit={handleSubmit} className="p-3">
+                <div className="flex items-end gap-2">
+                  <textarea
+                    ref={inputRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSubmit(e);
+                      }
+                    }}
+                    placeholder={labels.placeholder}
+                    rows={1}
+                    disabled={isStreaming}
+                    className="max-h-32 flex-1 resize-none rounded-[6px] border border-[var(--color-stone)] bg-[var(--color-cream)] px-3 py-2 text-[15px] text-[var(--color-charcoal)] placeholder:text-[var(--color-slate)]/60 focus:border-[var(--color-rust)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-rust)]/20 disabled:opacity-50"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!input.trim() || isStreaming}
+                    aria-label={labels.send}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-rust)] text-white transition-colors hover:bg-[var(--color-rust-dark)] disabled:opacity-30"
+                  >
+                    <Send className="h-4 w-4" />
+                  </button>
+                </div>
+              </form>
+            </div>
           )}
         </div>
       )}
