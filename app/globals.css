@@ -78,6 +78,32 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Inline-link underline reveal: animated bar that grows from left on hover.
+   Apply to <a> or <Link> inside body copy that need a refined hover affordance. */
+.link-underline {
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Subtle pulse halo for high-priority CTAs (phone, free-assessment).
+   Use sparingly — reserved for the single most important action on a page. */
+@keyframes pulse-halo {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(176, 74, 42, 0.0); }
+  50%      { box-shadow: 0 0 0 6px rgba(176, 74, 42, 0.12); }
+}
+.pulse-halo {
+  animation: pulse-halo 2.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

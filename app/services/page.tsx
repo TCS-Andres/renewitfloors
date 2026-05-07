@@ -49,7 +49,7 @@ export default function ServicesHub() {
                 <Reveal key={cat.slug} delay={i * 0.05}>
                   <Link
                     href={`/services/${cat.slug}`}
-                    className="group block h-full rounded-[6px] border border-[var(--color-stone)] bg-white p-8 transition-all hover:border-[var(--color-rust)] md:p-10"
+                    className="group block h-full rounded-[6px] border border-[var(--color-stone)] bg-white p-8 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300 md:p-10"
                   >
                     <div className="flex items-start justify-between gap-6">
                       <div>

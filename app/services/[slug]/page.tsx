@@ -118,7 +118,7 @@ function CategoryPage({
               <Reveal key={s.slug} delay={(i % 6) * 0.05}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="group flex h-full flex-col rounded-[6px] border border-[var(--color-stone)] bg-white p-7 transition-all hover:border-[var(--color-rust)]"
+                  className="group flex h-full flex-col rounded-[6px] border border-[var(--color-stone)] bg-white p-7 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <h3 className="font-display text-[22px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[24px]">
                     {s.name}
@@ -372,7 +372,7 @@ function ServiceDetailPage({
               <Reveal key={r.slug} delay={i * 0.06}>
                 <Link
                   href={`/services/${r.slug}`}
-                  className="group block h-full rounded-[6px] border border-[var(--color-stone)] bg-white p-6 transition-all hover:border-[var(--color-rust)]"
+                  className="group block h-full rounded-[6px] border border-[var(--color-stone)] bg-white p-6 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <h3 className="font-display text-[20px] font-bold leading-tight text-[var(--color-charcoal)]">
                     {r.name}

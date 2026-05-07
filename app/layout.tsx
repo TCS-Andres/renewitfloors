@@ -14,6 +14,7 @@ import {
 import { Header } from "@/components/global/Header";
 import { Footer } from "@/components/global/Footer";
 import { MobileStickyBar } from "@/components/global/MobileStickyBar";
+import { ScrollProgress } from "@/components/global/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -115,13 +116,14 @@ export default function RootLayout({
           />
         ) : null}
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--color-background)] text-[var(--color-ink)] font-sans antialiased">
+      <body className="min-h-full flex flex-col bg-[var(--color-background)] text-[var(--color-ink)] font-sans antialiased pb-16 lg:pb-0">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[var(--color-charcoal)] focus:text-white focus:px-4 focus:py-2 focus:rounded"
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <Header />
         <main id="main" className="flex-1">
           {children}

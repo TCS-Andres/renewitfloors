@@ -150,7 +150,7 @@ export default async function CityPage({ params }: { params: Params }) {
               <Reveal key={s.slug} delay={(i % 6) * 0.05}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-charcoal)]">
                     <Image
@@ -200,7 +200,7 @@ export default async function CityPage({ params }: { params: Params }) {
                 <Reveal key={p.slug} delay={i * 0.08}>
                   <Link
                     href={`/projects/${p.slug}`}
-                    className="group block overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
+                    className="group block overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden bg-[var(--color-charcoal)]">
                       <Image
@@ -252,7 +252,7 @@ export default async function CityPage({ params }: { params: Params }) {
                 <Reveal key={nc.slug} delay={i * 0.06}>
                   <Link
                     href={`/service-areas/${nc.slug}`}
-                    className="group flex items-center justify-between rounded-[6px] border border-[var(--color-stone)] bg-white px-6 py-5 transition-all hover:border-[var(--color-rust)]"
+                    className="group flex items-center justify-between rounded-[6px] border border-[var(--color-stone)] bg-white px-6 py-5 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                   >
                     <span className="flex items-center gap-3">
                       <MapPin className="h-4 w-4 text-[var(--color-rust)]" />

@@ -174,7 +174,7 @@ export function ServicesShowcase() {
               >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group block h-full overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
+                  className="group block h-full overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <div
                     className={`relative w-full overflow-hidden bg-[var(--color-charcoal)] ${
@@ -360,7 +360,7 @@ export function FeaturedProjectsSection() {
             <Reveal>
               <Link
                 href={`/projects/${hero.slug}`}
-                className="group block overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
+                className="group block overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-charcoal)]">
                   <Image
@@ -399,7 +399,7 @@ export function FeaturedProjectsSection() {
               <Reveal key={project.slug} delay={(i + 1) * 0.1}>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group flex h-full overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)]"
+                  className="group flex h-full overflow-hidden rounded-[6px] border border-[var(--color-stone)] bg-white transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <div className="relative aspect-square w-2/5 shrink-0 overflow-hidden bg-[var(--color-charcoal)]">
                     <Image

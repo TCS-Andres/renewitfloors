@@ -28,7 +28,7 @@ export function Section({
       id={id}
       className={cn(
         toneClasses[tone],
-        padded && "py-20 md:py-28 lg:py-36",
+        padded && "py-14 sm:py-18 md:py-24 lg:py-32",
         className,
       )}
     >
