@@ -12,16 +12,26 @@ import { useTranslation } from "@/components/global/LanguageProvider";
 export function PreFooterCTA({
   heading,
   subhead,
+  headingEs,
+  subheadEs,
 }: {
   heading?: string;
   subhead?: string;
+  headingEs?: string;
+  subheadEs?: string;
 }) {
-  const { t } = useTranslation();
-  // Caller-provided heading/subhead are dynamic (city/service-specific) and
-  // remain in their original language. The default heading and subhead, plus
-  // the CTAs, translate.
-  const finalHeading = heading ?? t("preFooter.heading");
-  const finalSubhead = subhead ?? t("preFooter.subhead");
+  const { t, locale } = useTranslation();
+  // Defaults pull from the dictionary. Caller-provided heading/subhead are
+  // dynamic (city/service-specific). When the caller also provides an Es
+  // variant, we render that on Spanish.
+  const finalHeading =
+    heading != null
+      ? locale === "es" && headingEs ? headingEs : heading
+      : t("preFooter.heading");
+  const finalSubhead =
+    subhead != null
+      ? locale === "es" && subheadEs ? subheadEs : subhead
+      : t("preFooter.subhead");
   return (
     <Section tone="cream" padded>
       <Container>

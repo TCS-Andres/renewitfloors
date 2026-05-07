@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { PageHero } from "@/components/global/PageHero";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
+import { L } from "@/components/global/L";
 import { breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 import { categories, getServicesByCategory } from "@/lib/content/services";
 import { site } from "@/lib/site";
@@ -57,10 +58,10 @@ export default function ServicesHub() {
                           {services.length} Service{services.length === 1 ? "" : "s"}
                         </Eyebrow>
                         <h2 className="font-display text-[28px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[32px]">
-                          {cat.name}
+                          <L en={cat.name} es={cat.nameEs} />
                         </h2>
                         <p className="mt-3 text-[16px] leading-relaxed text-[var(--color-slate)]">
-                          {cat.description}
+                          <L en={cat.description} es={cat.descriptionEs} />
                         </p>
                       </div>
                       <ArrowRight className="mt-2 h-5 w-5 shrink-0 text-[var(--color-rust)] transition-transform group-hover:translate-x-1" />
@@ -71,7 +72,7 @@ export default function ServicesHub() {
                           key={s.slug}
                           className="rounded-full bg-[var(--color-cream)] px-3 py-1 text-[12px] font-medium text-[var(--color-charcoal)]"
                         >
-                          {s.name}
+                          <L en={s.name} es={s.nameEs} />
                         </li>
                       ))}
                     </ul>

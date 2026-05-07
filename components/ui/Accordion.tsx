@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Item = { q: string; a: React.ReactNode };
+type Item = { q: React.ReactNode; a: React.ReactNode };
 
 export function Accordion({
   items,

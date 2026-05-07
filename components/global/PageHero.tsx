@@ -15,7 +15,7 @@ export function PageHero({
   align = "left",
   tone = "cream",
 }: {
-  eyebrow?: string;
+  eyebrow?: React.ReactNode;
   title: React.ReactNode;
   description?: React.ReactNode;
   breadcrumbs?: Crumb[];

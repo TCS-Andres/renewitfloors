@@ -5,6 +5,10 @@ export type ServiceArea = {
   signatureWork: string;
   cities: string[];
   topServices: { name: string; slug: string }[];
+  countyEs?: string;
+  introEs?: string;
+  signatureWorkEs?: string;
+  topServicesEs?: { name: string; slug: string }[];
 };
 
 export const serviceAreas: ServiceArea[] = [
@@ -34,6 +38,9 @@ export const serviceAreas: ServiceArea[] = [
       { name: "Marble Restoration", slug: "marble-restoration" },
       { name: "Concrete Polishing", slug: "concrete-polishing" },
     ],
+    countyEs: "Miami-Dade",
+    introEs: "Hemos restaurado más pisos en Miami-Dade que los que podemos contar. Desde terrazo original de los años 40 en Coral Gables hasta concreto pulido en condominios modernos de Brickell y loseta mexicana en barrios viejos como Coconut Grove — esta es nuestra casa.",
+    signatureWorkEs: "Restauración de terrazo histórico, mármol y loseta mexicana/cubana.",
   },
   {
     county: "Broward",
@@ -54,6 +61,9 @@ export const serviceAreas: ServiceArea[] = [
       { name: "Garage Epoxy Flooring", slug: "garage-epoxy-flooring" },
       { name: "Hardwood Refinishing", slug: "hardwood-refinishing" },
     ],
+    countyEs: "Broward",
+    introEs: "Las casas y negocios de Broward traen su propia mezcla — desde propiedades frente al agua en Fort Lauderdale hasta zonas residenciales en Weston y Pembroke Pines, más trabajo comercial creciente en Davie y Hollywood. Hacemos el viaje.",
+    signatureWorkEs: "Vestíbulos de mármol, epoxi de garaje, reacondicionamiento de madera residencial.",
   },
   {
     county: "Palm Beach",
@@ -67,6 +77,9 @@ export const serviceAreas: ServiceArea[] = [
       { name: "Stone Flooring", slug: "stone-flooring" },
       { name: "Concrete Polishing", slug: "concrete-polishing" },
     ],
+    countyEs: "Palm Beach",
+    introEs: "El trabajo en Palm Beach es principalmente residencial de alto nivel — condominios de Boca Raton, vestíbulos de mármol en West Palm. Aceptamos proyectos selectos en esta región, con el mismo estándar manual que aplicamos en todas partes.",
+    signatureWorkEs: "Restauración de mármol y piedra de alto nivel.",
   },
   {
     county: "Monroe",
@@ -80,6 +93,9 @@ export const serviceAreas: ServiceArea[] = [
       { name: "Marble Restoration", slug: "marble-restoration" },
       { name: "Concrete Polishing", slug: "concrete-polishing" },
     ],
+    countyEs: "Monroe",
+    introEs: "Sí, viajamos a los Cayos. El aire salado y la humedad ponen un desgaste único en los pisos de los Cayos — sabemos cómo manejarlo.",
+    signatureWorkEs: "Sellado resistente a la costa, restauración de mármol y concreto.",
   },
 ];
 
@@ -107,6 +123,13 @@ export type ServiceCity = {
   /** City-specific 4K hero image (16:9) */
   cityImage: string;
   cityImageAlt: string;
+  // Spanish translations (optional — fall back to English when missing)
+  countyEs?: string;
+  introEs?: string;
+  localStoryEs?: string;
+  metaTitleEs?: string;
+  metaDescriptionEs?: string;
+  cityImageAltEs?: string;
 };
 
 export const cities: ServiceCity[] = [
@@ -133,6 +156,12 @@ export const cities: ServiceCity[] = [
       "Floor restoration in Coral Gables — historic terrazzo, marble, Cuban and Mexican tile. Family-owned, 30+ years restoring Mediterranean Revival and historic homes. Free assessment.",
     cityImage: "/images/city-coral-gables-mediterranean-revival.jpg",
     cityImageAlt: "Mediterranean Revival home with red-tile roof and original terrazzo entrance in Coral Gables, Miami",
+    countyEs: "Miami-Dade",
+    introEs: "Coral Gables es el corazón de los pisos históricos de Miami. Las casas estilo Mediterranean Revival que bordean Coral Way, Riviera Drive y el distrito de Granada esconden a menudo terrazo original de los años 1920 y 40 bajo décadas de alfombra, loseta y madera.",
+    localStoryEs: "Cuando George Merrick trazó Coral Gables hace cien años, construyó la ciudad para que durara — y los pisos que encargó para estas casas han sobrevivido todo lo demás en ellas. Hemos trabajado en originales Mediterranean Revival donde los dueños no tenían idea de que sus pasillos alfombrados estaban sobre terrazo de mármol y crema. Hemos restaurado loseta cubana en bungalows de los años 30 y vestíbulos de mármol pulido que no se habían lijado desde la administración de Eisenhower. Las reglas de zonificación histórica de Coral Gables hacen que la restauración sea la jugada inteligente — y conocemos las superficies viejas lo suficiente para decirle directamente qué es posible antes de que comience cualquier trabajo.",
+    metaTitleEs: "Restauración de Pisos en Coral Gables, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de pisos en Coral Gables — terrazo histórico, mármol, loseta cubana y mexicana. De propiedad familiar, más de 30 años restaurando casas históricas Mediterranean Revival. Evaluación gratis.",
+    cityImageAltEs: "Casa Mediterranean Revival con tejas rojas y entrada de terrazo original en Coral Gables, Miami",
   },
   {
     slug: "brickell",
@@ -157,6 +186,12 @@ export const cities: ServiceCity[] = [
       "Marble, polished concrete, and lobby restoration in Brickell. HOA-friendly scheduling, licensed and insured. 30+ years restoring Brickell condos and commercial floors. Free assessment.",
     cityImage: "/images/city-brickell-marble-highrise-lobby.jpg",
     cityImageAlt: "Polished marble lobby of a luxury Brickell, Miami high-rise with bay views",
+    countyEs: "Miami-Dade",
+    introEs: "Los rascacielos y condominios de lujo de Brickell tienen algunos de los vestíbulos de mármol y unidades de concreto pulido más bonitos del sur de la Florida. Los restauramos todos — sin cerrar el edificio.",
+    localStoryEs: "Las asociaciones y juntas de condominios de Brickell saben los números: reemplazar un vestíbulo de mármol de 5,000 pies cuadrados cuesta más que una casa pequeña y cierra el edificio por semanas. La restauración toma un fin de semana largo y cuesta una fracción. Hemos trabajado con asociaciones desde Brickell Key hasta The Roads, recuperado mármol de alto tráfico que aguantó veinte años de pisadas y pulido concreto en unidades de lujo después de que los constructores se fueron. La mayoría de nuestros trabajos en Brickell se hacen de noche y los fines de semana para no molestar a residentes ni locales. Estamos licenciados, asegurados y acostumbrados a la documentación que los edificios necesitan.",
+    metaTitleEs: "Restauración de Pisos en Brickell, Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de mármol, concreto pulido y vestíbulos en Brickell. Programación amigable con asociaciones, licenciados y asegurados. Más de 30 años restaurando condominios y pisos comerciales de Brickell. Evaluación gratis.",
+    cityImageAltEs: "Vestíbulo de mármol pulido de un rascacielos de lujo en Brickell, Miami con vista a la bahía",
   },
   {
     slug: "pinecrest",
@@ -181,6 +216,12 @@ export const cities: ServiceCity[] = [
       "Polished concrete, garage epoxy, and hardwood refinishing in Pinecrest. Residential floor restoration with a 1-year warranty. 30+ years. Free assessment.",
     cityImage: "/images/city-pinecrest-modern-estate.jpg",
     cityImageAlt: "Modern Pinecrest estate with polished concrete driveway and epoxy garage floor",
+    countyEs: "Miami-Dade",
+    introEs: "Las grandes propiedades y casas modernas de Pinecrest piden pisos hechos para aguantar la vida real — y el sol del sur de la Florida que desgasta cualquier cosa que no se termine bien la primera vez.",
+    localStoryEs: "El parque habitacional de Pinecrest tiende a ser más nuevo y grande — lotes amplios, garajes para cuatro autos y residencias principales con concreto vaciado que los dueños quieren pulido o sellado en vez de alfombrado. Hacemos mucho concreto pulido aquí, y aún más epoxi para garaje: la mayoría de los constructores vacía losas ásperas que lucen bien para el día del cierre y empiezan a soltar polvo a los seis meses. El pulido con diamante arregla eso. También vemos bastante reacondicionamiento de madera en las calles más antiguas del centro de Pinecrest — donde las casas construidas en los setenta todavía tienen el roble original y solo necesitan un lijado y acabado para volver a la vida.",
+    metaTitleEs: "Restauración de Pisos en Pinecrest, FL | ReNewIt Floors",
+    metaDescriptionEs: "Concreto pulido, epoxi de garaje y reacondicionamiento de madera en Pinecrest. Restauración de pisos residenciales con garantía de 1 año. Más de 30 años. Evaluación gratis.",
+    cityImageAltEs: "Propiedad moderna en Pinecrest con entrada de concreto pulido y piso de epoxi en el garaje",
   },
   {
     slug: "doral",
@@ -205,6 +246,12 @@ export const cities: ServiceCity[] = [
       "Warehouse polished concrete, epoxy systems, and industrial floor cleaning in Doral. Phased scheduling around operations. Licensed, insured, OSHA-aware. Free site visit.",
     cityImage: "/images/city-doral-business-park-warehouse.jpg",
     cityImageAlt: "Industrial business park warehouse with polished concrete loading dock in Doral, Miami",
+    countyEs: "Miami-Dade",
+    introEs: "Los parques industriales, almacenes y mercado de oficinas de Doral necesitan concreto pulido que aguante el tráfico de montacargas sin levantar polvo — y que se vea bien cuando el vicepresidente regional camine el piso.",
+    localStoryEs: "Doral es donde ponemos nuestro equipo más grande a trabajar. Almacenes de logística empujando quince, veinte, treinta mil pies cuadrados. Centros de distribución a lo largo de la NW 41st Street donde la losa se vació cruda y nunca se selló. Edificios de oficinas saliendo del Palmetto. Programamos estos proyectos alrededor de la operación — noches, fines de semana, cierres por sección — para que el trabajo se haga sin parar el negocio. El concreto pulido dura más en ambientes industriales que cualquier otro acabado, y las losas correctamente densificadas detienen el polvo que arruina inventario y rompe sellos de equipo. También manejamos concreto de restaurantes y locales en los nuevos desarrollos de uso mixto alrededor del Downtown Doral.",
+    metaTitleEs: "Restauración de Pisos Industriales en Doral, FL | ReNewIt Floors",
+    metaDescriptionEs: "Concreto pulido para almacenes, sistemas de epoxi y limpieza de pisos industriales en Doral. Programación por fases alrededor de la operación. Licenciados, asegurados, conscientes de OSHA. Visita gratis al sitio.",
+    cityImageAltEs: "Almacén de un parque industrial con muelle de carga de concreto pulido en Doral, Miami",
   },
   {
     slug: "miami-beach",
@@ -228,6 +275,12 @@ export const cities: ServiceCity[] = [
       "Art Deco terrazzo, Cuban tile, marble, and concrete restoration in Miami Beach. Coastal-tough finishes, hospitality-friendly scheduling. 30+ years. Free assessment.",
     cityImage: "/images/city-miami-beach-art-deco-terrazzo.jpg",
     cityImageAlt: "Art Deco hotel lobby with restored geometric terrazzo floor in Miami Beach",
+    countyEs: "Miami-Dade",
+    introEs: "Los pisos de Miami Beach cargan historia. Terrazo Art Deco en edificios de los años 30, loseta cubana en bungalows del South of Fifth, mármol moderno en los rascacielos de Collins Avenue — cada uno con su propia historia de restauración.",
+    localStoryEs: "El aire salado es duro con los pisos, y a Miami Beach le sobra. Los selladores fallan más rápido aquí, el mármol se mancha más rápido, y el concreto sin acabado absorbe humedad todo el año. Escogemos productos que aguantan condiciones de costa y los aplicamos después de la preparación correcta — la única forma de que duren. Hemos restaurado terrazo Art Deco en hoteles originales del South Beach, recuperado loseta hidráulica cubana en casas al sur de la Quinta y pulido concreto en lofts convertidos de edificios viejos sobre Lincoln Road. Los pisos de hospitalidad y locales aquí ven miles de pisadas al día; programamos alrededor de las horas pico para que el trabajo no aparezca en sus reseñas.",
+    metaTitleEs: "Restauración de Pisos en Miami Beach, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de terrazo Art Deco, loseta cubana, mármol y concreto en Miami Beach. Acabados resistentes a la costa, programación amigable con la hospitalidad. Más de 30 años. Evaluación gratis.",
+    cityImageAltEs: "Vestíbulo de hotel Art Deco con piso de terrazo geométrico restaurado en Miami Beach",
   },
   {
     slug: "kendall",
@@ -251,6 +304,12 @@ export const cities: ServiceCity[] = [
       "Tile, hardwood, concrete, and Mexican tile restoration in Kendall. Honest assessments — repair or replace, we'll tell you straight. 30+ years. Free quote.",
     cityImage: "/images/city-kendall-suburban-home.jpg",
     cityImageAlt: "Comfortable Kendall, Miami suburban home with hardwood and tile floors",
+    countyEs: "Miami-Dade",
+    introEs: "Kendall cubre una pieza vasta de Miami-Dade y un rango amplio de casas — desde ranchos de los años 60 hasta townhomes de los 90 hasta construcciones nuevas a lo largo de Krome Avenue. Cada tipo de piso, cada época.",
+    localStoryEs: "Si dibujáramos un diagrama de Venn de los pisos de Kendall, tendría todo dentro: Saltillo mexicano original en casas viejas de Hammocks, madera de roble en los desarrollos de los ochenta, loseta de cerámica por las comunidades de los noventa, y concreto pulido en la construcción nueva del borde occidental. Hacemos mucha reparación puntual aquí — unas losetas rotas, una sección de laminado que se levantó, un parche de madera donde una nevera goteó. Cuando la reparación es la respuesta correcta, se lo decimos. Cuando no lo es, también se lo decimos. Las evaluaciones honestas son cómo nos han seguido refiriendo por todo este barrio durante treinta años.",
+    metaTitleEs: "Restauración de Pisos en Kendall, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de loseta, madera, concreto y loseta mexicana en Kendall. Evaluaciones honestas — reparar o reemplazar, le decimos directamente. Más de 30 años. Presupuesto gratis.",
+    cityImageAltEs: "Casa suburbana en Kendall, Miami con pisos de madera y loseta",
   },
   {
     slug: "coconut-grove",
@@ -275,6 +334,12 @@ export const cities: ServiceCity[] = [
       "Historic Cuban tile, Saltillo, terrazzo, and hardwood restoration in Coconut Grove. Honest about what can be saved. 30+ years. Family-owned. Free assessment.",
     cityImage: "/images/city-coconut-grove-cuban-tile-bungalow.jpg",
     cityImageAlt: "Historic Coconut Grove bungalow with original Cuban hydraulic tile floor",
+    countyEs: "Miami-Dade",
+    introEs: "Las casas viejas de El Grove — bajo banyans y royal poincianas — tienen a menudo loseta cubana original, Saltillo o terrazo esperando a ser devueltos a la vida.",
+    localStoryEs: "Coconut Grove es el barrio habitado continuamente más viejo de Miami, y se nota en los pisos. Loseta hidráulica cubana con patrones pintados de los años treinta. Saltillo mexicano en cabañas escondidas detrás de copas centenarias de árboles. Terrazo en mid-century modernos al este de la US-1. La restauración importa más aquí que casi en ningún otro lugar del condado — estos pisos son parte de por qué la gente ama El Grove. Abordamos este trabajo con cuidado y honestidad: algunos Saltillo con la cáscara rota no se pueden restaurar por completo, pero la mayoría se puede limpiar y sellar para devolverle vida. Le decimos qué es posible antes de mover un solo mueble.",
+    metaTitleEs: "Restauración de Pisos en Coconut Grove, Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restauración histórica de loseta cubana, Saltillo, terrazo y madera en Coconut Grove. Honestos sobre qué se puede salvar. Más de 30 años. De propiedad familiar. Evaluación gratis.",
+    cityImageAltEs: "Bungalow histórico en Coconut Grove con piso original de loseta hidráulica cubana",
   },
   {
     slug: "cutler-bay",
@@ -298,6 +363,12 @@ export const cities: ServiceCity[] = [
       "Tile repair, hardwood refinishing, garage epoxy, and concrete polishing in Cutler Bay. Family-owned, 30+ years restoring South Miami-Dade floors. Free quote.",
     cityImage: "/images/city-cutler-bay-modern-rebuild.jpg",
     cityImageAlt: "Modern Cutler Bay home with epoxy garage floor and tropical landscaping",
+    countyEs: "Miami-Dade",
+    introEs: "Cutler Bay se reconstruyó fuerte después de Andrew. Hoy es una mezcla de construcción nueva y casas bien cuidadas que todavía necesitan trabajo de pisos real — hecho con honestidad.",
+    localStoryEs: "La mayor parte de Cutler Bay se reconstruyó en los años después del Huracán Andrew, lo que significa que un porcentaje enorme de las casas aquí se construyeron en la misma ventana — y los pisos en ellas envejecen al mismo paso. Loseta de finales de los noventa con falla de lechada y rajaduras aisladas. Madera que ya tuvo su primer reacondicionamiento y está lista para un segundo. Concreto de garaje que el constructor original nunca selló. Hacemos mucha reparación puntual de loseta, lijado y acabado de madera y epoxi para garajes aquí. Las subdivisiones más nuevas al este de la US-1 traen trabajo moderno de concreto pulido. Hacemos el viaje al sur por cualquier proyecto que valga la pena.",
+    metaTitleEs: "Restauración de Pisos en Cutler Bay, FL | ReNewIt Floors",
+    metaDescriptionEs: "Reparación de loseta, reacondicionamiento de madera, epoxi de garaje y pulido de concreto en Cutler Bay. De propiedad familiar, más de 30 años restaurando pisos del sur de Miami-Dade. Presupuesto gratis.",
+    cityImageAltEs: "Casa moderna en Cutler Bay con piso de epoxi en el garaje y jardinería tropical",
   },
   {
     slug: "homestead",
@@ -321,6 +392,12 @@ export const cities: ServiceCity[] = [
       "Mexican tile, hardwood, concrete polishing, and garage epoxy in Homestead. Honest pricing, family-owned, 30+ years across South Miami-Dade. Free assessment.",
     cityImage: "/images/city-homestead-agricultural-residential.jpg",
     cityImageAlt: "Modest South Miami-Dade home in Homestead with Saltillo tile floors",
+    countyEs: "Miami-Dade",
+    introEs: "Homestead es el corazón trabajador del sur de Miami-Dade — raíces agrícolas, casas modestas y desarrollos residenciales en crecimiento. Llevamos trabajo honesto de pisos a cada puerta que cruzamos.",
+    localStoryEs: "Homestead tiene más variedad de la que la gente le da crédito. Casas de la era agrícola con loseta mexicana original que solo necesita una limpieza profunda y un sellado fresco. Cabañas mid-century con terrazo escondido bajo linóleo. Subdivisiones nuevas al este del turnpike con concreto de garaje esperando ser cubierto con epoxi. Edificios comerciales agrícolas donde el concreto pulido es el único acabado que dura. Hacemos el viaje al sur porque el trabajo es bueno y la gente es directa — quieren un precio justo por un buen trabajo y quieren saber qué es realmente posible antes de gastar un dólar. Ese es el estándar con el que operamos en todas partes.",
+    metaTitleEs: "Restauración de Pisos en Homestead, FL | ReNewIt Floors",
+    metaDescriptionEs: "Loseta mexicana, madera, concreto pulido y epoxi de garaje en Homestead. Precios honestos, de propiedad familiar, más de 30 años por todo el sur de Miami-Dade. Evaluación gratis.",
+    cityImageAltEs: "Casa modesta del sur de Miami-Dade en Homestead con pisos de loseta Saltillo",
   },
   {
     slug: "palmetto-bay",
@@ -344,6 +421,12 @@ export const cities: ServiceCity[] = [
       "Hardwood refinishing, marble restoration, polished concrete, and garage epoxy in Palmetto Bay. Residential floor restoration with a 1-year warranty. 30+ years.",
     cityImage: "/images/city-palmetto-bay-tree-lined-estate.jpg",
     cityImageAlt: "Palmetto Bay estate under mature live oak canopy with refinished hardwood",
+    countyEs: "Miami-Dade",
+    introEs: "Las calles arboladas y los grandes lotes residenciales de Palmetto Bay son hogar de algunas de las casas más reflexivas del sur de Miami — y pisos hechos para combinarlas.",
+    localStoryEs: "Los dueños de Palmetto Bay tienden a tomarse su tiempo, conseguir la respuesta correcta la primera vez y quedarse en la casa a largo plazo — exactamente la clase de cliente con el que mejor trabajamos. Hemos lijado y acabado madera en casas saliendo del Old Cutler que no se habían tocado en veinte años y lucen nuevas otra vez. Hemos pulido concreto en residencias modernas a lo largo de la bahía. Hemos lijado entradas de mármol que aguantaron dos décadas de tierra bajo los zapatos y las devolvimos al brillo de fábrica. Lotes grandes, garajes grandes, proyectos grandes — todo hecho con el mismo Método de Base Primero que aplicamos a un vestíbulo pequeño en Coral Gables.",
+    metaTitleEs: "Restauración de Pisos en Palmetto Bay, FL | ReNewIt Floors",
+    metaDescriptionEs: "Reacondicionamiento de madera, restauración de mármol, concreto pulido y epoxi de garaje en Palmetto Bay. Restauración de pisos residenciales con garantía de 1 año. Más de 30 años.",
+    cityImageAltEs: "Propiedad en Palmetto Bay bajo copa madura de robles con madera reacondicionada",
   },
   {
     slug: "miami-lakes",
@@ -368,6 +451,12 @@ export const cities: ServiceCity[] = [
       "Mexican Saltillo, terrazzo, hardwood, and concrete restoration in Miami Lakes. Restoring original 1960s-70s floors. 30+ years. Free assessment.",
     cityImage: "/images/city-miami-lakes-saltillo-home.jpg",
     cityImageAlt: "Classic 1960s Miami Lakes home with original Mexican Saltillo tile floors",
+    countyEs: "Miami-Dade",
+    introEs: "Miami Lakes es una comunidad planeada con buenos huesos — casas de los años 60 y 70 que a menudo tienen Saltillo mexicano original o terrazo dignos de salvar.",
+    localStoryEs: "Miami Lakes empezó como comunidad maestra-planeada en 1962, y las casas originales de aquí se construyeron con los acabados de pisos que definieron esa era — Saltillo de México, loseta cubana hidráulica, terrazo y madera de roble. Seis décadas después, esos pisos siguen en la mayoría de estas casas, solo enterrados bajo alfombra o repintados. Levante la alfombra, limpie a fondo la loseta y tendrá un piso que le gana a cualquier cosa que pueda instalar hoy. También trabajamos el corredor de la 67th Avenue, donde los edificios comerciales necesitan concreto pulido y trabajo de epoxi para las oficinas, restaurantes y locales del Main Street y Town Center.",
+    metaTitleEs: "Restauración de Pisos en Miami Lakes, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de Saltillo mexicano, terrazo, madera y concreto en Miami Lakes. Restaurando pisos originales de los años 60 y 70. Más de 30 años. Evaluación gratis.",
+    cityImageAltEs: "Casa clásica de los años 60 en Miami Lakes con pisos originales de loseta mexicana Saltillo",
   },
   {
     slug: "miami",
@@ -391,6 +480,12 @@ export const cities: ServiceCity[] = [
       "Floor restoration across Miami — Wynwood, Little Havana, Edgewater, Allapattah, Midtown. Concrete, terrazzo, marble, tile. 30+ years. Free assessment.",
     cityImage: "/images/city-miami-wynwood-loft-concrete.jpg",
     cityImageAlt: "Converted Wynwood Miami loft with polished concrete floor and exposed brick",
+    countyEs: "Miami-Dade",
+    introEs: "La Ciudad de Miami cubre desde rascacielos en Edgewater hasta bungalows en Little Havana hasta lofts en Wynwood. Cada barrio tiene su propia historia de pisos — y los hemos trabajado todos.",
+    localStoryEs: "Miami no es un solo barrio — son un par de docenas, y los pisos cambian con cada código postal. Wynwood y el Design District: conversiones de almacenes donde el concreto pulido es el acabado correcto y el único que aguanta. Little Havana: loseta cubana y terrazo original en casas construidas antes de 1960. Allapattah: casas unifamiliares viejas con madera y Saltillo. Edgewater y Midtown: condominios modernos con mármol y concreto. Adaptamos el enfoque al barrio — lo que funciona en un loft de Wynwood estaría mal en una cabaña Shenandoah de los años 40. Saber la diferencia es el trabajo.",
+    metaTitleEs: "Restauración de Pisos en Miami, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de pisos por toda la ciudad de Miami — Wynwood, Little Havana, Edgewater, Allapattah, Midtown. Concreto, terrazo, mármol, loseta. Más de 30 años. Evaluación gratis.",
+    cityImageAltEs: "Loft convertido en Wynwood, Miami con piso de concreto pulido y ladrillo expuesto",
   },
   {
     slug: "downtown-miami",
@@ -414,6 +509,12 @@ export const cities: ServiceCity[] = [
       "Commercial floor restoration in Downtown Miami — marble lobbies, polished concrete, historic terrazzo. Phased scheduling, licensed, insured. 30+ years. Free site visit.",
     cityImage: "/images/city-downtown-miami-marble-lobby.jpg",
     cityImageAlt: "Historic Downtown Miami commercial lobby with restored Art Deco terrazzo",
+    countyEs: "Miami-Dade",
+    introEs: "Los edificios comerciales, restaurantes y locales del Downtown Miami necesitan pisos que aguantan miles de pisadas al día y siguen luciendo bien — todos los días.",
+    localStoryEs: "El Downtown es trabajo comercial de alto tráfico, alto en lo que está en juego. Edificios gubernamentales sobre Flagler. Locales de Bayside y el corredor de cruceros. Hileras de restaurantes sobre Biscayne donde el piso es un activo de marca. Hemos pulido concreto en cocinas de restaurantes, restaurado vestíbulos de mármol en torres centenarias del centro y devuelto vida al terrazo en edificios históricos cerca de Government Center. Los administradores de propiedades y operadores aprecian tres cosas: programación clara, garantías reales y la capacidad de hacer el trabajo por fases alrededor del horario operacional. Hacemos las tres. La mayoría de nuestros trabajos en el centro corren noches o fines de semana para evitar interrumpir el flujo de pie.",
+    metaTitleEs: "Restauración de Pisos en Downtown Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restauración comercial de pisos en Downtown Miami — vestíbulos de mármol, concreto pulido, terrazo histórico. Programación por fases, licenciados, asegurados. Más de 30 años. Visita gratis al sitio.",
+    cityImageAltEs: "Vestíbulo comercial histórico en Downtown Miami con terrazo Art Deco restaurado",
   },
   {
     slug: "fort-lauderdale",
@@ -437,6 +538,12 @@ export const cities: ServiceCity[] = [
       "Marble, terrazzo, hardwood, and concrete restoration in Fort Lauderdale — Las Olas, Victoria Park, Coral Ridge, Rio Vista. Coastal-tough sealing. 30+ years.",
     cityImage: "/images/city-fort-lauderdale-waterfront-residence.jpg",
     cityImageAlt: "Fort Lauderdale waterfront residence with polished marble interior and yacht dock at golden hour",
+    countyEs: "Broward",
+    introEs: "Las casas frente al Intracoastal de Fort Lauderdale, las entradas de mármol de Las Olas y los lofts del Riverwalk piden cada uno un enfoque diferente. Los trabajamos todos — y sabemos lo que el aire salado le hace a un sellador.",
+    localStoryEs: "Los pisos de Fort Lauderdale son diversos: ranchos de los años 50 saliendo de Sunrise Boulevard con terrazo original, condominios modernos en Las Olas con vestíbulos de mármol, propiedades frente al río en el New River con madera y concreto pulido, casas de yacht-club a lo largo del Intracoastal donde la sal y la humedad hacen crítica la elección del sellador. Hemos trabajado por todas partes desde Victoria Park hasta Coral Ridge hasta Rio Vista, y sabemos qué productos aguantan cuando el viento sopla del Atlántico. Para el mármol viejo de Las Olas, lijamos y pulimos en sitio — la mayoría de estos pisos no necesitan reemplazo, solo restauración real. Para las casas frente al agua, nos inclinamos por selladores más duros y planes de mantenimiento más frecuentes.",
+    metaTitleEs: "Restauración de Pisos en Fort Lauderdale, FL | ReNewIt Floors",
+    metaDescriptionEs: "Mármol, terrazo, madera y concreto en Fort Lauderdale — Las Olas, Victoria Park, Coral Ridge, Rio Vista. Sellado resistente a la costa. Más de 30 años.",
+    cityImageAltEs: "Residencia frente al agua en Fort Lauderdale con interior de mármol pulido y muelle al atardecer",
   },
   {
     slug: "hollywood",
@@ -460,6 +567,12 @@ export const cities: ServiceCity[] = [
       "Terrazzo, Cuban tile, hardwood, and tile repair in Hollywood — Beachside, Hollywood Hills, and west-of-441. Honest assessments. 30+ years. Free quote.",
     cityImage: "/images/city-hollywood-beachside-mid-century.jpg",
     cityImageAlt: "Hollywood Florida mid-century home with refinished oak hardwood and ocean view through sliding doors",
+    countyEs: "Broward",
+    introEs: "Los pisos de Hollywood van desde duplex frente al Broadwalk hasta ranchos tierra adentro — épocas distintas, superficies distintas, todas dignas de salvar.",
+    localStoryEs: "Hollywood al este de la US-1 es un mundo de pisos diferente al del oeste. En la playa, hay duplex de los años 50 y 60 con loseta cubana original y terrazo, mid-century moderns con madera y condominios con entradas de mármol. Tierra adentro, Hollywood Hills y los barrios al oeste de la 441 son más nuevos — casas estilo rancho y contemporáneas con loseta y laminado. Restauramos las superficies históricas con el mismo cuidado que aplicamos en Coral Gables y hacemos reparación y reacondicionamiento estándar por todas las comunidades del interior. Hollywood viejo merece restauración antes que reemplazo — los pisos originales son parte de por qué estos barrios se sienten correctos.",
+    metaTitleEs: "Restauración de Pisos en Hollywood, FL | ReNewIt Floors",
+    metaDescriptionEs: "Terrazo, loseta cubana, madera y reparación de loseta en Hollywood — Beachside, Hollywood Hills y al oeste de la 441. Evaluaciones honestas. Más de 30 años. Presupuesto gratis.",
+    cityImageAltEs: "Casa mid-century en Hollywood, Florida con madera reacondicionada y vista al océano",
   },
   {
     slug: "weston",
@@ -483,6 +596,12 @@ export const cities: ServiceCity[] = [
       "Garage epoxy, polished concrete, hardwood refinishing, and marble restoration in Weston — master-planned communities, family homes. 30+ years. Free assessment.",
     cityImage: "/images/city-weston-luxury-suburban-home.jpg",
     cityImageAlt: "Mediterranean-style luxury suburban home in Weston, Florida with palm-lined paver driveway and decorative epoxy garage floor",
+    countyEs: "Broward",
+    introEs: "Las comunidades planeadas y casas de lujo de Weston piden acabados de construcción nueva — concreto pulido, epoxi de garaje, madera reacondicionada — hechos bien la primera vez.",
+    localStoryEs: "Weston se planeó al final de los 80 y los 90 por Arvida, y el parque habitacional aquí es consistente: casas familiares grandes, garajes para dos y tres autos, concreto del piso principal que los dueños quieren pulido o loseta que necesita mantenimiento después de veinticinco años de vida. Hacemos mucho epoxi para garaje aquí — la mayoría de los constructores vació losas ásperas que lucen bien en el día del cierre y empiezan a soltar polvo y rajarse al año. El pulido con diamante y un sistema de epoxi real arregla eso para siempre. El reacondicionamiento de madera es el otro pedido constante: roble original de las subdivisiones de los noventa listo para su primer o segundo lijado y acabado. Los dueños de Weston quieren que se haga bien y se quedan en la casa lo suficiente para disfrutar el resultado.",
+    metaTitleEs: "Restauración de Pisos en Weston, FL | ReNewIt Floors",
+    metaDescriptionEs: "Epoxi de garaje, concreto pulido, reacondicionamiento de madera y restauración de mármol en Weston — comunidades planeadas, casas familiares. Más de 30 años. Evaluación gratis.",
+    cityImageAltEs: "Casa suburbana de lujo estilo mediterráneo en Weston, Florida con entrada de adoquines y piso de epoxi en el garaje",
   },
   {
     slug: "davie",
@@ -506,6 +625,12 @@ export const cities: ServiceCity[] = [
       "Garage epoxy, concrete sealing, Saltillo tile, and hardwood restoration in Davie — equestrian estates, ranch homes, family neighborhoods. 30+ years. Free quote.",
     cityImage: "/images/city-davie-ranch-style-home.jpg",
     cityImageAlt: "Davie Florida ranch-style home with red tile accents, oak trees, and a polished concrete patio",
+    countyEs: "Broward",
+    introEs: "Las propiedades ecuestres, ranchos y barrios familiares en crecimiento de Davie traen una mezcla real de trabajo de pisos — desde Saltillo hasta concreto pulido hasta epoxi de garaje.",
+    localStoryEs: "Davie mantiene su carácter del oeste-rural en los barrios viejos alrededor de Pine Island Road y Griffin Road, con ranchos, propiedades ecuestres y lotes grandes que a menudo tienen pisos de Saltillo o loseta de barro. Los desarrollos más nuevos al oeste tienen residencial estándar de la Florida — loseta, madera y concreto que necesita sellado. Vemos bastante trabajo de epoxi de garaje aquí porque los caballos, camionetas y almacenamiento de tráileres exigen un piso que aguante abuso real. También hacemos sellado de concreto agrícola-comercial para los pequeños negocios y operaciones ecuestres que definen este pueblo.",
+    metaTitleEs: "Restauración de Pisos en Davie, FL | ReNewIt Floors",
+    metaDescriptionEs: "Epoxi de garaje, sellado de concreto, loseta Saltillo y restauración de madera en Davie — propiedades ecuestres, ranchos, barrios familiares. Más de 30 años. Presupuesto gratis.",
+    cityImageAltEs: "Casa estilo rancho en Davie, Florida con detalles de loseta roja, robles y patio de concreto pulido",
   },
   {
     slug: "pembroke-pines",
@@ -529,6 +654,12 @@ export const cities: ServiceCity[] = [
       "Tile repair, garage epoxy, hardwood refinishing, polished concrete in Pembroke Pines. Family-friendly scheduling. 30+ years. Free assessment.",
     cityImage: "/images/city-pembroke-pines-contemporary-residential.jpg",
     cityImageAlt: "Contemporary Pembroke Pines, Florida home with polished concrete floor and tropical landscaping",
+    countyEs: "Broward",
+    introEs: "Los barrios familiares planeados de Pembroke Pines están llenos de casas que se benefician de un nuevo enfoque para los pisos — reparación de loseta, refrescada de madera, epoxi de garaje, concreto pulido.",
+    localStoryEs: "Pembroke Pines es principalmente residencial de construcción más reciente, con comunidades planeadas que corren desde Pines Boulevard bajando a Sheridan Street y al oeste hasta la I-75. El parque habitacional es consistente — casas familiares bien construidas de los 90 hasta los 2010 — y los pisos en ellas envejecen al mismo ritmo. Hacemos reparación de loseta y laminado donde unas tablas se levantaron o falló la lechada, reacondicionamiento de madera en las casas listas para su segundo lijado y acabado, instalaciones de epoxi de garaje para dueños cansados del concreto crudo polvoriento, y concreto pulido para dueños que quieren un look libre de mantenimiento que dure décadas. Programación amigable con familias y trabajo limpio — no llevamos polvo por toda su casa.",
+    metaTitleEs: "Restauración de Pisos en Pembroke Pines, FL | ReNewIt Floors",
+    metaDescriptionEs: "Reparación de loseta, epoxi de garaje, reacondicionamiento de madera, concreto pulido en Pembroke Pines. Programación amigable con familias. Más de 30 años. Evaluación gratis.",
+    cityImageAltEs: "Casa contemporánea en Pembroke Pines, Florida con piso de concreto pulido y jardinería tropical",
   },
   {
     slug: "southwest-ranches",
@@ -552,6 +683,12 @@ export const cities: ServiceCity[] = [
       "Equestrian floor sealing, garage epoxy, polished concrete, and marble restoration in Southwest Ranches. Large-estate experience. 30+ years. Free site visit.",
     cityImage: "/images/city-southwest-ranches-equestrian-estate.jpg",
     cityImageAlt: "Spanish-style equestrian estate in Southwest Ranches with polished concrete driveway and a horse barn",
+    countyEs: "Broward",
+    introEs: "Las propiedades ecuestres y casas de lotes grandes de Southwest Ranches necesitan trabajo de pisos que aguanta las demandas reales de la vida campestre — y acabados que combinan con la arquitectura.",
+    localStoryEs: "Southwest Ranches mantiene su carácter rural intencionalmente — propiedades ecuestres con establos, complejos familiares grandes y acreaje que exige acabados pensados para uso duro. Pulimos y sellamos concreto en establos de caballos y cuartos de equipo donde la durabilidad antideslizante importa, instalamos sistemas de epoxi de garaje en los garajes de varias bahías que estas propiedades suelen tener, y reacondicionamos madera en las residencias principales. También hemos trabajado en las entradas de mármol y pisos de piedra de las casas estilo mediterráneo de alto nivel esparcidas por toda la comunidad. Precios honestos para proyectos de escala inusual.",
+    metaTitleEs: "Restauración de Pisos en Southwest Ranches, FL | ReNewIt Floors",
+    metaDescriptionEs: "Sellado de pisos ecuestres, epoxi de garaje, concreto pulido y restauración de mármol en Southwest Ranches. Experiencia con propiedades grandes. Más de 30 años. Visita gratis al sitio.",
+    cityImageAltEs: "Propiedad ecuestre estilo español en Southwest Ranches con entrada de concreto pulido y un establo",
   },
   {
     slug: "boca-raton",
@@ -575,6 +712,12 @@ export const cities: ServiceCity[] = [
       "Luxury marble, travertine, hardwood, and stone floor restoration in Boca Raton — country-club homes, oceanfront condos. Quiet, professional, insured. 30+ years.",
     cityImage: "/images/city-boca-raton-luxury-foyer.jpg",
     cityImageAlt: "Luxury Boca Raton, Florida home foyer with mirror-polished cremà marble floor, sweeping staircase, and crystal chandelier",
+    countyEs: "Palm Beach",
+    introEs: "Los barrios de country club y condominios frente al océano de Boca Raton tienen algunos de los pisos de mármol, terrazo y madera más bonitos del sur de la Florida. Los restauramos en silencio, con profesionalismo y en el horario de los dueños.",
+    localStoryEs: "Boca Raton tiene una tradición de arquitectura mediterránea y contemporánea refinada — y los pisos en estas casas suelen ser tan serios como las casas mismas. Entradas de mármol Cremà y Calacatta en casas de country club saliendo de Camino Real. Travertino pulido en condominios frente al océano a lo largo del Highway A1A. Madera en los barrios viejos cerca de Mizner Park. Abordamos este trabajo de la forma en que los dueños de Boca y las juntas de asociaciones lo esperan — en silencio, en su horario, con seguro apropiado y entregas limpias. La restauración de mármol es nuestro servicio más solicitado aquí. Podemos lijar en sitio, hacer reparaciones de color combinado y devolver el mármol de veinte años al brillo de fábrica sin mover un solo mueble.",
+    metaTitleEs: "Restauración de Pisos en Boca Raton, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de mármol, travertino, madera y piedra de lujo en Boca Raton — casas de country club, condominios frente al océano. Silenciosos, profesionales, asegurados. Más de 30 años.",
+    cityImageAltEs: "Vestíbulo de casa de lujo en Boca Raton, Florida con piso de mármol Cremà pulido espejo, escalera curva y candelabro de cristal",
   },
   {
     slug: "west-palm-beach",
@@ -598,6 +741,12 @@ export const cities: ServiceCity[] = [
       "Historic terrazzo, marble lobby, hardwood, and polished concrete restoration in West Palm Beach — downtown, El Cid, Flamingo Park, Worth Avenue. 30+ years.",
     cityImage: "/images/city-west-palm-beach-historic-lobby.jpg",
     cityImageAlt: "Historic West Palm Beach commercial lobby with restored geometric terrazzo and brass elevator doors",
+    countyEs: "Palm Beach",
+    introEs: "El distrito del centro, los barrios históricos y el corredor comercial de Worth Avenue de West Palm Beach tienen cada uno su propia historia de pisos — y los restauramos todos.",
+    localStoryEs: "Downtown West Palm tiene parte del terrazo histórico más bonito del sur de la Florida — edificios sobre Clematis Street y el distrito alrededor de los años 1920 y 30. Worth Avenue y el corredor comercial de lujo alrededor ven vestíbulos de mármol y pisos de locales de alto nivel que necesitan restauración en ciclo regular. Los barrios residenciales históricos alrededor de El Cid y Flamingo Park tienen pisos de madera y terrazo original dignos de salvar. Hacemos proyectos selectos en el mercado de West Palm — terrazo histórico, vestíbulos de mármol y concreto pulido comercial serio para el proyecto correcto.",
+    metaTitleEs: "Restauración de Pisos en West Palm Beach, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración histórica de terrazo, vestíbulos de mármol, madera y concreto pulido en West Palm Beach — centro, El Cid, Flamingo Park, Worth Avenue. Más de 30 años.",
+    cityImageAltEs: "Vestíbulo comercial histórico en West Palm Beach con terrazo geométrico restaurado y puertas de elevador en bronce",
   },
   {
     slug: "key-largo",
@@ -621,6 +770,12 @@ export const cities: ServiceCity[] = [
       "Coastal-tough floor restoration in Key Largo — concrete sealing, hardwood refinishing, terrazzo, stone. Salt air and humidity expertise. 30+ years.",
     cityImage: "/images/city-key-largo-waterfront-cottage.jpg",
     cityImageAlt: "Casual Key Largo waterfront home interior with refinished light oak hardwood and turquoise ocean view",
+    countyEs: "Monroe",
+    introEs: "Las casas de Key Largo lidian con sal, humedad y vida casual de los Cayos — los pisos aquí necesitan acabados que aguantan los tres.",
+    localStoryEs: "Los Cayos son duros con los pisos. El aire salado degrada los selladores más rápido que en condiciones de tierra firme. La humedad del año entero cambia cómo se comportan la madera y el concreto. El flujo casual interior-exterior de la mayoría de las casas de los Cayos significa que los pisos toman más desgaste de arena, agua y tráfico en chanclas. Usamos selladores más duros, sistemas de curado más rápido y planeamos cronogramas de mantenimiento que tienen en cuenta las condiciones. El trabajo en Key Largo es principalmente residencial — cabañas viejas de los Cayos con madera, reconstrucciones mid-century con terrazo y casas modernas a lo largo de la bahía con concreto pulido y piedra.",
+    metaTitleEs: "Restauración de Pisos en Key Largo, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de pisos resistente a la costa en Key Largo — sellado de concreto, reacondicionamiento de madera, terrazo, piedra. Experiencia con aire salado y humedad. Más de 30 años.",
+    cityImageAltEs: "Interior casual de casa frente al agua en Key Largo con madera de roble claro reacondicionada y vista al océano turquesa",
   },
   {
     slug: "key-west",
@@ -644,6 +799,12 @@ export const cities: ServiceCity[] = [
       "Historic Dade County pine, Cuban tile, terrazzo, and marble restoration in Key West Old Town. Preservation-first approach for historic homes. 30+ years.",
     cityImage: "/images/city-key-west-historic-conch-home.jpg",
     cityImageAlt: "Historic Conch-style Key West home with original heart pine hardwood floor and tropical garden through French doors",
+    countyEs: "Monroe",
+    introEs: "Las casas históricas del Old Town y los edificios de hospitalidad de Key West cargan historia seria de pisos — pino original de Dade County, loseta cubana y terrazo de otra era.",
+    localStoryEs: "Old Town de Key West es un universo de pisos diferente. Las casas históricas estilo Conch tienen pino de Dade County y heart pine originales — madera tan densa que las termitas no la tocan — que ha estado en el piso por más de cien años y solo necesita un reacondicionamiento cuidadoso para volver a la vida. La loseta cubana de antes del embargo vive en muchas de las casas de la era colonial. Las reconstrucciones mid-century y edificios de hospitalidad tienen terrazo y mármol. Abordamos el trabajo en Key West como el distrito histórico lo espera — preservación primero, sin reemplazo cuando la restauración es posible y respeto por superficies que ya no se hacen. Aceptamos proyectos selectos en los Cayos con la programación apropiada.",
+    metaTitleEs: "Restauración de Pisos en Key West, FL | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de pino de Dade County, loseta cubana, terrazo y mármol históricos en el Old Town de Key West. Enfoque de preservación primero para casas históricas. Más de 30 años.",
+    cityImageAltEs: "Casa histórica estilo Conch en Key West con piso original de heart pine y jardín tropical a través de las puertas francesas",
   },
 ];
 

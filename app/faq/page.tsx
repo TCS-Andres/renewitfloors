@@ -5,6 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Accordion } from "@/components/ui/Accordion";
 import { PageHero } from "@/components/global/PageHero";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
+import { L } from "@/components/global/L";
 import { breadcrumbSchema, faqPageSchema, jsonLdScript } from "@/lib/schema";
 import { faqs, getFaqsByCategory } from "@/lib/content/faqs";
 import { site } from "@/lib/site";
@@ -65,7 +66,7 @@ export default function FaqPage() {
                     {cat}
                   </h2>
                   <div className="mt-8">
-                    <Accordion items={items.map((f) => ({ q: f.q, a: f.a }))} />
+                    <Accordion items={items.map((f) => ({ q: <L en={f.q} es={f.qEs} />, a: <L en={f.a} es={f.aEs} /> }))} />
                   </div>
                 </Reveal>
               );

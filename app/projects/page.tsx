@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero } from "@/components/global/PageHero";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
+import { L } from "@/components/global/L";
 import { breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 import { projects } from "@/lib/content/projects";
 import { site } from "@/lib/site";
@@ -52,27 +53,27 @@ export default function ProjectsPage() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-charcoal)]">
                     <Image
                       src={project.image}
-                      alt={project.imageAlt}
+                      alt={project.imageAltEs ?? project.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 50vw, 100vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     />
                     <span className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-charcoal)]">
-                      {project.category}
+                      <L en={project.category} es={project.categoryEs} />
                     </span>
                   </div>
                   <div className="p-7">
                     <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--color-rust)]">
-                      {project.location} · {project.service}
+                      {project.location} · <L en={project.service} es={project.serviceEs} />
                     </span>
                     <h3 className="mt-3 font-display text-[24px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[28px]">
-                      {project.title}
+                      <L en={project.title} es={project.titleEs} />
                     </h3>
                     <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-slate)]">
-                      {project.excerpt}
+                      <L en={project.excerpt} es={project.excerptEs} />
                     </p>
                     <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
-                      View Project
+                      <L en="View Project" es="Ver Proyecto" />
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>

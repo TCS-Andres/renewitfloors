@@ -6,6 +6,7 @@ import { PageHero } from "@/components/global/PageHero";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
 import { Button } from "@/components/ui/Button";
 import { breadcrumbSchema, jsonLdScript } from "@/lib/schema";
+import { L } from "@/components/global/L";
 import { testimonials } from "@/lib/content/testimonials";
 import { site } from "@/lib/site";
 
@@ -77,14 +78,14 @@ export default function TestimonialsPage() {
                     ))}
                   </div>
                   <p className="mt-4 flex-1 font-display text-[18px] italic leading-snug text-[var(--color-charcoal)]">
-                    &ldquo;{t.quote}&rdquo;
+                    &ldquo;<L en={t.quote} es={t.quoteEs} />&rdquo;
                   </p>
                   <footer className="mt-6 border-t border-[var(--color-stone)] pt-5">
                     <div className="text-[14px] font-semibold text-[var(--color-charcoal)]">
                       {t.name}
                     </div>
                     <div className="text-[12px] text-[var(--color-slate)]">
-                      {t.location} · {t.service}
+                      {t.location} · <L en={t.service} es={t.serviceEs} />
                     </div>
                     <div className="mt-1 text-[11px] uppercase tracking-wider text-[var(--color-slate)]/70">
                       {t.date}

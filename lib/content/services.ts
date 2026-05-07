@@ -20,6 +20,15 @@ export type ServiceCategory = {
   methodAngle: string;
   metaTitle: string;
   metaDescription: string;
+  // Spanish translations (optional — fall back to English when missing)
+  nameEs?: string;
+  shortNameEs?: string;
+  h1Es?: string;
+  subheadEs?: string;
+  descriptionEs?: string;
+  methodAngleEs?: string;
+  metaTitleEs?: string;
+  metaDescriptionEs?: string;
 };
 
 export type Service = {
@@ -41,6 +50,20 @@ export type Service = {
   imageAlt: string; // Alt text for SEO
   detailImage?: string; // Optional secondary process/detail shot
   detailImageAlt?: string;
+  // Spanish translations (optional — fall back to English when missing)
+  nameEs?: string;
+  h1Es?: string;
+  shortDescriptionEs?: string;
+  metaTitleEs?: string;
+  metaDescriptionEs?: string;
+  introEs?: string;
+  bodyEs?: string;
+  scopeEs?: string[];
+  processEs?: { title: string; description: string }[];
+  methodNoteEs?: string;
+  faqsEs?: { q: string; a: string }[];
+  imageAltEs?: string;
+  detailImageAltEs?: string;
 };
 
 export const categories: ServiceCategory[] = [
@@ -58,6 +81,14 @@ export const categories: ServiceCategory[] = [
     metaTitle: "Concrete & Epoxy Floor Solutions in Miami | ReNewIt Floors",
     metaDescription:
       "Polished concrete, garage epoxy, decorative concrete, and sealing in Miami. Diamond-ground prep. 30+ years. 1-year warranty. Free assessment.",
+    nameEs: "Soluciones de Concreto y Epoxi",
+    shortNameEs: "Concreto y Epoxi",
+    h1Es: "Pisos de concreto y epoxi que no se despegan, no se opacan, ni fallan.",
+    subheadEs: "Desde concreto pulido espejo hasta sistemas de epoxi para garajes hechos sobre una preparación real — esta es nuestra especialidad más solicitada.",
+    descriptionEs: "Concreto pulido, sistemas de epoxi, acabados decorativos y selladores de protección — todo basado en nuestro Método de Base Primero.",
+    methodAngleEs: "Por qué se despega el epoxi de la mayoría — y por qué el nuestro no. La capa de natilla del concreto recién vaciado no se adhiere. La eliminamos con pulido de diamante antes de que cualquier acabado toque el piso.",
+    metaTitleEs: "Soluciones de Pisos de Concreto y Epoxi en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Concreto pulido, epoxi para garaje, concreto decorativo y sellado en Miami. Preparación con pulido de diamante. Más de 30 años. Garantía de 1 año. Evaluación gratis.",
   },
   {
     slug: "stone-specialty",
@@ -73,6 +104,14 @@ export const categories: ServiceCategory[] = [
     metaTitle: "Natural Stone & Specialty Floor Restoration in Miami | ReNewIt Floors",
     metaDescription:
       "Terrazzo, marble, Mexican tile, and natural stone restoration in Miami. Family-owned. Honest assessments. 30+ years. 1-year warranty.",
+    nameEs: "Piedra Natural y Pisos Especiales",
+    shortNameEs: "Piedra y Especiales",
+    h1Es: "Devolviéndole vida a la piedra y la loseta original de Miami.",
+    subheadEs: "Terrazo, mármol, loseta mexicana y cubana, piedra natural — superficies con historia, restauradas con cuidado.",
+    descriptionEs: "Restaurando las superficies que hicieron a las casas del sur de la Florida lo que son — terrazo histórico, vestíbulos de mármol, loseta mexicana y cubana.",
+    methodAngleEs: "Honestos sobre lo que es posible. Algunas superficies — como la cáscara horneada de la loseta mexicana — no aceptan una restauración completa. Le decimos la verdad antes de que gaste un dólar.",
+    metaTitleEs: "Restauración de Piedra Natural y Pisos Especiales en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Terrazo, mármol, loseta mexicana y piedra natural en Miami. De propiedad familiar. Evaluaciones honestas. Más de 30 años. Garantía de 1 año.",
   },
   {
     slug: "hardwood-repair",
@@ -88,6 +127,14 @@ export const categories: ServiceCategory[] = [
     metaTitle: "Hardwood Refinishing & Floor Repair in Miami | ReNewIt Floors",
     metaDescription:
       "Hardwood floor refinishing, tile repair, laminate and vinyl repair in Miami. 30+ years. 1-year warranty. Free assessment.",
+    nameEs: "Madera, Loseta y Reparaciones",
+    shortNameEs: "Madera y Reparaciones",
+    h1Es: "Devolviéndole a los pisos de madera su calidez original.",
+    subheadEs: "Reacondicionamiento, reparación y arreglos puntuales para madera, loseta, laminado y vinilo.",
+    descriptionEs: "Restauración y reparación puntual para los pisos por los que la gente camina todos los días — madera, laminado, vinilo y loseta.",
+    methodAngleEs: "Primero, una evaluación honesta. A veces tiene sentido reacondicionar. A veces basta con una reparación puntual. Le decimos cuál.",
+    metaTitleEs: "Reacondicionamiento de Madera y Reparación de Pisos en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Reacondicionamiento de pisos de madera, reparación de loseta, laminado y vinilo en Miami. Más de 30 años. Garantía de 1 año. Evaluación gratis.",
   },
   {
     slug: "commercial-industrial",
@@ -103,6 +150,14 @@ export const categories: ServiceCategory[] = [
     metaTitle: "Commercial & Industrial Floor Care in Miami | ReNewIt Floors",
     metaDescription:
       "Commercial and industrial floor restoration in Miami — warehouses, offices, retail. Polished concrete, epoxy systems. 30+ years. Free site visit.",
+    nameEs: "Cuidado de Pisos Comerciales e Industriales",
+    shortNameEs: "Comercial e Industrial",
+    h1Es: "Pisos industriales restaurados a gran escala — sin atajos.",
+    subheadEs: "Concreto pulido a gran escala, sistemas de epoxi y mantenimiento de pisos para instalaciones del sur de la Florida.",
+    descriptionEs: "Restauración de pisos para almacenes, oficinas y locales comerciales — para administradores de propiedades y operadores de instalaciones.",
+    methodAngleEs: "Escala no significa atajos. Aplicamos el mismo Método de Base Primero a un almacén de 15,000 pies cuadrados que a un vestíbulo en Coral Gables.",
+    metaTitleEs: "Cuidado de Pisos Comerciales e Industriales en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de pisos comerciales e industriales en Miami — almacenes, oficinas, locales. Concreto pulido, sistemas de epoxi. Más de 30 años. Visita gratis al sitio.",
   },
 ];
 
@@ -161,6 +216,37 @@ export const services: Service[] = [
     imageAlt: "Mirror-finish polished concrete floor in a Miami home",
     detailImage: "/images/concrete-polishing-macro-detail-miami.jpg",
     detailImageAlt: "Macro detail of mirror-polished concrete floor surface in Miami",
+    nameEs: "Concreto Pulido",
+    h1Es: "Concreto pulido con acabado espejo — construido sobre seis pasadas de diamante.",
+    shortDescriptionEs: "De seis a siete pasadas de pulido con diamante. Acabados espejo. Hechos para durar.",
+    metaTitleEs: "Concreto Pulido en Miami, FL | ReNewIt Floors",
+    metaDescriptionEs: "Concreto pulido con diamante en Miami. De seis a siete pasadas para un acabado espejo. Más de 30 años. Garantía de 1 año. Evaluación gratis.",
+    introEs: "El concreto pulido es nuestra especialidad principal. Hecho bien, dura décadas — una superficie sellada, suave, con acabado espejo que aguanta tráfico, sol y la humedad del sur de la Florida. Hecho mal, se opaca en meses.",
+    bodyEs: "La diferencia está en la preparación. La mayoría de los contratistas pulen un piso de concreto con una o dos pasadas. Nosotros corremos seis o siete. Cada pasada usa pads de diamante progresivamente más finos — abriendo la superficie, removiendo la capa de natilla, nivelando imperfecciones, y finalmente llevando la losa a un brillo refractante. Los detalles del borde se terminan a mano. El sellador va sobre una superficie lista para él.",
+    methodNoteEs: "Cuando el concreto seca, se forma una capa suave de natilla en la superficie. La pintura, el sellador y los tintes no se adhieren a esa capa — se adhieren a lo de abajo. Por eso la mayoría de los pisos de concreto pulido lucen bien por seis meses y luego se opacan. Nosotros lijamos la natilla todas las veces.",
+    imageAltEs: "Piso de concreto pulido con acabado espejo en una casa de Miami",
+    detailImageAltEs: "Detalle macro de superficie de concreto pulido espejo en Miami",
+    scopeEs: [
+      "Evaluación del piso y plan de pulido",
+      "De seis a siete pasadas de pulido con diamante (granos progresivos)",
+      "Reparación de grietas y juntas donde sea necesario",
+      "Aplicación de densificador para dureza",
+      "Pulido final al nivel de brillo especificado",
+      "Sellador penetrante para protección contra manchas",
+      "Detalle de borde terminado a mano",
+    ],
+    processEs: [
+      { title: "Evaluamos", description: "Caminamos su losa, identificamos cualquier necesidad de preparación y confirmamos el acabado correcto para su espacio." },
+      { title: "Pulido con Diamante", description: "Seis o siete pulidos progresivos remueven la capa de natilla y abren la superficie." },
+      { title: "Pulimos", description: "Pads de pulido progresivos llevan el piso al nivel de brillo objetivo." },
+      { title: "Sellamos", description: "Sellador penetrante protege contra manchas, agua y desgaste." },
+    ],
+    faqsEs: [
+      { q: "¿Se puede instalar concreto pulido en una casa residencial, no solo en un garaje?", a: "Sí — y es uno de nuestros servicios residenciales más solicitados. El concreto pulido funciona en salas, cocinas, sótanos y pisos principales completos. El acabado puede ser mate, satinado o de alto brillo según su preferencia." },
+      { q: "¿El concreto pulido es resbaloso?", a: "No cuando se sella correctamente. Nuestros selladores penetrantes no agregan una película resbalosa encima — se absorben y endurecen la superficie. El concreto pulido no es más resbaloso que cualquier otro piso duro." },
+      { q: "¿Cuánto dura un piso de concreto pulido?", a: "El concreto pulido y sellado correctamente puede durar más de 20 años con mantenimiento mínimo. Respaldamos nuestro trabajo con una garantía de 1 año, pero nuestros pisos suelen durar décadas más allá." },
+      { q: "¿Cuál es la diferencia entre concreto pulido y concreto teñido?", a: "El concreto pulido se refiere al proceso mecánico de lijar y pulir — el color natural del piso resalta. El concreto teñido usa tintes ácidos o de base agua para agregar color antes de pulir. Hacemos ambos." },
+    ],
   },
   {
     slug: "concrete-restoration",
@@ -208,6 +294,34 @@ export const services: Service[] = [
     related: ["concrete-polishing", "concrete-sealing", "cementitious-coatings"],
     image: "/images/concrete-polishing-process-miami.jpg",
     imageAlt: "Concrete floor restoration in progress in Miami",
+    nameEs: "Restauración de Concreto",
+    h1Es: "Pisos de concreto devueltos a la vida — no arrancados.",
+    shortDescriptionEs: "Restaurando pisos de concreto dañados, manchados o sin terminar en lugar de reemplazarlos.",
+    metaTitleEs: "Restauración de Pisos de Concreto en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restaurando pisos de concreto viejos, dañados o sin terminar en Miami. Reparación de grietas, preparación de superficie, pulido, sellado. Más de 30 años. Evaluación gratis.",
+    introEs: "La mayoría de los dueños no se da cuenta de que el concreto viejo se puede restaurar. Losas manchadas, agrietadas o sin terminar que parecen estar más allá de salvación — casi siempre tienen un piso hermoso debajo. Hemos restaurado concreto que estuvo cubierto por cuarenta años.",
+    bodyEs: "La restauración de concreto comienza con una evaluación honesta. Lijamos hasta la superficie original, reparamos grietas estructurales, nivelamos áreas desniveladas y reconstruimos el piso desde la losa hacia arriba. Ya sea que quiera un acabado pulido, un tinte o un look natural sellado, la restauración es más rápida, más barata y más sostenible que el reemplazo.",
+    methodNoteEs: "La restauración solo funciona cuando la preparación es correcta. No pintamos sobre los problemas. Lijamos a través de ellos.",
+    imageAltEs: "Restauración de piso de concreto en proceso en Miami",
+    scopeEs: [
+      "Evaluación honesta de la condición de la losa",
+      "Preparación de la superficie y pulido con diamante",
+      "Reparación de grietas y rellenado de juntas",
+      "Remoción de manchas y contaminación",
+      "Acabado opcional: pulido, tinte o sellador",
+      "Bordes y transiciones detallados a mano",
+    ],
+    processEs: [
+      { title: "Diagnosticamos", description: "Evaluamos la condición de la losa y le decimos directamente qué es posible." },
+      { title: "Preparamos", description: "Pulido con diamante, reparamos grietas, removemos manchas y contaminación." },
+      { title: "Restauramos", description: "Aplicamos el acabado que usted quiere — pulido, tinte o sellador." },
+      { title: "Protegemos", description: "El sellado final asegura que la restauración dure." },
+    ],
+    faqsEs: [
+      { q: "¿La restauración es más barata que el reemplazo?", a: "Casi siempre — generalmente entre 50 y 70% menos que arrancar y vaciar una losa nueva. Y es más rápido." },
+      { q: "¿Pueden restaurar concreto que ha sido pintado varias veces?", a: "Sí. El pulido con diamante remueve cualquier número de capas de pintura. Hemos restaurado losas que tenían cuatro o cinco capas encima." },
+      { q: "¿Qué pasa si mi concreto tiene grietas profundas?", a: "La mayoría de las grietas se pueden reparar con epoxi estructural y se pulen al nivel. Algunos patrones de grietas indican problemas estructurales más profundos — le diremos directamente si ese es el caso." },
+    ],
   },
   {
     slug: "concrete-sealing",
@@ -254,6 +368,33 @@ export const services: Service[] = [
     related: ["concrete-polishing", "concrete-restoration", "waterglass-coating"],
     image: "/images/aged-concrete-floor-texture.jpg",
     imageAlt: "Sealed concrete floor with protective coating in Miami",
+    nameEs: "Sellado de Concreto",
+    h1Es: "Sellado que dura — porque la preparación se hizo bien.",
+    shortDescriptionEs: "Sellado profesional de concreto que protege contra manchas, agua y desgaste.",
+    metaTitleEs: "Sellado de Concreto en Miami, FL | ReNewIt Floors",
+    metaDescriptionEs: "Sellado profesional de concreto en Miami — protege contra manchas, agua y desgaste. Hecho bien después de la preparación correcta. Garantía de 1 año. Presupuesto gratis.",
+    introEs: "El sellador no falla porque el producto sea malo. Falla porque la superficie no estaba lista para él.",
+    bodyEs: "Usamos selladores penetrantes que se absorben en concreto correctamente preparado y endurecen químicamente la superficie desde adentro. Sin película encima que se despegue. Sin look de plástico brillante. Solo concreto protegido que resiste manchas, agua y desgaste por años.",
+    methodNoteEs: "La mayoría de los trabajos de sellado fallan en el primer año porque el contratista roció sellador sobre una superficie sin preparar. Ese sellador se queda encima, no se adhiere y se despega con el tráfico de pisadas. Base primero.",
+    imageAltEs: "Piso de concreto sellado con recubrimiento protector en Miami",
+    scopeEs: [
+      "Evaluación de la superficie",
+      "Pulido con diamante para abrir la superficie",
+      "Limpieza y remoción de contaminación",
+      "Aplicación de densificador penetrante",
+      "Sellador final con realce de brillo opcional",
+    ],
+    processEs: [
+      { title: "Evaluamos", description: "Evaluamos la losa y recomendamos el sellador correcto para su uso." },
+      { title: "Preparamos", description: "Pulimos y limpiamos — el sellador necesita una superficie abierta, libre de contaminación." },
+      { title: "Sellamos", description: "Aplicamos sellador penetrante en condiciones apropiadas para absorción completa." },
+      { title: "Curamos", description: "Dejamos curar el sellador correctamente antes de que regrese el tráfico." },
+    ],
+    faqsEs: [
+      { q: "¿Cuánto dura el sellador de concreto?", a: "Los selladores penetrantes aplicados correctamente duran de 5 a 10 años en pisos residenciales con tráfico normal." },
+      { q: "¿El sellador cambiará el color de mi concreto?", a: "Los selladores penetrantes son típicamente transparentes y no cambian la apariencia. Los selladores realzantes pueden profundizar ligeramente el color natural. Le mostramos una muestra antes de aplicar." },
+      { q: "¿Pueden sellar concreto teñido?", a: "Sí — el sellador es la capa protectora final sobre un piso teñido o pulido." },
+    ],
   },
   {
     slug: "cement-overlays",
@@ -297,6 +438,33 @@ export const services: Service[] = [
     related: ["cementitious-coatings", "patina-stains-decorative-finishes", "concrete-epoxy-systems"],
     image: "/images/cement-overlay-floor-miami.jpg",
     imageAlt: "Modern cement overlay floor finish in a Miami corridor",
+    nameEs: "Capas de Cemento",
+    h1Es: "Capas de cemento modernas y sin uniones — colocadas sobre una base que aguanta.",
+    shortDescriptionEs: "Capas cementicias para una superficie moderna y sin uniones sobre concreto existente.",
+    metaTitleEs: "Pisos de Capa de Cemento en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Capas cementicias para pisos de Miami — superficies modernas y sin uniones sobre concreto existente. Preparación con pulido de diamante. Garantía de 1 año.",
+    introEs: "Las capas de cemento le permiten transformar un piso de concreto existente sin demolición. Hechas bien, duran décadas. Hechas mal, se rajan y se levantan.",
+    bodyEs: "Las capas van encima del concreto correctamente preparado para darle una superficie suave, moderna, aplanada con plana. Usamos sistemas de cemento modificado con polímero que se adhieren mecánica y químicamente al sustrato. El look es contemporáneo, la superficie es duradera y la preparación es no negociable.",
+    methodNoteEs: "Una capa solo es tan buena como la adherencia que está debajo. Nosotros no nos saltamos el pulido.",
+    imageAltEs: "Piso de capa de cemento moderno y sin uniones en un pasillo de Miami",
+    scopeEs: [
+      "Inspección del sustrato y recomendación de preparación",
+      "Pulido con diamante para adherencia mecánica",
+      "Reparación de grietas y parchado",
+      "Aplicación de imprimante adherente",
+      "Capa cementicia (vaciado único o múltiple)",
+      "Sellado y capa superior protectora",
+    ],
+    processEs: [
+      { title: "Preparamos", description: "Lijamos, limpiamos e imprimamos el sustrato para una adherencia adecuada." },
+      { title: "Aplicamos", description: "Aplanamos la capa en vaciados cuidadosamente cronometrados." },
+      { title: "Terminamos", description: "Refinamos la superficie, agregamos color o textura si se especifica." },
+      { title: "Sellamos", description: "Capa superior protectora para resistencia a manchas y desgaste." },
+    ],
+    faqsEs: [
+      { q: "¿Se puede instalar una capa sobre loseta o madera?", a: "A veces — depende del sustrato. Inspeccionamos primero y le decimos directamente si aguantará." },
+      { q: "¿Qué tan gruesa es una capa de cemento?", a: "Desde 1/8\" para una capa decorativa fina hasta 3/4\" o más para una capa estructural. Elegimos el sistema según las necesidades de su piso." },
+    ],
   },
   {
     slug: "cementitious-coatings",
@@ -340,6 +508,33 @@ export const services: Service[] = [
     related: ["cement-overlays", "patina-stains-decorative-finishes", "concrete-polishing"],
     image: "/images/floor-restoration-detail-miami.jpg",
     imageAlt: "Custom cementitious decorative floor coating in Miami",
+    nameEs: "Recubrimientos Cementicios",
+    h1Es: "Acabados cementicios decorativos construidos sobre preparación real.",
+    shortDescriptionEs: "Recubrimientos cementicios decorativos con acabados a medida para espacios residenciales y comerciales.",
+    metaTitleEs: "Recubrimientos Cementicios para Pisos en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Recubrimientos cementicios decorativos para pisos residenciales y comerciales en Miami. Acabados a medida. Más de 30 años. Garantía de 1 año.",
+    introEs: "Los recubrimientos cementicios son el lado artístico del concreto — más finos que las capas, más decorativos, con un rango de looks desde rústico hasta refinado.",
+    bodyEs: "Mezclamos pigmentos, agregados y técnicas de acabado para crear recubrimientos que parecen piedra pulida, concreto curtido o microcemento moderno. Cada proyecto es a medida — le mostramos tableros de muestra y le caminamos por las opciones antes de que cualquier producto toque su piso.",
+    methodNoteEs: "Mientras más fino el recubrimiento, más crítica la preparación. El trabajo decorativo no tiene dónde esconder una mala adherencia.",
+    imageAltEs: "Recubrimiento decorativo cementicio a medida en Miami",
+    scopeEs: [
+      "Consulta con tableros de muestra",
+      "Preparación del sustrato y pulido con diamante",
+      "Imprimante adherente",
+      "Aplicación cementicia de varias capas",
+      "Trabajo de color y textura a medida",
+      "Sellado y acabado protector",
+    ],
+    processEs: [
+      { title: "Diseñamos", description: "Tableros de muestra en su espacio, en su luz." },
+      { title: "Preparamos", description: "Lijamos, limpiamos, imprimamos — todas las veces." },
+      { title: "Aplicamos", description: "Aplicación de varias capas con textura terminada a mano." },
+      { title: "Sellamos", description: "Sellador protector cierra el acabado." },
+    ],
+    faqsEs: [
+      { q: "¿En qué se diferencia esto de una capa de cemento?", a: "Los recubrimientos cementicios son más finos (típicamente de 1/16\" a 1/8\") y enfocados en apariencia. Las capas son más gruesas y más estructurales." },
+      { q: "¿Puedo ver muestras antes de comprometerme?", a: "Sí — siempre creamos tableros de muestra para que vea el acabado en su espacio real." },
+    ],
   },
   {
     slug: "concrete-epoxy-systems",
@@ -383,6 +578,33 @@ export const services: Service[] = [
     related: ["garage-epoxy-flooring", "concrete-polishing", "cementitious-coatings"],
     image: "/images/concrete-epoxy-floor-system-miami.jpg",
     imageAlt: "Reflective concrete epoxy floor system in a Miami commercial space",
+    nameEs: "Sistemas de Epoxi para Concreto",
+    h1Es: "Sistemas de epoxi que no se despegan — porque preparamos primero.",
+    shortDescriptionEs: "Sistemas de epoxi de varias capas para cocinas, sótanos, locales y pisos comerciales.",
+    metaTitleEs: "Pisos de Epoxi para Concreto en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Sistemas de epoxi profesionales para casas y negocios de Miami — preparación con pulido de diamante, epoxi de varias capas, capa superior. Garantía de 1 año.",
+    introEs: "El epoxi tiene mala reputación porque la mayoría de los trabajos de epoxi fallan. El producto no es el problema — la preparación lo es.",
+    bodyEs: "Instalamos sistemas profesionales de epoxi para sótanos residenciales, cocinas comerciales, locales y dondequiera que se necesite un piso duro, fácil de limpiar y bonito. El sistema empieza con pulido de diamante para remover la capa de natilla del concreto, luego imprimante, luego epoxi de varias capas, y luego una capa superior estable a los rayos UV. Hecho así, el epoxi dura más de 10 años.",
+    methodNoteEs: "La capa de natilla en la superficie del concreto vaciado es demasiado suave para sostener epoxi. Aplicar epoxi encima y tendrá un piso de seis meses. Lijar a través y tendrá un piso de diez años.",
+    imageAltEs: "Sistema de piso de epoxi reflectante en un espacio comercial de Miami",
+    scopeEs: [
+      "Pulido con diamante del sustrato",
+      "Reparación de grietas y juntas",
+      "Capa imprimante de epoxi",
+      "Color base y escamas decorativas (opcional)",
+      "Construcción de epoxi de varias capas",
+      "Capa superior de poliuretano estable a los rayos UV",
+    ],
+    processEs: [
+      { title: "Lijamos", description: "Pulimos con diamante hasta concreto desnudo — sin atajos." },
+      { title: "Imprimamos", description: "Imprimante penetrante para adherencia química." },
+      { title: "Construimos", description: "Epoxi de varias capas con trabajo decorativo opcional." },
+      { title: "Capa Superior", description: "Capa superior estable a los rayos UV para durabilidad a largo plazo." },
+    ],
+    faqsEs: [
+      { q: "¿Por qué fallan la mayoría de los trabajos de epoxi?", a: "Preparación inadecuada. La mayoría de los contratistas graba el concreto con ácido, lo cual no remueve la capa de natilla de manera confiable. El pulido con diamante es la única forma consistente de asegurar buena adherencia." },
+      { q: "¿Puedo tener epoxi en una cocina o sótano?", a: "Por supuesto — el epoxi es excelente en cualquier cuarto donde quiera un piso duro, sin uniones y fácil de limpiar. Lo hemos instalado en casas de Miami desde la cocina hasta el sótano." },
+    ],
   },
   {
     slug: "garage-epoxy-flooring",
@@ -433,6 +655,36 @@ export const services: Service[] = [
     imageAlt: "Garage epoxy floor with decorative chip flake in Miami",
     detailImage: "/images/garage-epoxy-chip-broadcast-miami.jpg",
     detailImageAlt: "Decorative chip flake being broadcast onto wet epoxy in a Miami garage",
+    nameEs: "Pisos de Epoxi para Garaje",
+    h1Es: "Epoxi de garaje que no se despega en seis meses.",
+    shortDescriptionEs: "Sistemas de epoxi para garaje con preparación adecuada de pulido con diamante y opciones de escamas decorativas.",
+    metaTitleEs: "Pisos de Epoxi para Garaje en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Pisos de epoxi para garaje en Miami hechos bien — preparación con pulido de diamante, epoxi de varias capas, opciones de escamas decorativas. Garantía de 1 año. Evaluación gratis.",
+    introEs: "Si ha tenido un epoxi de garaje que falló antes, no es el único. La mayoría de los trabajos de epoxi de garaje en Miami se despegan en menos de un año — porque el contratista se saltó el pulido y se fue directo al producto.",
+    bodyEs: "Los garajes son la prueba más dura para el epoxi. Llantas calientes, gotas de aceite, sal de carretera y años de concreto sin sellar empapado de contaminantes — todo eso lucha contra la adherencia. Lijamos con diamante hasta el concreto limpio, reparamos cada grieta, imprimamos correctamente, y luego construimos un sistema de epoxi de varias capas con escamas de color decorativas y una capa superior estable a los rayos UV. El resultado es un piso de garaje que aguanta la vida real y luce bien al hacerlo.",
+    methodNoteEs: "Las llantas calientes en un garaje de Miami pueden alcanzar 180°F. El epoxi barato adherido a una capa de natilla no aguanta — se levanta de la superficie. El epoxi sobre una superficie pulida con diamante se queda en su lugar.",
+    imageAltEs: "Piso de epoxi para garaje con escamas decorativas de color en Miami",
+    detailImageAltEs: "Aplicación de escamas decorativas sobre epoxi húmedo en un garaje de Miami",
+    scopeEs: [
+      "Remoción de recubrimiento existente (si es necesario)",
+      "Pulido con diamante hasta el concreto desnudo",
+      "Remediación de manchas de aceite y remoción de contaminación",
+      "Reparación de grietas y juntas",
+      "Imprimante de epoxi",
+      "Capa base de epoxi con escamas de color decorativas",
+      "Capa superior de poliuretano estable a los rayos UV",
+    ],
+    processEs: [
+      { title: "Quitamos y Lijamos", description: "Removemos recubrimientos viejos, pulimos con diamante hasta el concreto desnudo." },
+      { title: "Reparamos", description: "Arreglamos grietas, llenamos juntas, atendemos contaminación de aceite." },
+      { title: "Recubrimos", description: "Imprimante, epoxi base, lanzamiento de escamas decorativas." },
+      { title: "Capa Superior", description: "La capa superior estable a los rayos UV cierra todo." },
+    ],
+    faqsEs: [
+      { q: "¿Cuánto tarda la instalación?", a: "La mayoría de los garajes residenciales toman de 2 a 3 días desde el inicio hasta poder estacionar. Le damos un cronograma claro antes de empezar." },
+      { q: "¿Aguantará llantas calientes?", a: "Sí — cuando se prepara y se aplica capa superior correctamente. La capa superior es la clave de la resistencia a llantas calientes." },
+      { q: "¿Qué opciones de color tengo?", a: "Cientos. Colores sólidos, mezclas de escamas de color, efectos metálicos. Le mostramos muestras en la luz natural de su garaje." },
+    ],
   },
   {
     slug: "patina-stains-decorative-finishes",
@@ -476,6 +728,33 @@ export const services: Service[] = [
     related: ["concrete-polishing", "cement-overlays", "cementitious-coatings"],
     image: "/images/patina-stain-decorative-concrete-miami.jpg",
     imageAlt: "Warm amber patina-stained decorative concrete in Miami",
+    nameEs: "Tintes Patina y Acabados Decorativos",
+    h1Es: "Tintes patina y acabados decorativos — concreto con carácter.",
+    shortDescriptionEs: "Tintes patina a medida, tintes ácidos y acabados decorativos para pisos de concreto.",
+    metaTitleEs: "Tintes Decorativos de Concreto y Acabados Patina en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Tintes patina a medida y acabados decorativos de concreto en Miami — traen color, profundidad y carácter a los pisos de concreto. Más de 30 años.",
+    introEs: "Los tintes patina convierten el concreto en algo con profundidad — color que vive en la superficie, no encima.",
+    bodyEs: "Los tintes ácidos y de base agua reaccionan con el concreto para producir efectos de color variados, marmolados, en capas que ningún otro piso puede igualar. Mezclamos tintes a medida y los aplicamos con las técnicas que sacan lo mejor del piso. Cada piso teñido es único.",
+    methodNoteEs: "El concreto teñido es permanente. Siempre hacemos muestras primero — en su piso real — para que sepa exactamente lo que va a obtener.",
+    imageAltEs: "Piso de concreto decorativo con tinte patina cálido en Miami",
+    scopeEs: [
+      "Pruebas de muestra en su espacio",
+      "Preparación de superficie y pulido",
+      "Múltiples capas de tinte y reacciones",
+      "Realces y acentos aplicados a mano",
+      "Neutralización y limpieza",
+      "Sellado y capa superior protectora",
+    ],
+    processEs: [
+      { title: "Probamos", description: "Probamos las reacciones del tinte en su piso real antes de comprometernos." },
+      { title: "Preparamos", description: "Abrimos la superficie para que el tinte reaccione correctamente." },
+      { title: "Teñimos", description: "Aplicamos color en capas con técnica a mano." },
+      { title: "Sellamos", description: "Cerramos la patina con un sellador protector." },
+    ],
+    faqsEs: [
+      { q: "¿Puedo elegir un color específico?", a: "Los tintes ácidos reaccionan con la química del concreto, así que los colores varían según el piso. Los tintes de base agua son más predecibles. Discutimos qué es alcanzable según su losa." },
+      { q: "¿El tinte se verá igual en todas partes?", a: "No — y ese es el atractivo. El concreto teñido varía en tono y profundidad por toda la superficie, lo que le da el carácter que la pintura plana no puede." },
+    ],
   },
   {
     slug: "waterglass-coating",
@@ -518,6 +797,32 @@ export const services: Service[] = [
     related: ["concrete-polishing", "concrete-sealing", "concrete-epoxy-systems"],
     image: "/images/waterglass-concrete-coating-miami.jpg",
     imageAlt: "Waterglass densifier coating on concrete floor in Miami",
+    nameEs: "Recubrimiento de Vidrio Líquido",
+    h1Es: "Recubrimiento de vidrio líquido — densificador, sellador y protección contra manchas en uno.",
+    shortDescriptionEs: "Densificador de silicato de sodio (vidrio líquido) que endurece, sella y protege el concreto pulido.",
+    metaTitleEs: "Recubrimiento de Vidrio Líquido para Concreto en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Densificador de vidrio líquido (silicato de sodio) y recubrimiento protector para concreto en Miami. Endurece, sella y protege el concreto pulido. Garantía de 1 año.",
+    introEs: "El vidrio líquido es uno de los densificadores de concreto más viejos y mejores — silicato de sodio que reacciona con el concreto mismo para endurecer y sellar desde adentro.",
+    bodyEs: "Cuando se aplica a concreto correctamente preparado, el vidrio líquido penetra profundamente la superficie y reacciona químicamente para formar un sello duro, vidrioso e integral. Aumenta la resistencia a la abrasión, bloquea la humedad y extiende dramáticamente la vida de los pisos de concreto pulido. Lo aplicamos como parte de nuestro proceso de pulido y como tratamiento de restauración independiente.",
+    methodNoteEs: "El vidrio líquido no se queda en la superficie — se vuelve parte de ella. Por eso dura.",
+    imageAltEs: "Recubrimiento densificador de vidrio líquido en piso de concreto en Miami",
+    scopeEs: [
+      "Evaluación y preparación de la superficie",
+      "Limpieza del sustrato",
+      "Aplicación de vidrio líquido (varias capas según se necesite)",
+      "Verificación de penetración uniforme",
+      "Pulido o brillado final",
+    ],
+    processEs: [
+      { title: "Preparamos", description: "La superficie necesita estar abierta y limpia para que la química funcione." },
+      { title: "Aplicamos", description: "El vidrio líquido penetra y reacciona con el concreto." },
+      { title: "Terminamos", description: "Pulimos o brillamos para sacar la densidad y el brillo final." },
+      { title: "Protegemos", description: "Capa superior opcional para áreas de alto tráfico." },
+    ],
+    faqsEs: [
+      { q: "¿El vidrio líquido es mejor que un sellador tópico?", a: "Es diferente. El vidrio líquido densifica y endurece el concreto mismo. Un sellador tópico agrega una capa protectora encima. A menudo usamos ambos — vidrio líquido primero, luego un sellador." },
+      { q: "¿Cuánto dura el vidrio líquido?", a: "Permanente — una vez que reacciona con el concreto, es parte del piso. Las capas superiores pueden necesitar refrescarse con el tiempo, pero la densificación es para siempre." },
+    ],
   },
 
   // ===== STONE & SPECIALTY (4) =====
@@ -569,6 +874,35 @@ export const services: Service[] = [
     imageAlt: "Polished black-and-white terrazzo floor restored in Miami",
     detailImage: "/images/terrazzo-restoration-process-miami.jpg",
     detailImageAlt: "Diamond grinder restoring original terrazzo floor in a Miami home",
+    nameEs: "Restauración de Terrazo",
+    h1Es: "Terrazo original de Miami, restaurado a su vida completa.",
+    shortDescriptionEs: "Restaurando pisos históricos de terrazo escondidos bajo loseta o alfombra por décadas.",
+    metaTitleEs: "Restauración de Terrazo en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restaurando pisos originales de terrazo en Miami — Coral Gables, Pinecrest y por todo el sur de la Florida. Pulido, abrillantado, color combinado. Más de 30 años.",
+    introEs: "El terrazo original en casas de Coral Gables, Pinecrest y Coconut Grove es uno de los pisos más bonitos del sur de la Florida. La mayoría ha estado escondido bajo loseta o alfombra por décadas.",
+    bodyEs: "Cuando levantamos pisos viejos y encontramos terrazo original debajo, comienza el trabajo. Pulido con diamante a través de capas de pegamento y acabado viejo, abrillantado con pads progresivamente más finos, color combinado donde las astillas necesitan rellenarse, y sellado para protección — la restauración de terrazo es el trabajo más gratificante que hacemos. Cada piso es único. Cada restauración trae algo de regreso.",
+    methodNoteEs: "Algunos pisos de terrazo están tan dañados que el sustrato no aguantará. Le decimos directamente después de una evaluación gratis si su piso se puede salvar.",
+    imageAltEs: "Piso de terrazo blanco y negro pulido restaurado en Miami",
+    detailImageAltEs: "Pulidora de diamante restaurando piso de terrazo original en una casa de Miami",
+    scopeEs: [
+      "Remoción de piso viejo (si es necesario)",
+      "Pulido con diamante para remover pegamento y acabado viejo",
+      "Reparación de grietas y astillas con relleno de color combinado",
+      "Abrillantado progresivo al brillo especificado",
+      "Sellador penetrante",
+      "Bordes o decoraciones opcionales",
+    ],
+    processEs: [
+      { title: "Descubrimos", description: "Removemos el piso viejo para exponer el terrazo original." },
+      { title: "Pulimos", description: "Pulido con diamante de varias pasadas nivela y abre la superficie." },
+      { title: "Reparamos", description: "Color combinado para astillas, llenamos grietas, restauramos el trabajo decorativo." },
+      { title: "Abrillantamos y Sellamos", description: "Abrillantamos al brillo que escoja, sellamos para protección." },
+    ],
+    faqsEs: [
+      { q: "Mi terrazo ha estado bajo loseta por cuarenta años — ¿todavía se puede restaurar?", a: "Casi siempre sí. Hemos restaurado terrazo que tenía tres capas de loseta y décadas de pegamento encima. La superficie original generalmente está intacta debajo." },
+      { q: "¿Se pueden reparar las astillas y grietas?", a: "Sí. Mezclamos chips de mármol y resina a medida para combinar el color del terrazo original, luego pulimos todo al nivel. Hecho bien, la reparación es invisible." },
+      { q: "¿Cómo se compara la restauración de terrazo con reemplazar el piso?", a: "La restauración preserva el carácter original de la casa — irreemplazable para la arquitectura histórica de Miami. También suele ser más rápida y menos costosa que la remoción y reemplazo." },
+    ],
   },
   {
     slug: "marble-restoration",
@@ -618,6 +952,35 @@ export const services: Service[] = [
     imageAlt: "Restored polished marble floor in a Miami residence",
     detailImage: "/images/marble-honing-process-miami.jpg",
     detailImageAlt: "Craftsman diamond-honing a marble floor in Miami",
+    nameEs: "Restauración de Mármol",
+    h1Es: "Mármol restaurado — pulido, sellado, devuelto a su vida original.",
+    shortDescriptionEs: "Pulido, reparación de rasguños y sellado para pisos y superficies de mármol.",
+    metaTitleEs: "Restauración y Pulido de Mármol en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Pulido de mármol, reparación de rasguños y sellado en Miami. Devolviendo a la vida mármol opaco y manchado. Más de 30 años. Garantía de 1 año.",
+    introEs: "El mármol está vivo — y con el tiempo, muestra el desgaste de la vida. Manchas de derrames ácidos, rasguños del tráfico, opacidad por limpieza inadecuada. Nada de eso es permanente.",
+    bodyEs: "Restauramos pisos y superficies de mármol lijando mecánicamente con diamante a través del daño, luego abrillantando hasta el brillo de fábrica. Reparación de manchas, remoción de rasguños, realce de color y sellado — todo hecho en sitio, sin necesidad de remover el mármol.",
+    methodNoteEs: "El mármol no necesita reemplazo cuando se daña. Necesita lijado — y un artesano que sepa leer la piedra.",
+    imageAltEs: "Piso de mármol restaurado y pulido en una residencia de Miami",
+    detailImageAltEs: "Artesano lijando con diamante un piso de mármol en Miami",
+    scopeEs: [
+      "Evaluación de la condición de la superficie",
+      "Lijado con diamante (varios granos)",
+      "Remoción de manchas y rasguños",
+      "Abrillantado al brillo original",
+      "Cristalización o sellado",
+      "Realce de color (opcional)",
+    ],
+    processEs: [
+      { title: "Evaluamos", description: "Identificamos el tipo de daño — manchas, rasguños, opacidad — y plan de tratamiento." },
+      { title: "Lijamos", description: "Lijado con diamante a través del daño hasta llegar a mármol fresco." },
+      { title: "Abrillantamos", description: "El abrillantado progresivo devuelve el brillo." },
+      { title: "Protegemos", description: "Sellador o cristalizador cierra el acabado." },
+    ],
+    faqsEs: [
+      { q: "¿De verdad se pueden remover los rasguños del mármol?", a: "Sí. El daño en el mármol no es realmente daño en la superficie — es profundidad. Lijamos hasta mármol fresco debajo del rasguño y luego volvemos a pulir. El rasguño desaparece." },
+      { q: "¿Qué causa la opacidad del mármol?", a: "Manchas de sustancias ácidas (cítricos, vino, limpiadores), rasguños por tierra bajo los pies y limpiadores abrasivos que despojan el pulido. Todo restaurable." },
+      { q: "¿También restauran encimeras y duchas de mármol?", a: "Sí — mismo proceso, escala más pequeña. Restauramos encimeras, paredes de duchas, vanidades y cualquier otra superficie de mármol en su casa." },
+    ],
   },
   {
     slug: "mexican-tile-restoration",
@@ -667,6 +1030,35 @@ export const services: Service[] = [
     imageAlt: "Cleaned and sealed Mexican Saltillo tile floor in Miami",
     detailImage: "/images/mexican-tile-sealing-process-miami.jpg",
     detailImageAlt: "Sealing penetrating sealer onto Saltillo tile in a Miami home",
+    nameEs: "Restauración de Loseta Mexicana",
+    h1Es: "Loseta mexicana y cubana — limpiada, sellada, restaurada con honestidad sobre los límites.",
+    shortDescriptionEs: "Limpieza, sellado y restauración de pisos de loseta mexicana Saltillo y cubana.",
+    metaTitleEs: "Restauración de Loseta Mexicana (Saltillo) en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Limpieza, sellado y restauración de loseta mexicana Saltillo y cubana en Miami. Honestos sobre lo que se puede y no se puede restaurar. Más de 30 años.",
+    introEs: "La loseta mexicana Saltillo y la loseta cubana son clásicos del sur de la Florida. También son algunos de los pisos más frágiles que trabajamos — y le decimos directamente qué es posible antes de que gaste un dólar.",
+    bodyEs: "La loseta mexicana es barro horneado por el sol con una cáscara exterior suave. Esa cáscara no es muy dura. Cuando se rompe o se gasta, no se puede restaurar por completo — pero sí se puede limpiar, sellar profundamente y proteger lo que queda. La loseta cubana es similar pero suele aguantar mejor. De cualquier manera, abordamos este trabajo con honestidad: le decimos qué podemos arreglar, qué no podemos y cómo lucirá su piso cuando terminemos.",
+    methodNoteEs: "Cuando hacen las losetas mexicanas, las ponen en los campos y el sol forma la cáscara. Esa cáscara no es muy dura. El sol no son 500 grados. Somos honestos sobre los límites.",
+    imageAltEs: "Piso de loseta mexicana Saltillo limpiado y sellado en Miami",
+    detailImageAltEs: "Aplicando sellador penetrante a loseta Saltillo en una casa de Miami",
+    scopeEs: [
+      "Evaluación honesta de la condición",
+      "Limpieza profunda de lechada y cara de loseta",
+      "Tratamiento de manchas y removedor",
+      "Reparación de grietas y astillas donde sea posible",
+      "Sellador penetrante",
+      "Sellador realzante o de color opcional",
+    ],
+    processEs: [
+      { title: "Evaluamos", description: "Evaluación honesta — qué es posible, qué no." },
+      { title: "Limpiamos", description: "Limpieza profunda de la cara de loseta, lechada y textura." },
+      { title: "Reparamos", description: "Reparación puntual de grietas y astillas donde sea viable." },
+      { title: "Sellamos", description: "Sellador penetrante cierra el acabado y protege." },
+    ],
+    faqsEs: [
+      { q: "¿Se pueden reparar las losetas mexicanas rotas?", a: "A veces. Las astillas pequeñas y las grietas se pueden rellenar. Las losetas con cáscara rota generalmente no se pueden restaurar por completo — necesitan reemplazo. Le decimos cuál es cuál." },
+      { q: "¿En qué se diferencia la loseta cubana de la mexicana?", a: "La loseta cubana (también llamada loseta hidráulica cubana) es una loseta de cemento más densa con patrones pintados. Suele aguantar mejor que la Saltillo y tiene más potencial de restauración." },
+      { q: "¿Cuánto dura el sellador de loseta mexicana?", a: "Los selladores penetrantes en Saltillo suelen durar de 3 a 5 años antes de necesitar refrescarse, dependiendo del tráfico y las prácticas de limpieza." },
+    ],
   },
   {
     slug: "stone-flooring",
@@ -710,6 +1102,33 @@ export const services: Service[] = [
     related: ["marble-restoration", "mexican-tile-restoration", "terrazzo-restoration"],
     image: "/images/natural-stone-floor-restoration-miami.jpg",
     imageAlt: "Natural stone floor restoration in a Miami home",
+    nameEs: "Pisos de Piedra",
+    h1Es: "Pisos de piedra natural — limpiados, sellados y restaurados con cuidado.",
+    shortDescriptionEs: "Restauración de pisos de travertino, caliza, pizarra, granito y otras piedras naturales.",
+    metaTitleEs: "Restauración de Pisos de Piedra Natural en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Restauración de pisos de piedra natural en Miami — travertino, caliza, pizarra, granito. Limpieza, sellado y pulido. Evaluación gratis.",
+    introEs: "La piedra natural — travertino, caliza, pizarra, granito — cada una se comporta diferente. El cuidado correcto depende de conocer la piedra.",
+    bodyEs: "Restauramos pisos de piedra natural con el mismo Método de Base Primero que aplicamos en todo: evaluamos la piedra, atendemos el daño, abrillantamos o lijamos al acabado apropiado, y luego protegemos. El travertino y la caliza son más suaves y porosos — necesitan manejo cuidadoso y los selladores correctos. El granito y la pizarra son más duros pero todavía se benefician de limpieza y sellado profesional.",
+    methodNoteEs: "La piedra no es un solo material — es una categoría. Saber la diferencia entre travertino y caliza, o lijado y pulido, es la diferencia entre una gran restauración y un piso dañado.",
+    imageAltEs: "Restauración de piso de piedra natural en una casa de Miami",
+    scopeEs: [
+      "Identificación y evaluación de la condición de la piedra",
+      "Lijado o pulido con diamante según corresponda",
+      "Reparación de manchas y rasguños",
+      "Llenado de hoyos y agujeros (travertino)",
+      "Sellador penetrante",
+      "Realce de color si se desea",
+    ],
+    processEs: [
+      { title: "Identificamos", description: "Confirmamos el tipo de piedra y la condición actual." },
+      { title: "Restauramos", description: "Lijamos, pulimos o limpiamos según las necesidades de la piedra." },
+      { title: "Protegemos", description: "Sellador penetrante adecuado a la piedra." },
+      { title: "Mantenemos", description: "Recomendaciones de cuidado para mantener el piso luciendo bien." },
+    ],
+    faqsEs: [
+      { q: "¿Se pueden llenar los hoyos del travertino?", a: "Sí. Usamos relleno de epoxi o lechada de color combinado, luego lijamos o pulimos al nivel. Hecho bien, la reparación es invisible." },
+      { q: "¿Mi pizarra debería ser lijada o pulida?", a: "La pizarra suele ser lijada (mate) — pulir pizarra es poco común y a menudo inapropiado para la piedra. Combinamos el acabado original o su preferencia." },
+    ],
   },
 
   // ===== HARDWOOD & REPAIR (2) =====
@@ -761,6 +1180,35 @@ export const services: Service[] = [
     imageAlt: "Refinished hardwood floor with warm tone in Miami",
     detailImage: "/images/hardwood-sanding-process-miami.jpg",
     detailImageAlt: "Drum sander refinishing oak hardwood floor in a Miami residence",
+    nameEs: "Reacondicionamiento de Madera",
+    h1Es: "Pisos de madera devueltos a su calidez original.",
+    shortDescriptionEs: "Lijar, teñir y sellar pisos de madera para restaurar su carácter original.",
+    metaTitleEs: "Reacondicionamiento de Pisos de Madera en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Lijado, teñido y sellado de pisos de madera en Miami — devolviendo a los pisos su calidez original. Garantía de 1 año.",
+    introEs: "La mayoría de los pisos de madera se pueden reacondicionar varias veces durante su vida. Si el suyo está mostrando desgaste, rasguños u opacidad, el reacondicionamiento lo trae de regreso — generalmente a una fracción del costo de reemplazo.",
+    bodyEs: "El reacondicionamiento involucra lijar hasta llegar a madera fresca, aplicar tinte si quiere cambiar o refrescar el color, y sellar con un acabado de poliuretano duradero. Trabajamos en la humedad del sur de la Florida, que agrega consideraciones que la mayoría de los contratistas pasa por alto — la expansión de la madera, los tiempos de curado y la selección de productos importan aquí.",
+    methodNoteEs: "La humedad del sur de la Florida cambia cómo se comportan los pisos de madera. Ajustamos productos, tiempos y preparación según las condiciones — no según un proceso genérico.",
+    imageAltEs: "Piso de madera de roble recién reacondicionado con tono cálido en Miami",
+    detailImageAltEs: "Lijadora de tambor reacondicionando un piso de madera de roble en una residencia de Miami",
+    scopeEs: [
+      "Evaluación de la condición de la madera",
+      "Lijado de varios granos (grueso a fino)",
+      "Lijado de bordes alrededor de paredes y obstáculos",
+      "Aplicación de tinte opcional",
+      "Acabado de poliuretano de varias capas",
+      "Pulido y limpieza final",
+    ],
+    processEs: [
+      { title: "Evaluamos", description: "Confirmamos que la madera se puede reacondicionar y recomendamos el enfoque." },
+      { title: "Lijamos", description: "Lijado de varios granos hasta madera fresca." },
+      { title: "Teñimos", description: "Tinte opcional en el color de su elección." },
+      { title: "Acabamos", description: "Poliuretano de varias capas para durabilidad." },
+    ],
+    faqsEs: [
+      { q: "¿Cuántas veces se puede reacondicionar la madera?", a: "La mayoría de la madera sólida de ¾\" se puede reacondicionar de 4 a 7 veces durante su vida. La madera de ingeniería con una capa fina solo se puede reacondicionar 1 o 2 veces." },
+      { q: "¿Cuánto tiempo estaré fuera del cuarto?", a: "Generalmente de 3 a 5 días desde el inicio hasta poder caminar. El curado completo para muebles toma más tiempo. Le damos un cronograma claro." },
+      { q: "¿Puedo cambiar el color del tinte?", a: "Sí — una vez que lijamos hasta madera fresca, el piso acepta tinte nuevo. Ir más claro que el original es lo más difícil; ir más oscuro es más fácil." },
+    ],
   },
   {
     slug: "tile-laminate-vinyl-repair",
@@ -804,6 +1252,33 @@ export const services: Service[] = [
     related: ["hardwood-refinishing", "mexican-tile-restoration", "stone-flooring"],
     image: "/images/tile-floor-cleaning-miami.jpg",
     imageAlt: "Tile and grout floor repair and cleaning in Miami",
+    nameEs: "Reparación de Loseta, Laminado y Vinilo",
+    h1Es: "Reparación puntual — arreglando lo que está roto, no reemplazando lo que no.",
+    shortDescriptionEs: "Reparación de loseta rota, laminado suelto, vinilo dañado y otros daños de piso.",
+    metaTitleEs: "Reparación de Pisos de Loseta, Laminado y Vinilo en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Reparación puntual de loseta rota, laminado suelto y pisos de vinilo dañados en Miami. Evaluación honesta. Más de 30 años. Garantía de 1 año.",
+    introEs: "Cuando unas losetas se rompen o una sección de laminado se levanta, no siempre necesita reemplazar todo el piso. La reparación puntual es más rápida, más barata y a menudo invisible.",
+    bodyEs: "Reparamos losetas rotas (con losetas de reemplazo o relleno de color combinado), tablas de laminado sueltas, secciones de vinilo dañadas y otros problemas puntuales de pisos. El trabajo es honesto: si el daño es demasiado extendido o el sub-piso está fallando, le decimos directamente que la reparación no aguantará y le ayudamos a planear un arreglo real.",
+    methodNoteEs: "A veces la respuesta correcta es reparación. A veces es reemplazo. Le decimos cuál — incluso cuando reparación significa menos trabajo para nosotros.",
+    imageAltEs: "Reparación y limpieza de loseta y lechada en un piso de Miami",
+    scopeEs: [
+      "Evaluación del daño y viabilidad de reparación",
+      "Reemplazo de loseta (si hay loseta combinada disponible)",
+      "Llenado de grietas y astillas en loseta",
+      "Recolocación o reemplazo de tablas de laminado",
+      "Reemplazo de sección de vinilo",
+      "Reparación de lechada y combinación de color",
+    ],
+    processEs: [
+      { title: "Evaluamos", description: "Caminamos el daño, le damos la solución honesta." },
+      { title: "Reparamos", description: "Arreglo puntual usando materiales combinados donde sea posible." },
+      { title: "Combinamos", description: "Combinamos color de lechada y acabados para reparación invisible." },
+      { title: "Listo", description: "La mayoría de las reparaciones terminan en medio día a un día." },
+    ],
+    faqsEs: [
+      { q: "¿La reparación será invisible?", a: "Generalmente sí — cuando hay materiales combinados disponibles. El reemplazo de loseta puede mostrar diferencias ligeras si la loseta original ha envejecido. Establecemos expectativas realistas antes de empezar." },
+      { q: "¿Y si no tengo losetas de reemplazo combinadas?", a: "A menudo podemos conseguir combinaciones cercanas de proveedores, o usar relleno de epoxi de color combinado para astillas pequeñas. Para daños más grandes sin combinación, puede necesitarse reemplazo de una sección más amplia." },
+    ],
   },
 
   // ===== COMMERCIAL (1) =====
@@ -853,6 +1328,34 @@ export const services: Service[] = [
     related: ["concrete-polishing", "concrete-epoxy-systems", "concrete-sealing"],
     image: "/images/industrial-warehouse-floor-restoration-miami.jpg",
     imageAlt: "Industrial warehouse polished concrete floor in Miami",
+    nameEs: "Limpieza de Pisos Industriales y de Almacenes",
+    h1Es: "Pisos industriales restaurados a gran escala — sin atajos.",
+    shortDescriptionEs: "Limpieza, pulido y sellado de pisos industriales y de almacenes a gran escala.",
+    metaTitleEs: "Restauración de Pisos Industriales y de Almacenes en Miami | ReNewIt Floors",
+    metaDescriptionEs: "Limpieza, pulido y sellado de pisos industriales y de almacenes a gran escala en Miami — Doral, Medley y por todo el sur de la Florida. Visita gratis al sitio.",
+    introEs: "Los pisos de almacenes e industriales reciben más abuso que cualquier otra superficie que trabajamos. Tráfico de montacargas, derrames químicos, polvo encerrado, años de desgaste — y la mayoría nunca ha tenido mantenimiento adecuado.",
+    bodyEs: "Llevamos equipo de grado industrial y el mismo Método de Base Primero a proyectos comerciales y de almacén. Concreto pulido, sistemas de epoxi y restauración completa de espacios de gran metraje cuadrado. Programamos alrededor de su operación, trabajamos por fases cuando es necesario, y le damos a los administradores de propiedades y operadores de instalaciones la clase de comunicación clara y ejecución confiable que es rara en el mundo de la contratación.",
+    methodNoteEs: "Un piso de almacén de 15,000 pies cuadrados necesita la misma disciplina de preparación que un vestíbulo en Coral Gables. Escala no significa atajos.",
+    imageAltEs: "Piso de concreto pulido en almacén industrial de Miami",
+    scopeEs: [
+      "Evaluación del sitio y planificación del proyecto",
+      "Programación por fases alrededor de la operación",
+      "Pulido con diamante de grado industrial",
+      "Reparación de grietas, llenado de juntas y preparación de superficie",
+      "Sistema de pulido, epoxi o sellador según se especifique",
+      "Líneas y marcas de tráfico (si se necesitan)",
+    ],
+    processEs: [
+      { title: "Visita al Sitio", description: "Caminamos la instalación, entendemos la operación, definimos el proyecto." },
+      { title: "Planeamos", description: "Cronograma por fases que encaja con su operación." },
+      { title: "Ejecutamos", description: "Equipo industrial, equipo profesional, restauración completa." },
+      { title: "Mantenemos", description: "Programa de mantenimiento opcional para instalaciones de alto tráfico." },
+    ],
+    faqsEs: [
+      { q: "¿Pueden trabajar alrededor de nuestra operación?", a: "Sí. Regularmente hacemos proyectos grandes por fases para evitar paros completos — trabajando secciones a la vez, noches o fines de semana según lo requiera su operación." },
+      { q: "¿Cuál es la vida útil del concreto pulido en un almacén?", a: "El concreto correctamente pulido y densificado en almacén dura más de 15 a 20 años con mantenimiento mínimo, incluso bajo tráfico pesado de montacargas." },
+      { q: "¿Manejan requisitos de cumplimiento y seguridad para sitios industriales?", a: "Sí. Tenemos seguro comercial completo, cumplimos con los requisitos de OSHA en sitio y coordinamos con los oficiales de seguridad de la instalación." },
+    ],
   },
 ];
 

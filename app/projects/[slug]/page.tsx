@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
+import { L } from "@/components/global/L";
 import { breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 import { projects, getProjectBySlug } from "@/lib/content/projects";
 import { getServiceBySlug } from "@/lib/content/services";
@@ -63,10 +64,10 @@ export default async function ProjectDetail({ params }: { params: Params }) {
             </Reveal>
             <Reveal delay={0.1}>
               <Eyebrow className="block mb-4">
-                {project.category} · {project.location} · {project.service}
+                <L en={project.category} es={project.categoryEs} /> · {project.location} · <L en={project.service} es={project.serviceEs} />
               </Eyebrow>
               <h1 className="max-w-4xl font-display text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[var(--color-charcoal)] md:text-[64px]">
-                {project.title}
+                <L en={project.title} es={project.titleEs} />
               </h1>
             </Reveal>
           </Container>
@@ -76,7 +77,7 @@ export default async function ProjectDetail({ params }: { params: Params }) {
           <div className="relative aspect-[16/8] w-full overflow-hidden bg-[var(--color-charcoal)]">
             <Image
               src={project.image}
-              alt={project.imageAlt}
+              alt={project.imageAltEs ?? project.imageAlt}
               fill
               priority
               sizes="100vw"
@@ -90,7 +91,7 @@ export default async function ProjectDetail({ params }: { params: Params }) {
             <Reveal>
               <Eyebrow className="block mb-4">The Story</Eyebrow>
               <p className="font-display text-[24px] leading-[1.4] text-[var(--color-charcoal)] md:text-[30px]">
-                {project.story}
+                <L en={project.story} es={project.storyEs} />
               </p>
             </Reveal>
             <Reveal delay={0.2} className="mt-12 grid gap-4 sm:grid-cols-3">

@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { PageHero } from "@/components/global/PageHero";
 import { TrustBar } from "@/components/global/TrustBar";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
+import { L } from "@/components/global/L";
 import { breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 import { cities, getCityBySlug } from "@/lib/content/areas";
 import { getServiceBySlug } from "@/lib/content/services";
@@ -89,13 +90,13 @@ export default async function CityPage({ params }: { params: Params }) {
       />
 
       <PageHero
-        eyebrow={`${c.county} County`}
+        eyebrow={<L en={`${c.county} County`} es={`Condado de ${c.countyEs ?? c.county}`} />}
         title={
           <>
             Floor Restoration in {c.name}<span className="text-[var(--color-rust)]">.</span>
           </>
         }
-        description={c.intro}
+        description={<L en={c.intro} es={c.introEs} />}
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Service Areas", href: "/service-areas" },
@@ -107,7 +108,7 @@ export default async function CityPage({ params }: { params: Params }) {
       <section className="relative aspect-[16/7] w-full overflow-hidden bg-[var(--color-charcoal)] md:aspect-[16/6]">
         <Image
           src={c.cityImage}
-          alt={c.cityImageAlt}
+          alt={c.cityImageAltEs ?? c.cityImageAlt}
           fill
           priority
           sizes="100vw"
@@ -122,14 +123,14 @@ export default async function CityPage({ params }: { params: Params }) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-5">
-              <Eyebrow className="block mb-4">Local Knowledge</Eyebrow>
+              <Eyebrow className="block mb-4"><L en="Local Knowledge" es="Conocimiento Local" /></Eyebrow>
               <h2 className="font-display text-[36px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[48px]">
-                What we know about {c.name} floors.
+                <L en={`What we know about ${c.name} floors.`} es={`Lo que sabemos sobre los pisos de ${c.name}.`} />
               </h2>
             </Reveal>
             <Reveal delay={0.15} className="lg:col-span-7">
               <p className="text-[18px] leading-relaxed text-[var(--color-slate)] md:text-[20px]">
-                {c.localStory}
+                <L en={c.localStory} es={c.localStoryEs} />
               </p>
             </Reveal>
           </div>
@@ -140,9 +141,9 @@ export default async function CityPage({ params }: { params: Params }) {
       <Section tone="cream" padded>
         <Container>
           <Reveal>
-            <Eyebrow className="block mb-4">Most-Requested in {c.name}</Eyebrow>
+            <Eyebrow className="block mb-4"><L en={`Most-Requested in ${c.name}`} es={`Más Solicitados en ${c.name}`} /></Eyebrow>
             <h2 className="max-w-3xl font-display text-[36px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[48px]">
-              The services {c.name} homes and businesses ask for most.
+              <L en={`The services ${c.name} homes and businesses ask for most.`} es={`Los servicios que las casas y negocios de ${c.name} más piden.`} />
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -163,13 +164,13 @@ export default async function CityPage({ params }: { params: Params }) {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-display text-[20px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[22px]">
-                      {s.name} in {c.name}
+                      <L en={`${s.name} in ${c.name}`} es={`${s.nameEs ?? s.name} en ${c.name}`} />
                     </h3>
                     <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[var(--color-slate)]">
-                      {s.shortDescription}
+                      <L en={s.shortDescription} es={s.shortDescriptionEs} />
                     </p>
                     <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
-                      Learn More
+                      <L en="Learn More" es="Más Información" />
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
@@ -179,7 +180,7 @@ export default async function CityPage({ params }: { params: Params }) {
           </div>
           <Reveal className="mt-10" delay={0.2}>
             <Button href="/services" variant="ghost" showArrow>
-              All Services
+              <L en="All Services" es="Todos los Servicios" />
             </Button>
           </Reveal>
         </Container>
@@ -190,9 +191,9 @@ export default async function CityPage({ params }: { params: Params }) {
         <Section tone="white" padded>
           <Container>
             <Reveal>
-              <Eyebrow className="block mb-4">Recent Work in {c.name}</Eyebrow>
+              <Eyebrow className="block mb-4"><L en={`Recent Work in ${c.name}`} es={`Trabajo Reciente en ${c.name}`} /></Eyebrow>
               <h2 className="font-display text-[32px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[40px]">
-                Projects from this neighborhood.
+                <L en="Projects from this neighborhood." es="Proyectos de este barrio." />
               </h2>
             </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -205,7 +206,7 @@ export default async function CityPage({ params }: { params: Params }) {
                     <div className="relative aspect-[16/9] overflow-hidden bg-[var(--color-charcoal)]">
                       <Image
                         src={p.image}
-                        alt={p.imageAlt}
+                        alt={p.imageAltEs ?? p.imageAlt}
                         fill
                         sizes="(min-width: 768px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
@@ -219,13 +220,13 @@ export default async function CityPage({ params }: { params: Params }) {
                         {p.location} · {p.service}
                       </span>
                       <h3 className="mt-3 font-display text-[22px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[26px]">
-                        {p.title}
+                        <L en={p.title} es={p.titleEs} />
                       </h3>
                       <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-slate)]">
-                        {p.excerpt}
+                        <L en={p.excerpt} es={p.excerptEs} />
                       </p>
                       <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
-                        View Project
+                        <L en="View Project" es="Ver Proyecto" />
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </span>
                     </div>
@@ -242,9 +243,9 @@ export default async function CityPage({ params }: { params: Params }) {
         <Section tone="cream" padded>
           <Container>
             <Reveal>
-              <Eyebrow className="block mb-4">Nearby Service Areas</Eyebrow>
+              <Eyebrow className="block mb-4"><L en="Nearby Service Areas" es="Áreas de Servicio Cercanas" /></Eyebrow>
               <h2 className="font-display text-[28px] font-bold leading-[1.05] text-[var(--color-charcoal)] md:text-[36px]">
-                We also work in these nearby neighborhoods.
+                <L en="We also work in these nearby neighborhoods." es="También trabajamos en estos barrios cercanos." />
               </h2>
             </Reveal>
             <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -257,7 +258,7 @@ export default async function CityPage({ params }: { params: Params }) {
                     <span className="flex items-center gap-3">
                       <MapPin className="h-4 w-4 text-[var(--color-rust)]" />
                       <span className="font-display text-[18px] font-semibold text-[var(--color-charcoal)] group-hover:text-[var(--color-rust)] md:text-[20px]">
-                        Floor Restoration in {nc.name}
+                        <L en={`Floor Restoration in ${nc.name}`} es={`Restauración de Pisos en ${nc.name}`} />
                       </span>
                     </span>
                     <ArrowRight className="h-4 w-4 text-[var(--color-rust)] transition-transform group-hover:translate-x-0.5" />
@@ -267,7 +268,7 @@ export default async function CityPage({ params }: { params: Params }) {
             </div>
             <Reveal className="mt-10" delay={0.2}>
               <Button href="/service-areas" variant="ghost" showArrow>
-                See All Service Areas
+                <L en="See All Service Areas" es="Ver Todas las Áreas" />
               </Button>
             </Reveal>
           </Container>
@@ -277,6 +278,8 @@ export default async function CityPage({ params }: { params: Params }) {
       <PreFooterCTA
         heading={`Ready to restore your ${c.name} floor?`}
         subhead={`A free, honest assessment in ${c.name}. No pressure. We'll walk your floor and tell you straight what's possible.`}
+        headingEs={`¿Listo para devolverle vida a su piso en ${c.name}?`}
+        subheadEs={`Una evaluación gratis y honesta en ${c.name}. Sin presión. Caminamos su piso y le decimos directamente qué es posible.`}
       />
     </>
   );

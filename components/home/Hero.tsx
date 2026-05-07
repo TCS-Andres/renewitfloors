@@ -6,11 +6,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
+import { useTranslation } from "@/components/global/LanguageProvider";
 
 export function Hero() {
   const prefersReduced = useReducedMotion();
   const initial = prefersReduced ? { opacity: 0 } : { opacity: 0, y: 20 };
   const animate = prefersReduced ? { opacity: 1 } : { opacity: 1, y: 0 };
+  const { locale, t } = useTranslation();
+  const isEs = locale === "es";
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-[var(--color-charcoal)] text-white">
@@ -51,28 +54,43 @@ export function Hero() {
           className="max-w-5xl"
         >
           <span className="eyebrow text-[var(--color-rust)] block mb-6">
-            Family-Owned · Owner-Operated · Miami
+            {isEs
+              ? "Familiar · Operada por el Dueño · Miami"
+              : "Family-Owned · Owner-Operated · Miami"}
           </span>
           <h1 className="font-display font-bold text-[44px] leading-[1.02] tracking-[-0.035em] text-white md:text-[88px] lg:text-[104px]">
-            Restoring Floors.
-            <br />
-            <span className="text-[var(--color-rust)]">Rebuilding</span> Peace of Mind.
+            {isEs ? (
+              <>
+                Pisos Restaurados.
+                <br />
+                <span className="text-[var(--color-rust)]">Tranquilidad</span>{" "}
+                Recuperada.
+              </>
+            ) : (
+              <>
+                Restoring Floors.
+                <br />
+                <span className="text-[var(--color-rust)]">Rebuilding</span>{" "}
+                Peace of Mind.
+              </>
+            )}
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-relaxed text-white/85 md:text-[22px]">
-            Family-owned floor restoration in Miami. Thirty years bringing tired
-            concrete, terrazzo, marble, and tile back to life — with honest
-            quotes, real craftsmanship, and a 1-year warranty.
+            {isEs
+              ? "Restauración de pisos de propiedad familiar en Miami. Treinta años devolviendo a la vida concreto, terrazo, mármol y loseta cansados — con presupuestos honestos, artesanía real y garantía de 1 año."
+              : "Family-owned floor restoration in Miami. Thirty years bringing tired concrete, terrazzo, marble, and tile back to life — with honest quotes, real craftsmanship, and a 1-year warranty."}
           </p>
           <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
             <Button href="/contact" size="lg" showArrow>
-              Request Your Free Floor Assessment
+              {t("cta.fullFreeAssessment")}
             </Button>
             <a
               href={site.phoneHref}
               className="group inline-flex items-center gap-2 text-[15px] font-semibold text-white transition-colors hover:text-[var(--color-rust)]"
             >
               <Phone className="h-4 w-4" />
-              Give Us a Call · {site.phone}
+              {t("cta.callPrefix")}
+              {site.phone}
             </a>
           </div>
         </motion.div>

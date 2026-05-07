@@ -7,10 +7,13 @@ export const site = {
   name: "ReNewIt Floors",
   legalName: "ReNewIt Floors",
   tagline: "Restoring Floors. Rebuilding Peace of Mind.",
+  taglineEs: "Pisos Restaurados. Tranquilidad Recuperada.",
   domain: "renewitfloorsmiami.com",
   url: "https://renewitfloorsmiami.com",
   description:
     "Family-owned floor restoration in Miami with 30+ years restoring concrete, terrazzo, marble, and tile. Honest quotes. 1-year warranty. Free assessment.",
+  descriptionEs:
+    "Restauración de pisos de propiedad familiar en Miami con más de 30 años restaurando concreto, terrazo, mármol y loseta. Presupuestos honestos. Garantía de 1 año. Evaluación gratis.",
   phone: "(305) 271-7119",
   phoneHref: "tel:+13052717119",
   email: "jobs@renewitfloorsmiami.com",
@@ -60,7 +63,9 @@ export const site = {
   },
 
   primaryCta: "Request Your Free Floor Assessment",
+  primaryCtaEs: "Solicite Su Evaluación Gratis del Piso",
   secondaryCta: "Give Us a Call",
+  secondaryCtaEs: "Llámenos",
 } as const;
 
 export type Site = typeof site;

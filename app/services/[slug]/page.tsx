@@ -11,6 +11,7 @@ import { Accordion } from "@/components/ui/Accordion";
 import { PageHero } from "@/components/global/PageHero";
 import { TrustBar } from "@/components/global/TrustBar";
 import { PreFooterCTA } from "@/components/global/PreFooterCTA";
+import { L } from "@/components/global/L";
 import {
   breadcrumbSchema,
   faqPageSchema,
@@ -94,9 +95,9 @@ function CategoryPage({
         )}
       />
       <PageHero
-        eyebrow={cat.shortName}
-        title={cat.h1}
-        description={cat.subhead}
+        eyebrow={<L en={cat.shortName} es={cat.shortNameEs} />}
+        title={<L en={cat.h1} es={cat.h1Es} />}
+        description={<L en={cat.subhead} es={cat.subheadEs} />}
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Services", href: "/services" },
@@ -109,7 +110,7 @@ function CategoryPage({
         <Container>
           <Reveal>
             <p className="max-w-3xl text-[18px] leading-relaxed text-[var(--color-slate)] md:text-[20px]">
-              {cat.description}
+              <L en={cat.description} es={cat.descriptionEs} />
             </p>
           </Reveal>
 
@@ -121,13 +122,13 @@ function CategoryPage({
                   className="group flex h-full flex-col rounded-[6px] border border-[var(--color-stone)] bg-white p-7 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <h3 className="font-display text-[22px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[24px]">
-                    {s.name}
+                    <L en={s.name} es={s.nameEs} />
                   </h3>
                   <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[var(--color-slate)]">
-                    {s.shortDescription}
+                    <L en={s.shortDescription} es={s.shortDescriptionEs} />
                   </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
-                    Learn More
+                    <L en="Learn More" es="Más Información" />
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </Link>
@@ -140,16 +141,16 @@ function CategoryPage({
       <Section tone="cream" padded>
         <Container size="narrow">
           <Reveal>
-            <Eyebrow className="block mb-4">Our Method</Eyebrow>
+            <Eyebrow className="block mb-4"><L en="Our Method" es="Nuestro Método" /></Eyebrow>
             <h2 className="font-display text-[32px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[48px]">
-              Why this work lasts.
+              <L en="Why this work lasts." es="Por qué dura este trabajo." />
             </h2>
             <p className="mt-6 text-[18px] leading-relaxed text-[var(--color-slate)] md:text-[20px]">
-              {cat.methodAngle}
+              <L en={cat.methodAngle} es={cat.methodAngleEs} />
             </p>
             <div className="mt-8">
               <Button href="/about#method" variant="ghost" showArrow>
-                Learn About Our Method
+                <L en="Learn About Our Method" es="Conozca Nuestro Método" />
               </Button>
             </div>
           </Reveal>
@@ -196,9 +197,9 @@ function ServiceDetailPage({
       />
 
       <PageHero
-        eyebrow={category.shortName}
-        title={service.h1}
-        description={service.shortDescription}
+        eyebrow={<L en={category.shortName} es={category.shortNameEs} />}
+        title={<L en={service.h1} es={service.h1Es} />}
+        description={<L en={service.shortDescription} es={service.shortDescriptionEs} />}
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Services", href: "/services" },
@@ -211,7 +212,7 @@ function ServiceDetailPage({
       <section className="relative aspect-[16/7] w-full overflow-hidden bg-[var(--color-charcoal)] md:aspect-[16/6]">
         <Image
           src={service.image}
-          alt={service.imageAlt}
+          alt={service.imageAltEs ?? service.imageAlt}
           fill
           priority
           sizes="100vw"
@@ -226,28 +227,28 @@ function ServiceDetailPage({
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-7">
-              <Eyebrow className="block mb-4">What This Service Covers</Eyebrow>
+              <Eyebrow className="block mb-4"><L en="What This Service Covers" es="Qué Cubre Este Servicio" /></Eyebrow>
               <p className="text-[18px] leading-relaxed text-[var(--color-charcoal)] md:text-[22px]">
-                {service.intro}
+                <L en={service.intro} es={service.introEs} />
               </p>
               <p className="mt-6 text-[17px] leading-relaxed text-[var(--color-slate)] md:text-[18px]">
-                {service.body}
+                <L en={service.body} es={service.bodyEs} />
               </p>
             </Reveal>
             <Reveal delay={0.15} className="lg:col-span-5">
               <div className="rounded-[6px] bg-[var(--color-cream)] p-7 md:p-8">
-                <Eyebrow className="block mb-4">Scope of Work</Eyebrow>
+                <Eyebrow className="block mb-4"><L en="Scope of Work" es="Alcance del Trabajo" /></Eyebrow>
                 <ul className="space-y-3">
-                  {service.scope.map((item) => (
+                  {service.scope.map((item, i) => (
                     <li
-                      key={item}
+                      key={i}
                       className="flex items-start gap-3 text-[15px] leading-snug text-[var(--color-charcoal)]"
                     >
                       <span
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-rust)]"
                         aria-hidden
                       />
-                      {item}
+                      <L en={item} es={service.scopeEs?.[i]} />
                     </li>
                   ))}
                 </ul>
@@ -261,9 +262,9 @@ function ServiceDetailPage({
       <Section tone="cream" padded>
         <Container>
           <Reveal>
-            <Eyebrow className="block mb-4">Our Process</Eyebrow>
+            <Eyebrow className="block mb-4"><L en="Our Process" es="Nuestro Proceso" /></Eyebrow>
             <h2 className="max-w-3xl font-display text-[32px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[48px]">
-              How we approach this work.
+              <L en="How we approach this work." es="Cómo abordamos este trabajo." />
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-4 md:gap-6">
@@ -274,10 +275,10 @@ function ServiceDetailPage({
                     0{i + 1}
                   </span>
                   <h3 className="mt-4 font-display text-[20px] font-bold uppercase tracking-tight text-[var(--color-charcoal)]">
-                    {step.title}
+                    <L en={step.title} es={service.processEs?.[i]?.title} />
                   </h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-[var(--color-slate)]">
-                    {step.description}
+                    <L en={step.description} es={service.processEs?.[i]?.description} />
                   </p>
                 </div>
               </Reveal>
@@ -291,7 +292,7 @@ function ServiceDetailPage({
         <section className="relative aspect-[16/7] w-full overflow-hidden bg-[var(--color-charcoal)] md:aspect-[16/6]">
           <Image
             src={service.detailImage}
-            alt={service.detailImageAlt ?? service.imageAlt}
+            alt={service.detailImageAltEs ?? service.imageAltEs ?? service.detailImageAlt ?? service.imageAlt}
             fill
             sizes="100vw"
             className="object-cover object-center"
@@ -305,15 +306,15 @@ function ServiceDetailPage({
           <div className="grid items-start gap-12 py-20 md:grid-cols-12 md:py-28 md:gap-16">
             <Reveal className="md:col-span-5">
               <Eyebrow tone="rust" className="block mb-4">
-                Why It Lasts
+                <L en="Why It Lasts" es="Por Qué Dura" />
               </Eyebrow>
               <h2 className="font-display text-[32px] font-bold leading-[1.05] tracking-[-0.025em] text-white md:text-[44px]">
-                The Foundation-First difference.
+                <L en="The Foundation-First difference." es="La diferencia del Método de Base Primero." />
               </h2>
             </Reveal>
             <Reveal delay={0.15} className="md:col-span-7">
               <p className="text-[17px] leading-relaxed text-[var(--color-cream)]/85 md:text-[19px]">
-                {service.methodNote}
+                <L en={service.methodNote} es={service.methodNoteEs} />
               </p>
             </Reveal>
           </div>
@@ -324,9 +325,9 @@ function ServiceDetailPage({
       <Section tone="white" padded>
         <Container size="narrow">
           <Reveal className="rounded-[6px] border border-[var(--color-stone)] bg-[var(--color-cream)] p-8 md:p-12">
-            <Eyebrow className="block mb-4">Honest, Transparent Quotes</Eyebrow>
+            <Eyebrow className="block mb-4"><L en="Honest, Transparent Quotes" es="Presupuestos Honestos y Transparentes" /></Eyebrow>
             <h2 className="font-display text-[28px] font-bold leading-tight text-[var(--color-charcoal)] md:text-[40px]">
-              Every floor is different. Every job is custom-quoted.
+              <L en="Every floor is different. Every job is custom-quoted." es="Cada piso es diferente. Cada trabajo se cotiza a la medida." />
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed text-[var(--color-slate)] md:text-[18px]">
               Pricing depends on surface, prep needed, square footage, and
@@ -336,7 +337,7 @@ function ServiceDetailPage({
             </p>
             <div className="mt-7">
               <Button href="/contact" showArrow>
-                Get Your Free Quote
+                <L en="Get Your Free Quote" es="Obtenga Su Presupuesto Gratis" />
               </Button>
             </div>
           </Reveal>
@@ -347,13 +348,18 @@ function ServiceDetailPage({
       <Section tone="cream" padded>
         <Container size="narrow">
           <Reveal>
-            <Eyebrow className="block mb-4">Frequently Asked</Eyebrow>
+            <Eyebrow className="block mb-4"><L en="Frequently Asked" es="Preguntas Frecuentes" /></Eyebrow>
             <h2 className="font-display text-[32px] font-bold leading-[1.05] tracking-[-0.025em] text-[var(--color-charcoal)] md:text-[44px]">
-              Common questions about {service.name.toLowerCase()}.
+              <L en={`Common questions about ${service.name.toLowerCase()}.`} es={service.nameEs ? `Preguntas comunes sobre ${service.nameEs.toLowerCase()}.` : undefined} />
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="mt-10">
-            <Accordion items={service.faqs.map((f) => ({ q: f.q, a: f.a }))} />
+            <Accordion
+              items={service.faqs.map((f, i) => ({
+                q: <L en={f.q} es={service.faqsEs?.[i]?.q} />,
+                a: <L en={f.a} es={service.faqsEs?.[i]?.a} />,
+              }))}
+            />
           </Reveal>
         </Container>
       </Section>
@@ -362,9 +368,9 @@ function ServiceDetailPage({
       <Section tone="white" padded>
         <Container>
           <Reveal>
-            <Eyebrow className="block mb-4">Related Services</Eyebrow>
+            <Eyebrow className="block mb-4"><L en="Related Services" es="Servicios Relacionados" /></Eyebrow>
             <h2 className="font-display text-[28px] font-bold leading-[1.05] text-[var(--color-charcoal)] md:text-[36px]">
-              Other ways we can help your floors.
+              <L en="Other ways we can help your floors." es="Otras formas en que podemos ayudar a sus pisos." />
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -375,13 +381,13 @@ function ServiceDetailPage({
                   className="group block h-full rounded-[6px] border border-[var(--color-stone)] bg-white p-6 transition-all hover:border-[var(--color-rust)] hover:-translate-y-1 hover:shadow-lg duration-300"
                 >
                   <h3 className="font-display text-[20px] font-bold leading-tight text-[var(--color-charcoal)]">
-                    {r.name}
+                    <L en={r.name} es={r.nameEs} />
                   </h3>
                   <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-slate)]">
-                    {r.shortDescription}
+                    <L en={r.shortDescription} es={r.shortDescriptionEs} />
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-rust)]">
-                    Learn More
+                    <L en="Learn More" es="Más Información" />
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </Link>
