@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,8 +7,10 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { site } from "@/lib/site";
 import { categories } from "@/lib/content/services";
 import { Button } from "@/components/ui/Button";
+import { useTranslation } from "@/components/global/LanguageProvider";
 
 export function Footer() {
+  const { t, locale } = useTranslation();
   const year = new Date().getFullYear();
 
   return (
@@ -26,20 +30,20 @@ export function Footer() {
               {site.tagline}
             </p>
             <p className="mt-4 text-[14px] leading-relaxed text-[var(--color-cream)]/70">
-              Family-owned floor restoration. Owner-operated. 30+ years across South Florida.
+              {t("footer.serviceAreasTagline")}
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-2 text-[12px] uppercase tracking-wider text-[var(--color-cream)]/60">
-              <li>30+ Years</li>
-              <li>Family-Owned</li>
-              <li>1-Year Warranty</li>
-              <li>Licensed & Insured</li>
+              <li>{t("trustBar.statYears")} {locale === "es" ? "Años" : "Years"}</li>
+              <li>{t("trustBar.statFamily")}</li>
+              <li>{t("trustBar.statWarranty")}</li>
+              <li>{locale === "es" ? "Licenciados" : "Licensed"} &amp; {locale === "es" ? "Asegurados" : "Insured"}</li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
             <h4 className="mb-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-white">
-              Services
+              {t("footer.servicesTitle")}
             </h4>
             <ul className="space-y-3 text-[15px]">
               {categories.map((cat) => (
@@ -57,7 +61,7 @@ export function Footer() {
                   href="/services"
                   className="font-semibold text-[var(--color-rust)]"
                 >
-                  All Services →
+                  {t("footer.allServices")} →
                 </Link>
               </li>
             </ul>
@@ -66,24 +70,24 @@ export function Footer() {
           {/* Company */}
           <div>
             <h4 className="mb-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-white">
-              Company
+              {t("footer.companyTitle")}
             </h4>
             <ul className="space-y-3 text-[15px]">
               {[
-                { href: "/about", label: "About" },
-                { href: "/projects", label: "Projects" },
-                { href: "/testimonials", label: "Testimonials" },
-                { href: "/service-areas", label: "Service Areas" },
-                { href: "/faq", label: "FAQ" },
-                { href: "/blog", label: "Blog" },
-                { href: "/contact", label: "Contact" },
+                { href: "/about", labelKey: "nav.about" },
+                { href: "/projects", labelKey: "nav.projects" },
+                { href: "/testimonials", labelKey: "nav.testimonials" },
+                { href: "/service-areas", labelKey: "nav.serviceAreas" },
+                { href: "/faq", labelKey: "nav.faq" },
+                { href: "/blog", labelKey: "nav.blog" },
+                { href: "/contact", labelKey: "nav.contact" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="text-[var(--color-cream)]/80 transition-colors hover:text-[var(--color-rust)]"
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -93,7 +97,7 @@ export function Footer() {
           {/* Get in Touch */}
           <div>
             <h4 className="mb-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-white">
-              Get in Touch
+              {t("footer.contactTitle")}
             </h4>
             <ul className="space-y-3.5 text-[15px]">
               <li>
@@ -119,7 +123,7 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-[var(--color-cream)]/80">
                   <MapPin className="mt-1 h-4 w-4 shrink-0 text-[var(--color-rust)]" />
-                  <span>Miami, FL — Serving South Florida</span>
+                  <span>{t("footer.servingArea")}</span>
                 </div>
               </li>
               <li>
@@ -159,7 +163,7 @@ export function Footer() {
 
             <div className="mt-6">
               <Button href="/contact" size="md" className="w-full" showArrow>
-                Free Assessment
+                {t("cta.freeAssessment")}
               </Button>
             </div>
           </div>
@@ -168,26 +172,26 @@ export function Footer() {
         <div className="border-t border-white/10 py-7 text-[13px] text-[var(--color-cream)]/60">
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
             <p>
-              © {year} {site.legalName}. All rights reserved.
+              © {year} {site.legalName}. {t("footer.copyright")}
             </p>
             <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <li>
                 <Link href="/privacy" className="hover:text-[var(--color-rust)]">
-                  Privacy
+                  {t("footer.privacy")}
                 </Link>
               </li>
               <li>
                 <Link href="/terms" className="hover:text-[var(--color-rust)]">
-                  Terms
+                  {t("footer.terms")}
                 </Link>
               </li>
               <li>
                 <Link href="/sitemap.xml" className="hover:text-[var(--color-rust)]">
-                  Sitemap
+                  {t("footer.sitemap")}
                 </Link>
               </li>
               <li className="text-[var(--color-cream)]/40">
-                Built by{" "}
+                {t("footer.builtBy")}{" "}
                 <a
                   href="https://mycreativestrategist.com"
                   className="hover:text-[var(--color-rust)]"

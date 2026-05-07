@@ -9,17 +9,20 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 import { categories, getServicesByCategory } from "@/lib/content/services";
 import { Button } from "@/components/ui/Button";
+import { useTranslation } from "@/components/global/LanguageProvider";
+import { LanguageToggle } from "@/components/global/LanguageToggle";
 
 const navLinks = [
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/service-areas", label: "Service Areas" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
+  { href: "/projects", labelKey: "nav.projects" },
+  { href: "/about", labelKey: "nav.about" },
+  { href: "/service-areas", labelKey: "nav.serviceAreas" },
+  { href: "/faq", labelKey: "nav.faq" },
+  { href: "/contact", labelKey: "nav.contact" },
 ];
 
 export function Header() {
   const pathname = usePathname();
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [megaOpen, setMegaOpen] = React.useState(false);
@@ -85,7 +88,7 @@ export function Header() {
               )}
               aria-expanded={megaOpen}
             >
-              Services
+              {t("nav.services")}
               <ChevronDown
                 className={cn(
                   "h-3.5 w-3.5 transition-transform",
@@ -107,13 +110,14 @@ export function Header() {
                     active && (transparent ? "text-white" : "text-[var(--color-rust)]"),
                   )}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               );
             })}
           </nav>
 
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
+            <LanguageToggle variant={transparent ? "transparent" : "solid"} />
             <a
               href={site.phoneHref}
               className={cn(
@@ -127,7 +131,7 @@ export function Header() {
               {site.phone}
             </a>
             <Button href="/contact" size="sm" showArrow>
-              Free Assessment
+              {t("cta.freeAssessment")}
             </Button>
           </div>
 
@@ -138,7 +142,7 @@ export function Header() {
               "lg:hidden p-2 -m-2",
               transparent ? "text-white" : "text-[var(--color-charcoal)]",
             )}
-            aria-label="Open menu"
+            aria-label={t("nav.openMenu")}
           >
             <Menu className="h-7 w-7" />
           </button>
@@ -206,34 +210,37 @@ export function Header() {
               type="button"
               onClick={() => setMobileOpen(false)}
               className="p-2 -m-2 text-white"
-              aria-label="Close menu"
+              aria-label={t("nav.closeMenu")}
             >
               <X className="h-7 w-7" />
             </button>
           </div>
           <div className="overflow-y-auto px-6 pb-32 pt-6 h-[calc(100dvh-72px)]">
-            <a
-              href={site.phoneHref}
-              className="mb-8 flex items-center gap-3 text-2xl font-semibold text-white"
-            >
-              <Phone className="h-6 w-6" />
-              {site.phone}
-            </a>
+            <div className="mb-6 flex items-center justify-between">
+              <a
+                href={site.phoneHref}
+                className="flex items-center gap-3 text-2xl font-semibold text-white"
+              >
+                <Phone className="h-6 w-6" />
+                {site.phone}
+              </a>
+              <LanguageToggle variant="dark" />
+            </div>
             <nav className="space-y-2">
-              <MobileServicesAccordion />
+              <MobileServicesAccordion t={t} />
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className="block py-3 text-[22px] font-medium text-white"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
             </nav>
             <div className="mt-10">
               <Button href="/contact" size="lg" className="w-full" showArrow>
-                Free Assessment
+                {t("cta.freeAssessment")}
               </Button>
             </div>
           </div>
@@ -243,7 +250,7 @@ export function Header() {
   );
 }
 
-function MobileServicesAccordion() {
+function MobileServicesAccordion({ t }: { t: (key: string) => string }) {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="border-b border-white/10 pb-2">
@@ -253,7 +260,7 @@ function MobileServicesAccordion() {
         className="flex w-full items-center justify-between py-3 text-left text-[22px] font-medium text-white"
         aria-expanded={open}
       >
-        Services
+        {t("nav.services")}
         <ChevronDown
           className={cn("h-5 w-5 transition-transform", open && "rotate-180")}
         />
