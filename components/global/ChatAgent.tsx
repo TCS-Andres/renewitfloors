@@ -546,8 +546,9 @@ function HandoffForm({
     setSubmitting(true);
     setSubmitError(null);
 
-    // Use FormSubmit's AJAX endpoint (returns JSON + CORS headers) so we can
-    // actually observe success/failure rather than fire-and-forget.
+    // POST to our own /api/handoff route, which then forwards server-side
+    // to FormSubmit. This avoids browser-side CORS/Origin quirks and gives
+    // us observability via Vercel function logs.
     const form = e.currentTarget;
     const fd = new FormData(form);
     const payload: Record<string, string> = {};
@@ -556,7 +557,7 @@ function HandoffForm({
     });
 
     try {
-      const res = await fetch(site.formSubmitAjaxEndpoint, {
+      const res = await fetch("/api/handoff", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -565,14 +566,11 @@ function HandoffForm({
         body: JSON.stringify(payload),
       });
       const json = (await res.json().catch(() => ({}))) as {
-        success?: string | boolean;
-        message?: string;
+        success?: boolean;
+        error?: string;
       };
-      const ok =
-        res.ok &&
-        (json.success === "true" || json.success === true || res.status === 200);
-      if (!ok) {
-        throw new Error(json.message || `Submission failed (HTTP ${res.status})`);
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || `Submission failed (HTTP ${res.status})`);
       }
       onSent();
     } catch (err) {
