@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
+import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Phone } from "lucide-react";
 import { useLanguage } from "@/components/global/LanguageProvider";
 import { STARTER_CHIPS } from "@/lib/agent/systemPrompt";
@@ -13,6 +14,9 @@ type ChatPhase = "chat" | "handoff-form" | "handoff-sent";
 
 const ESCALATE_TAG = "[ESCALATE]";
 const NEXT_DELIMITER = /\s*\[NEXT\]\s*/g;
+/** Hold every assistant reply for this long before it appears, so the chat
+ * feels like a real person typing instead of an instant API response. */
+const RESPONSE_DELAY_MS = 3000;
 
 /** Pull plain text out of a UIMessage's parts. */
 function messageText(msg: { parts: Array<{ type: string; text?: string }> }): string {
@@ -44,6 +48,24 @@ export function ChatAgent() {
   const { messages, sendMessage, status, error } = useChat({ transport });
 
   const isStreaming = status === "submitted" || status === "streaming";
+
+  // 3-second response delay. Whenever the user sends, we hold any incoming
+  // assistant reply behind the delay so it feels like Sofia is typing.
+  const [delayActive, setDelayActive] = React.useState(false);
+  const delayTimerRef = React.useRef<number | undefined>(undefined);
+  const startDelay = React.useCallback(() => {
+    setDelayActive(true);
+    if (delayTimerRef.current) window.clearTimeout(delayTimerRef.current);
+    delayTimerRef.current = window.setTimeout(() => {
+      setDelayActive(false);
+      delayTimerRef.current = undefined;
+    }, RESPONSE_DELAY_MS);
+  }, []);
+  React.useEffect(() => {
+    return () => {
+      if (delayTimerRef.current) window.clearTimeout(delayTimerRef.current);
+    };
+  }, []);
 
   // Log any chat error to the console so we can debug from DevTools.
   React.useEffect(() => {
@@ -98,33 +120,35 @@ export function ChatAgent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = input.trim();
-    if (!text || isStreaming) return;
+    if (!text || isStreaming || delayActive) return;
+    startDelay();
     sendMessage({ text });
     setInput("");
   };
 
   const useStarterChip = (chip: string) => {
-    if (isStreaming) return;
+    if (isStreaming || delayActive) return;
+    startDelay();
     sendMessage({ text: chip });
   };
 
   const labels = {
-    title: isEs ? "Pregunte a ReNewIt Floors" : "Ask ReNewIt Floors",
+    title: "Sofia",
     subtitle: isEs
-      ? "Especialista en restauración de pisos"
-      : "Floor restoration specialist",
+      ? "Asistente de ReNewIt Floors"
+      : "ReNewIt Floors assistant",
     greetingTitle: isEs
-      ? "Hola 👋 ¿Qué pasa con sus pisos?"
-      : "Hey 👋 What's going on with your floors?",
+      ? "¡Hola! Soy Sofia 👋 ¿Qué está pasando con sus pisos?"
+      : "Hey there! I'm Sofia 👋 What's going on with your floors?",
     greetingBody: isEs
-      ? "Cuéntenos un poco y le ayudamos a encontrar el camino correcto."
-      : "Tell us a bit and we'll point you in the right direction.",
-    placeholder: isEs ? "Escriba su pregunta…" : "Type your question…",
+      ? "Cuénteme un poco y la ayudo a encontrar el camino correcto."
+      : "Tell me a bit and I'll point you in the right direction.",
+    placeholder: isEs ? "Escriba su mensaje…" : "Type a message…",
     send: isEs ? "Enviar" : "Send",
-    handoffTitle: isEs ? "Que le contactemos" : "Have us reach out",
+    handoffTitle: isEs ? "Hablemos directamente" : "Let's connect directly",
     handoffSub: isEs
-      ? "Comparta sus datos y le contactamos en un día laboral."
-      : "Share your details and we'll be in touch within one business day.",
+      ? "Comparta sus datos y el equipo le contactará en un día laboral."
+      : "Share your details and the team will be in touch within one business day.",
     name: isEs ? "Nombre" : "Name",
     phone: isEs ? "Teléfono" : "Phone",
     description: isEs
@@ -132,12 +156,12 @@ export function ChatAgent() {
       : "Tell us about your floor",
     submit: isEs ? "Enviar Solicitud" : "Send Request",
     callNow: isEs ? "O llame ahora:" : "Or call now:",
-    sentTitle: isEs ? "¡Recibido!" : "Got it!",
+    sentTitle: isEs ? "¡Listo!" : "All set!",
     sentBody: isEs
       ? "Le contactaremos en un día laboral. Si prefiere llamar ahora, marque al"
-      : "We'll be in touch within one business day. If you'd rather call now, ring",
+      : "We'll be in touch within one business day. If you'd rather call now, give us a ring at",
     cancel: isEs ? "Cancelar" : "Cancel",
-    bubble: isEs ? "Pregunte a ReNewIt" : "Ask ReNewIt",
+    bubble: isEs ? "Chatear con Sofia" : "Chat with Sofia",
   };
 
   return (
@@ -177,8 +201,15 @@ export function ChatAgent() {
           {/* Header */}
           <header className="flex items-center justify-between gap-3 border-b border-[var(--color-stone)] bg-[var(--color-charcoal)] px-5 py-4 text-white">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-rust)] font-display text-[16px] font-bold">
-                R
+              <div
+                className="flex h-10 w-10 items-center justify-center rounded-full font-display text-[16px] font-bold text-white shadow-inner"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--color-rust) 0%, var(--color-rust-dark) 100%)",
+                }}
+                aria-hidden
+              >
+                S
               </div>
               <div className="leading-tight">
                 <div className="font-display text-[16px] font-semibold">
@@ -216,35 +247,50 @@ export function ChatAgent() {
 
             {phase === "chat" && messages.length > 0 && (
               <div className="space-y-3">
-                {messages.flatMap((m) => {
-                  const text = messageText(m);
+                {(() => {
+                  // During the post-send delay, hide the in-flight assistant
+                  // message so the typing dots own the screen for the full
+                  // 3 seconds. Once the delay clears, the assistant bubble(s)
+                  // pop in with their entrance animation.
+                  const lastMsg = messages[messages.length - 1];
+                  const hideLastAssistant =
+                    delayActive && lastMsg?.role === "assistant";
+                  const renderable = hideLastAssistant
+                    ? messages.slice(0, -1)
+                    : messages;
 
-                  // User messages render as a single bubble.
-                  if (m.role !== "assistant") {
-                    return [<Bubble key={m.id} role={m.role} text={text} />];
-                  }
+                  return renderable.flatMap((m) => {
+                    const text = messageText(m);
 
-                  // Assistant: strip [ESCALATE] then split on [NEXT] so a single
-                  // model response can render as multiple chat bubbles, like a
-                  // real text exchange.
-                  const cleaned = text.trimStart().startsWith(ESCALATE_TAG)
-                    ? text.replace(ESCALATE_TAG, "").trim()
-                    : text;
-                  const segments = cleaned
-                    .split(NEXT_DELIMITER)
-                    .map((s) => s.trim())
-                    .filter((s) => s.length > 0);
+                    // User messages render as a single bubble.
+                    if (m.role !== "assistant") {
+                      return [<Bubble key={m.id} role={m.role} text={text} />];
+                    }
 
-                  if (segments.length === 0) return [];
-                  return segments.map((seg, i) => (
-                    <Bubble
-                      key={`${m.id}-${i}`}
-                      role="assistant"
-                      text={seg}
-                    />
-                  ));
-                })}
-                {isStreaming && messages[messages.length - 1]?.role === "user" && (
+                    // Assistant: strip [ESCALATE] then split on [NEXT] so a
+                    // single model response can render as multiple bubbles
+                    // like a real text exchange.
+                    const cleaned = text.trimStart().startsWith(ESCALATE_TAG)
+                      ? text.replace(ESCALATE_TAG, "").trim()
+                      : text;
+                    const segments = cleaned
+                      .split(NEXT_DELIMITER)
+                      .map((s) => s.trim())
+                      .filter((s) => s.length > 0);
+
+                    if (segments.length === 0) return [];
+                    return segments.map((seg, i) => (
+                      <Bubble
+                        key={`${m.id}-${i}`}
+                        role="assistant"
+                        text={seg}
+                      />
+                    ));
+                  });
+                })()}
+                {(delayActive ||
+                  (isStreaming &&
+                    messages[messages.length - 1]?.role === "user")) && (
                   <Bubble role="assistant" text="" pulsing />
                 )}
                 {error && (
@@ -366,36 +412,49 @@ function Bubble({
   pulsing?: boolean;
 }) {
   const isUser = role === "user";
+  const reduced = useReducedMotion();
+  // Each bubble fades in and slides up gently on mount. Framer Motion only
+  // fires `initial` on first mount, so re-renders during streaming (token
+  // appended to the same bubble) don't re-trigger the animation.
+  const initial = reduced
+    ? { opacity: 0 }
+    : { opacity: 0, y: 8, scale: 0.96 };
+  const animate = { opacity: 1, y: 0, scale: 1 };
   return (
-    <div className={cn("flex", isUser ? "justify-end" : "justify-start")}>
+    <motion.div
+      initial={initial}
+      animate={animate}
+      transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+      className={cn("flex", isUser ? "justify-end" : "justify-start")}
+    >
       <div
         className={cn(
-          "max-w-[85%] rounded-[10px] px-3.5 py-2.5 text-[14px] leading-relaxed whitespace-pre-wrap",
+          "max-w-[85%] rounded-[14px] px-3.5 py-2.5 text-[14px] leading-relaxed whitespace-pre-wrap shadow-sm",
           isUser
             ? "bg-[var(--color-rust)] text-white rounded-br-sm"
             : "bg-white text-[var(--color-charcoal)] border border-[var(--color-stone)] rounded-bl-sm",
         )}
       >
         {pulsing ? (
-          <span className="inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-1.5 py-0.5">
             <Dot delay={0} />
-            <Dot delay={120} />
-            <Dot delay={240} />
+            <Dot delay={160} />
+            <Dot delay={320} />
           </span>
         ) : (
           renderWithLinks(text)
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function Dot({ delay }: { delay: number }) {
   return (
     <span
-      className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-slate)]/60"
+      className="inline-block h-2 w-2 rounded-full bg-[var(--color-slate)]/60"
       style={{
-        animation: `chat-pulse 1.4s ease-in-out ${delay}ms infinite`,
+        animation: `chat-pulse 1.3s ease-in-out ${delay}ms infinite`,
       }}
     />
   );
