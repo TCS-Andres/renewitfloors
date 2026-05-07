@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "12,000-square-foot warehouse — twenty years of forklift wear, oil staining, and surface failure. Phased restoration in three weekends.",
     story:
       "The facility manager called us because the floor was dusting badly — every forklift pass kicked up a cloud, and product was getting dusted. We scoped the job in three weekends so operations never paused. Each weekend we tackled 4,000 square feet: diamond grinding, joint repair, densification, and a polished finish. By the end of week three the warehouse had a clean, sealed, dust-free floor — and a maintenance plan to keep it that way.",
-    image: "/images/industrial-warehouse-floor-restoration-miami.png",
+    image: "/images/industrial-warehouse-floor-restoration-miami.jpg",
     imageAlt: "Restored industrial warehouse concrete floor in Doral, Miami",
     featured: true,
   },
@@ -104,7 +104,7 @@ export const projects: Project[] = [
       "Three-car garage — previous epoxy job from another contractor failed in eight months. Diamond-ground to bare concrete and rebuilt right.",
     story:
       "The customer's first epoxy job lasted eight months before lifting near the bay door. We ground out the failed coating, took the slab back to bare concrete, repaired hot-tire scarring, and built a multi-layer epoxy system with decorative chip and a UV-stable topcoat. Three years later the floor still looks like the day we finished.",
-    image: "/images/garage-epoxy-flooring-miami.png",
+    image: "/images/garage-epoxy-flooring-miami.jpg",
     imageAlt: "Garage epoxy floor with chip flake finish in Weston",
     featured: false,
   },

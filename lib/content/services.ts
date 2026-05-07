@@ -155,7 +155,7 @@ export const services: Service[] = [
       },
     ],
     related: ["concrete-restoration", "concrete-sealing", "patina-stains-decorative-finishes"],
-    image: "/images/polished-concrete-floor-miami.png",
+    image: "/images/polished-concrete-floor-miami.jpg",
     imageAlt: "Mirror-finish polished concrete floor in a Miami home",
   },
   {
@@ -202,7 +202,7 @@ export const services: Service[] = [
       },
     ],
     related: ["concrete-polishing", "concrete-sealing", "cementitious-coatings"],
-    image: "/images/concrete-polishing-process-miami.png",
+    image: "/images/concrete-polishing-process-miami.jpg",
     imageAlt: "Concrete floor restoration in progress in Miami",
   },
   {
@@ -334,7 +334,7 @@ export const services: Service[] = [
       },
     ],
     related: ["cement-overlays", "patina-stains-decorative-finishes", "concrete-polishing"],
-    image: "/images/floor-restoration-detail-miami.png",
+    image: "/images/floor-restoration-detail-miami.jpg",
     imageAlt: "Custom cementitious decorative floor coating in Miami",
   },
   {
@@ -425,7 +425,7 @@ export const services: Service[] = [
       },
     ],
     related: ["concrete-epoxy-systems", "concrete-polishing", "concrete-sealing"],
-    image: "/images/garage-epoxy-flooring-miami.png",
+    image: "/images/garage-epoxy-flooring-miami.jpg",
     imageAlt: "Garage epoxy floor with decorative chip flake in Miami",
   },
   {
@@ -468,7 +468,7 @@ export const services: Service[] = [
       },
     ],
     related: ["concrete-polishing", "cement-overlays", "cementitious-coatings"],
-    image: "/images/patina-stain-decorative-concrete-miami.png",
+    image: "/images/patina-stain-decorative-concrete-miami.jpg",
     imageAlt: "Warm amber patina-stained decorative concrete in Miami",
   },
   {
@@ -510,7 +510,7 @@ export const services: Service[] = [
       },
     ],
     related: ["concrete-polishing", "concrete-sealing", "concrete-epoxy-systems"],
-    image: "/images/waterglass-concrete-coating-miami.png",
+    image: "/images/waterglass-concrete-coating-miami.jpg",
     imageAlt: "Waterglass densifier coating on concrete floor in Miami",
   },
 
@@ -696,7 +696,7 @@ export const services: Service[] = [
       },
     ],
     related: ["marble-restoration", "mexican-tile-restoration", "terrazzo-restoration"],
-    image: "/images/natural-stone-floor-restoration-miami.png",
+    image: "/images/natural-stone-floor-restoration-miami.jpg",
     imageAlt: "Natural stone floor restoration in a Miami home",
   },
 
@@ -745,7 +745,7 @@ export const services: Service[] = [
       },
     ],
     related: ["tile-laminate-vinyl-repair", "concrete-polishing", "marble-restoration"],
-    image: "/images/hardwood-floor-refinishing-miami.png",
+    image: "/images/hardwood-floor-refinishing-miami.jpg",
     imageAlt: "Refinished hardwood floor with warm tone in Miami",
   },
   {
@@ -788,7 +788,7 @@ export const services: Service[] = [
       },
     ],
     related: ["hardwood-refinishing", "mexican-tile-restoration", "stone-flooring"],
-    image: "/images/tile-floor-cleaning-miami.png",
+    image: "/images/tile-floor-cleaning-miami.jpg",
     imageAlt: "Tile and grout floor repair and cleaning in Miami",
   },
 
@@ -837,7 +837,7 @@ export const services: Service[] = [
       },
     ],
     related: ["concrete-polishing", "concrete-epoxy-systems", "concrete-sealing"],
-    image: "/images/industrial-warehouse-floor-restoration-miami.png",
+    image: "/images/industrial-warehouse-floor-restoration-miami.jpg",
     imageAlt: "Industrial warehouse polished concrete floor in Miami",
   },
 ];
